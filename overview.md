@@ -22,7 +22,7 @@ end-to-end resiliency testing. And most importantly, all of this is designed for
 
 ## How it Works
 
-![high-level architecture](https://github.ibm.com/amalgam8/examples/blob/master/architecture.jpg)
+![high-level architecture](https://github.com/amalgam8/amalgam8.github.io/blob/master/images/architecture.jpg)
 
 At the heart of Amalgam8, are two mutli-tenanted services:
 
@@ -34,7 +34,7 @@ At the heart of Amalgam8, are two mutli-tenanted services:
 Application run as tenants of these two servers. They register their services in the Registry and use the Controller to manage proxies,
 usually running in sidecars of the microservices.
 
-![how it works](https://github.ibm.com/amalgam8/examples/blob/master/how-it-works.jpg)
+![how it works](https://github.com/amalgam8/amalgam8.github.io/blob/master/images/how-it-works.jpg)
 
 1. Microservice instances are registered in the A8 Registry. There are several ways this may be accomplished (see below).
 2. Administrator specifies routing rules and filters (e.g., version rules, test delays) to control traffic flow between microservices.
@@ -46,6 +46,6 @@ usually running in sidecars of the microservices.
 
 Almagam8 includes a library containing a very flexible sidecar architecture that can be configured and used by tenants in a number of ways.
 
-![sidecar architecture](https://github.ibm.com/amalgam8/examples/blob/master/sidecar.jpg)
+![sidecar architecture](https://github.com/amalgam8/amalgam8.github.io/blob/master/images/sidecar.jpg)
 
 ...
