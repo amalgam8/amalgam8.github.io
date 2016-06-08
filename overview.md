@@ -48,4 +48,18 @@ Almagam8 includes a library containing a very flexible sidecar architecture that
 
 ![sidecar architecture](https://github.com/amalgam8/amalgam8.github.io/blob/master/images/sidecar.jpg)
 
-...
+* **Service Registration** - Registers and heartbeats a microservice instance in the Amalgam8 registry.
+* **Route Management** - Communicates with the A8 Controller in the control plane to manage configuration and control-rules of an A8 Proxy.
+* **Supervisor** - Manages the lifecycle of an A8 Proxy server and optionally an application microservice itself.
+* **Proxy** - An [Nginx OpenResty](https://openresty.org/en/) server implementing the A8 Proxy function.
+
+Depending on the application, some or all of these components may be used. 
+For example, a microservice that requires registration, makes outgoing calls, and app supervision might use all of them
+in a single container as shown in the diagram. In Kubernetes, however, the app supervision would not be used. The app would instead
+be likely running its own separate container in a pod. For leaf microservices (i.e., ones that make no outgoing calls), the proxy and
+route management components would not be needed. Service Registration would not needed for services in a runtime that 
+supports auto registration (e.g., amalgam8 registry adapter for kubernetes).
+
+Since most microservices run in some kind of container environment, Amalgam8 provides convenient Docker images that can be used
+as microservice application base images or simply to run access one or more of the services, the same components can also be packaged
+in different ways, depending on the scenario (e.g., installation packages (deb, rpm, etc.), or plain executables.
