@@ -64,3 +64,44 @@ Since most microservices run in some kind of container environment, Amalgam8 pro
 as microservice application base images or simply to access one or more of the components. 
 The same components can, howoever, be
 provided in other ways, depending on demand, such as from installation packages (deb, rpm, etc.) or plain executables.
+
+## Amalgam8 Service Registration
+
+To integrate and use a microservice in Amalgam8, it needs to be registered in the A8 Registry. 
+The most basic way of registering, which can be used for microservcies running on any platform/runtime, is shown in the following diagram:
+
+![basic registration](https://github.com/amalgam8/amalgam8.github.io/blob/master/images/basic-reg.jpg)
+
+The flexible A8 service registration sidecar component is used to register and continuosly send hartbeats to the registry on
+behalf of the microservice.
+The registration sidecar keeps track of the health of the application microservice (A) and stops sending heartbeats if or when it terminates,
+soon after which the registration in the A8 Registry will time out and be removed. 
+If there is a temporary interuption in network connectivity, the service may time out and also be removed, making it unavailable temporarily,
+until the network connection to the controlplane is reestablished and the sidecar reregisters the service.
+This is a common registration design pattern used in many microservice frameworks, and will work for services running anywhere.
+
+Although the above approach can be used to register any kind of service implementation,
+a key design feature of Amalgam8 is to leverage features of any particular runtime platform that a particular microservice may be deployed on.
+For example, a microservice running in Kubernetes with a corresponding service definition,
+will already have the endpoints (instances) being tracked by the kubernetes runtime (kubelet)
+and reflected in the Kubernetes service registry.
+
+Rather than also explicitly registering this kind of service in the A8 Registry, an adapter plugin can be configured
+to watch the K8s registry and automatically mirror endpoints in Amalgam8:
+
+![k8s adapter](https://github.com/amalgam8/amalgam8.github.io/blob/master/images/k8s-adapter.jpg)
+
+In this case, service B is an ordinary Kubernetes service definined in serviceB.yaml. There is nothing that needs to
+be added or changed to integrate it with an Amalgam8 system. Instances, as they come and go, will be maintained in the Kubernetes
+registry by the kubernetes runtime, and then automatcally mirrored in the A8 registry by the adapter.
+
+The Amalgam8 registry is very flexible in this regard. Similar adapter plugins can be added to support other runtime environments
+that already manage service registrations.
+For example, a docker environment with Weave Flux allows services to defined using the fluxctl command, endpoints of whare are
+then automatically tracked and reflected in its registry, Etcd.
+
+Integration with Amalgam8 could be done using exactly the same adapter pattern as in Kubernetes, only in this case adapting
+the WeaveFlux service information in Etcd, something like this:
+
+![weaveflux adapter](https://github.com/amalgam8/amalgam8.github.io/blob/master/images/weaveflux-adapter.jpg)
+
