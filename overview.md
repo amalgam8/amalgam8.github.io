@@ -107,3 +107,26 @@ the WeaveFlux service information in Etcd, something like this:
 
 The main point is that the A8 registry is designed to be open to these kinds of extensions, so that integrating a service into
 Amalgam8 can be as easy as possible in each particular case.
+
+## Amalgam8 Service Proxy
+
+All calls to Amalgam8 microservices are via an A8 Proxy, allowing the A8 controller to manage traffic to and beteen all the services
+in the system. Most A8 Proxies are sidecars of other microsystems, but there are situations where they are not.
+For example, a centralized group of proxys may be appropriate in some applications or for a gateway into the
+application as a whole.
+
+The A8 Proxy implementation uses Nginx with the OpenResty/Lua extension as the Proxy engine as shown in the following diagram:
+
+![a8 proxy](https://github.com/amalgam8/amalgam8.github.io/blob/master/images/proxy.jpg)
+
+The Route Management component of the tenant library works by communicating with the A8 Controller, in the control plane, to
+manage the configuration information controlling the NGinx servers. Incoming requests will then be passed to 
+the appropriate Lua functions, which will route the request to an approriate service, or version of a service,
+and then load balance to an approriate instance. 
+
+A point worth highlighting is that although Amalgam8 includes convenient A8 Proxy container images with built-in
+implmentations of some of the most common proxy control features, the design is open and intended to allow applications
+to extend the behavior by introducing their own custom routing rules and control logic.
+Specific rules provided to the A8 Controller can be considered opaque and will essentially be passed though to the
+A8 Proxy's that are intended to act on them. So, by simply extending the sidecar implementation to include matching Lua
+implementation code, custom rules can be specified and the system will behave as expected.
