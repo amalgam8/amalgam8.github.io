@@ -44,7 +44,7 @@ usually running in sidecars of the microservices.
 
 ## Tenant Library
 
-Almagam8 includes a library containing a very flexible sidecar architecture that can be configured and used by tenants in a number of ways.
+Almagam8 includes a library containing a very flexible component architecture that can be configured and used by tenants in a number of ways.
 
 ![sidecar architecture](https://github.com/amalgam8/amalgam8.github.io/blob/master/images/sidecar.jpg)
 
@@ -55,10 +55,14 @@ Almagam8 includes a library containing a very flexible sidecar architecture that
 
 Depending on the application, some or all of these components may be used. 
 For example, a microservice that requires registration, makes outgoing calls, and requires app supervision might use all of them
-in a single container as shown in the diagram. In Kubernetes, however, the app supervision would probabaly not be used. The app would instead
+in a single container:
+
+![sidecar containers](https://github.com/amalgam8/amalgam8.github.io/blob/master/images/sidecar-containers.jpg)
+
+In Kubernetes, however, the app supervision would probabaly not be used as shown in diagram (a). The app would instead
 be likely running in its own separate container of a pod. For leaf microservices (i.e., ones that make no outgoing calls), the proxy and
-route management components would not be needed. Service Registration would not be needed for services in a runtime that 
-supports auto registration (e.g., amalgam8 registry adapter for kubernetes).
+route management components would not be needed (b). Service Registration would not be needed for services in a runtime that 
+supports auto registration (c), for example, when using the amalgam8 registry adapter for Kubernetes (see below).
 
 Since most microservices run in some kind of container environment, Amalgam8 provides convenient Docker images that can be used
 as microservice application base images or simply to access one or more of the components. 
@@ -97,8 +101,8 @@ registry by the kubernetes runtime, and then automatcally mirrored in the A8 reg
 
 The Amalgam8 registry is very flexible in this regard. Similar adapter plugins can be added to support other runtime environments
 that already manage service registrations.
-For example, a docker environment with Weave Flux allows services to defined using the fluxctl command, endpoints of which are
-then automatically tracked and reflected in its registry, Etcd.
+For example, a Docker environment with Weave Flux allows services to be defined using the fluxctl command, endpoints of which are
+then automatically tracked and reflected in its Etcd registry.
 
 Integration with Amalgam8 could be done using exactly the same adapter pattern as in Kubernetes, only in this case adapting
 the WeaveFlux service information in Etcd, something like this:
