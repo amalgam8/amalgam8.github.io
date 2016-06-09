@@ -53,7 +53,12 @@ Almagam8 includes a library containing a very flexible component architecture th
 * **Supervisor** - Manages the lifecycle of an A8 Proxy server and optionally an application microservice itself.
 * **Proxy** - An [Nginx OpenResty](https://openresty.org/en/) server implementing the A8 Proxy function.
 
-Depending on the application, some or all of these components may be used. 
+Since most microservices run in some kind of container environment, Amalgam8 provides convenient Docker images that can be used
+as microservice application base images or simply to access one or more of the components. 
+The same components could, howoever, be
+made available and used in other ways such as from installation packages (deb, rpm, etc.) or plain executables.
+
+Depending on the application and specific microservice, only some or all of the components may be needed. 
 For example, a microservice that requires registration, makes outgoing calls, and requires app supervision might use all of them
 in a single container:
 
@@ -63,11 +68,6 @@ In Kubernetes, however, the app supervision would probabaly not be used as shown
 be likely running in its own separate container of a pod. For leaf microservices (i.e., ones that make no outgoing calls), the proxy and
 route management components would not be needed (b). Service Registration would not be needed for services in a runtime that 
 supports auto registration (c), for example, when using the amalgam8 registry adapter for Kubernetes (see below).
-
-Since most microservices run in some kind of container environment, Amalgam8 provides convenient Docker images that can be used
-as microservice application base images or simply to access one or more of the components. 
-The same components can, howoever, be
-provided in other ways, depending on demand, such as from installation packages (deb, rpm, etc.) or plain executables.
 
 ## Amalgam8 Service Registration
 
