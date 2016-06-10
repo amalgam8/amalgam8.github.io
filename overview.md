@@ -116,15 +116,16 @@ Amalgam8 can be as easy as possible in each particular case.
 
 All calls to Amalgam8 microservices are via an A8 Proxy, allowing the A8 controller to manage traffic to and beteen all the services
 in the system. Most A8 Proxies are sidecars of other microsystems, but there are situations where they are not.
-For example, a centralized group of proxys may be appropriate in some applications or for a gateway into the
+For example, a centralized group of proxies may be appropriate in some applications or for a gateway into the
 application as a whole.
 
-The A8 Proxy implementation uses Nginx with the OpenResty/Lua extension as the Proxy engine as shown in the following diagram:
+The A8 Proxy implementation uses [Nginx](https://nginx.org/en/)
+with the [OpenResty/Lua](https://openresty.org/en/) extension as the Proxy engine as shown in the following diagram:
 
 ![a8 proxy](https://github.com/amalgam8/amalgam8.github.io/blob/master/images/proxy.jpg)
 
 The Route Management component of the tenant sidecar process works by communicating with the A8 Controller, in the control plane, to
-manage the configuration information controlling the NGinx servers. Incoming requests will then be passed to 
+manage the configuration information controlling the Nginx servers. Incoming requests will then be passed to 
 the appropriate Lua functions, which will route the request to an approriate service, or version of a service,
 and then load balance to an approriate instance. 
 
@@ -137,7 +138,7 @@ implementation code, custom rules can be specified and the system will behave as
 
 ## Resilience Testing
 
-The ability to inject and affect the calls to or between microservices provided by A8 proxies,
+The ability to inject into and affect the calls to or between microservices provided by A8 proxies,
 enables another very powerful feature of Amalgam8.
 Isolated end-to-end testing can be run on live systems without involving the microservices themselves.
 Amalgam8 allows you to inject random delays or failures into the call path between microservices
