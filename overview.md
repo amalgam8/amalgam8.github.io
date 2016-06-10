@@ -139,7 +139,7 @@ implementation code, custom rules can be specified and the system will behave as
 
 The ability to inject and affect the calls to or between microservices provided by A8 proxies,
 enables another very powerful feature of Amalgam8.
-Isolated end-to-end testing can be run on live systems without invoving the microservices themselves.
+Isolated end-to-end testing can be run on live systems without involving the microservices themselves.
 Amalgam8 allows you to inject random delays or failures into the call path between microservices
 and then analyze the behavior provided by log messages from the A8 proxies. 
 
