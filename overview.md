@@ -42,9 +42,9 @@ usually running in sidecars of the microservices.
 4. Requests to microservices are via an A8 Proxy (usually a client-side sidecar of another microservice)
 5. A8 Proxy forwards request to an approriate microservice, depending on the request path and headers and the configuration specified by the controller.
 
-## Tenant Library
+## Tenant Sidecar Process
 
-Almagam8 includes a library containing a very flexible component architecture that can be configured and used by tenants in a number of ways.
+Almagam8 provides a sidecar component architecture that can be configured and used by tenants in a number of ways.
 
 ![sidecar architecture](https://github.com/amalgam8/amalgam8.github.io/blob/master/images/sidecar.jpg)
 
@@ -76,7 +76,7 @@ The most basic way of registering, which can be used for microservcies running o
 
 ![basic registration](https://github.com/amalgam8/amalgam8.github.io/blob/master/images/basic-reg.jpg)
 
-The A8 service registration sidecar component is used to register and continuosly send hartbeats to the registry on
+The A8 service registration sidecar component is used to register and continuously send hartbeats to the registry on
 behalf of a microservice instance.
 The registration sidecar keeps track of the health of the application (microservice A) and stops sending heartbeats if or when it terminates,
 soon after which the registration in the A8 Registry will time out and be removed. 
@@ -101,8 +101,8 @@ registry by the kubernetes runtime, and then automatcally mirrored in the A8 reg
 
 The Amalgam8 registry is very flexible in this regard. Similar adapter plugins can be added to support other runtime environments
 that already manage service registrations.
-For example, a Docker environment with Weave Flux allows services to be defined using the fluxctl command, endpoints of which are
-then automatically tracked and reflected in its Etcd registry.
+For example, a Docker environment with [Weave Flux](http://weaveworks.github.io/flux/) allows services to be defined
+using the fluxctl command, endpoints of which are then automatically tracked and reflected in its Etcd registry.
 
 Integration with Amalgam8 could be done using exactly the same adapter pattern as in Kubernetes, only in this case adapting
 the WeaveFlux service information in Etcd, something like this:
@@ -123,7 +123,7 @@ The A8 Proxy implementation uses Nginx with the OpenResty/Lua extension as the P
 
 ![a8 proxy](https://github.com/amalgam8/amalgam8.github.io/blob/master/images/proxy.jpg)
 
-The Route Management component of the tenant library works by communicating with the A8 Controller, in the control plane, to
+The Route Management component of the tenant sidecar process works by communicating with the A8 Controller, in the control plane, to
 manage the configuration information controlling the NGinx servers. Incoming requests will then be passed to 
 the appropriate Lua functions, which will route the request to an approriate service, or version of a service,
 and then load balance to an approriate instance. 
@@ -134,3 +134,17 @@ to extend the behavior by introducing their own custom routing rules and control
 Specific rules provided to the A8 Controller can be considered opaque and will essentially be passed though to the
 A8 Proxy's that are intended to act on them. So, by simply extending the sidecar implementation to include matching Lua
 implementation code, custom rules can be specified and the system will behave as expected.
+
+## Resilience Testing
+
+The ability to inject and affect the calls to or between microservices provided by A8 proxies,
+enables another very powerful feature of Amalgam8.
+Isolated end-to-end testing can be run on live systems without invoving the microservices themselves.
+Amalgam8 allows you to inject random delays or failures into the call path between microservices
+and then analyze the behavior provided by log messages from the A8 proxies. 
+
+![resilience testing](https://github.com/amalgam8/amalgam8.github.io/blob/master/images/testing.jpg)
+
+Using the integrated [Gremlin SDK](https://github.com/ResilienceTesting/gremlinsdk-python),
+Amalgam8 users can also perform systematic resilience testing with reproducible failure scenarios and assertions to
+test and debug complex microservice-based applications end to end.
