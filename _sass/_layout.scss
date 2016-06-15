@@ -72,10 +72,16 @@ h1, h2, h3, h4{
 
 .divider{
   min-height: .3rem;
-  min-width: 600px;
+  // min-width: 600px;
   border-radius: 30px;
   background-color: $purple2;
   margin-top: 2rem;
+}
+
+.divider2{
+  background-color: $purple4;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
 }
 
 .section{
@@ -91,11 +97,6 @@ h1, h2, h3, h4{
 
   text-align: center;
 
-  img{
-    min-height: 15rem;
-    min-width: 15rem;
-  }
-
 }
 
 .section__row{
@@ -103,6 +104,19 @@ h1, h2, h3, h4{
   flex-direction: row;
   justify-content: space-between;
   text-align: left;
+
+  div{
+    padding: .5rem;
+
+    &:nth-child(1){
+      width: 60%;
+    }
+
+    &:nth-child(2){
+      width: 40%;
+    }
+
+  }
 }
 
 .section__col{
@@ -131,17 +145,21 @@ h1, h2, h3, h4{
   a{
     display: flex;
     justify-content: center;;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 
   img{
-    width: 140px;
+    width: 200px;
   }
 }
 
 .section__learn{
   background-color: $off-white;
+
+  img{
+    min-width: 600px;
+  }
 }
 
 .diagram{
@@ -156,6 +174,7 @@ h1, h2, h3, h4{
 .section__why1, .section__why2, .section__why3, .section__why4{
   color: #ffffff;
   text-align: left;
+  padding-bottom: 4rem;
 }
 
 .section__why1{
