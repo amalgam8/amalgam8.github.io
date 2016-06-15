@@ -185,7 +185,6 @@ pre {
     padding-right: $spacing-unit;
     padding-left: $spacing-unit;
     padding-top: $spacing-unit;
-    @extend %clearfix;
 
     @include media-query($on-laptop) {
         max-width: -webkit-calc(#{$nav-content-width} - (#{$spacing-unit}));
