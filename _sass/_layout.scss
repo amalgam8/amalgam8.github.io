@@ -1,5 +1,6 @@
 h1, h2, h3, h4{
   font-weight: 700;
+  text-align: center;
 }
 
 .button{
@@ -125,9 +126,6 @@ min-width: 150px;
   color: $grey-text;
 
   padding-top: 4rem;
-
-  text-align: center;
-
 }
 
 .section__row{
@@ -137,14 +135,14 @@ min-width: 150px;
   text-align: left;
 
   div{
-    padding: .5rem;
+    padding: 1rem;
 
     &:nth-child(1){
-      width: 60%;
+      width: 50%;
     }
 
     &:nth-child(2){
-      width: 40%;
+      width: 50%;
     }
 
   }
@@ -157,13 +155,31 @@ min-width: 150px;
 
 }
 
-.section__what{
-  padding-bottom: 2rem;
-}
-
 .section__how{
   background-color: $purple1;
   color: white;
+  padding-top: 0;
+  text-align: center;
+  padding-bottom: 4rem;
+
+  .wrapper{
+    padding-top: 2rem;
+  }
+
+  .section__row{
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    div{
+      padding: 1rem;
+
+      width: 33%;
+    }
+  }
+
+  img{
+    width: 80%;
+  }
 }
 
 .section__contribute{
@@ -206,6 +222,11 @@ min-width: 150px;
   color: #ffffff;
   text-align: left;
   padding-bottom: 4rem;
+
+  h1, h2, h3, h4{
+    text-align: left;
+  }
+
 }
 
 .section__why1{
