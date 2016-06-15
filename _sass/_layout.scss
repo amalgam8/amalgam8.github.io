@@ -2,6 +2,16 @@ h1, h2, h3, h4{
   font-weight: 700;
 }
 
+.button{
+  border: 5px solid $red;
+  border-radius: 40px;
+  padding: 1rem;
+  color: $pink;
+  width: 80%;
+  font-size: 24px;
+  max-width: 18rem;
+}
+
 
 
 /**
@@ -62,6 +72,7 @@ h1, h2, h3, h4{
 
 .divider{
   min-height: .3rem;
+  min-width: 600px;
   border-radius: 30px;
   background-color: $purple2;
   margin-top: 2rem;
@@ -98,7 +109,7 @@ h1, h2, h3, h4{
   text-align: left;
   display: flex;
   flex-direction: column;
-  
+
 }
 
 .section__what{
@@ -112,6 +123,21 @@ h1, h2, h3, h4{
 
 .section__contribute{
   background-color: $off-white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  a{
+    display: flex;
+    justify-content: center;;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  img{
+    width: 140px;
+  }
 }
 
 .section__learn{
@@ -160,6 +186,7 @@ h1, h2, h3, h4{
     a{
       color: white;
     }
+    color: white;
 }
 
 .footer-heading {
@@ -175,7 +202,6 @@ h1, h2, h3, h4{
 
 .footer-col-wrapper {
     font-size: 15px;
-    color: $grey-color;
     margin-left: -$spacing-unit / 2;
     @extend %clearfix;
 }
