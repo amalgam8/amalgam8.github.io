@@ -1,3 +1,9 @@
+h1, h2, h3, h4{
+  font-weight: 700;
+}
+
+
+
 /**
  * Site header
  */
@@ -54,14 +60,41 @@
 * Section content
 */
 
+.divider{
+  min-height: .3rem;
+  border-radius: 30px;
+  background-color: $purple2;
+  margin-top: 2rem;
+}
+
 .section{
 
-  min-height: 20rem;
+  // min-height: 15rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: $grey-text;
 
+  padding-top: 4rem;
+
+  text-align: center;
+
+  img{
+    min-height: 10rem;
+    min-width: 10rem;
+  }
+
+}
+
+.section__row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.section__what{
+  padding-bottom: 2rem;
 }
 
 .section__contribute{
@@ -70,6 +103,36 @@
 
 .section__learn{
   background-color: $off-white;
+}
+
+.diagram{
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+/**
+*Why Sections
+*/
+
+.section__why1, .section__why2, .section__why3, .section__why4{
+  color: #ffffff;
+  text-align: left;
+}
+
+.section__why1{
+  background-color: $purple1;
+}
+
+.section__why2{
+  background-color: $purple2;
+}
+
+.section__why3{
+  background-color: $purple3;
+}
+
+.section__why4{
+  background-color: $purple4;
 }
 
 
