@@ -182,12 +182,26 @@ min-width: 150px;
   }
 }
 
+.section__blurb{
+  background-color: $cream;
+  font-weight: 700;
+  font-size: 24px;
+  text-align: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+
+  p{
+      padding: 0rem 6rem 0rem 6rem;
+  }
+}
+
 .section__contribute{
   background-color: $off-white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 
   a{
     display: flex;
