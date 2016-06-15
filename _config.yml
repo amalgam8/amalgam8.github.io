@@ -7,14 +7,13 @@
 
 # Site settings
 title: Amalgam8
-email: your-email@domain.com
+email: admin@amalgam8.io
 description: > # this means to ignore newlines until "baseurl:"
   Amalgam8 is a free and open-source multi-tenanted microservices integration framework.
   It takes the tedium out of microservice management, enabling faster development, more control, and better resiliency of microservices without impacting existing implementation code.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://yourdomain.com" # the base hostname & protocol for your site
-twitter_username: jekyllrb
-github_username:  jekyll
+github_username:  amalgam8
 
 # Build settings
 markdown: kramdown
