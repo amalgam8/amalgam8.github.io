@@ -1,7 +1,55 @@
-<div class="section">
+<div class="section section__how">
   <div class="wrapper">
-    <h1>How Does It Work?</h1>
-    <p>Amalgam8 is a multi-tenanted microservices intergration framework to simplify and strengthen the development, rapid deployment,
-and resiliency of microservices.</p>
+    <h2>How It Works</h2>
+    <p>At the heart of Amalgam8, are two multi-tenanted services:</p>
+
+
+    <div class="section__row">
+      <div>
+        <h3>Registry</h3>
+        <p>A high performance service registry that provides a centralized view of all the microservices in an application, regardless of where they are actually running</p>
+      </div>
+      <div>
+        <img src="/assets/Diagram_1.svg" alt="">
+      </div>
+    </div>
+
+    <div class="section__row">
+      <div>
+        <img src="/assets/Diagram_2.svg" alt="">
+      </div>
+      <div>
+        <h3>Controller</h3>
+        <p>Monitors the Registry and provides a REST API for registering, routing, and other microservice control-rules, which it uses to generate and send control information to proxy servers running within the application.</p>
+      </div>
+    </div>
+
+
+
+    <div >
+      Applications run as tenants of these two servers. They register their service in the Registry and use the Controller to manage proxies, usually running in sidecars of the microservices.
+    </div>
+    <br/>
+
+    <div class="section__row">
+      <div>
+        <p>
+          1. Microservice instances are registered in the A8 Registry. There are several ways this may be accomplished.
+        </p>
+        <p>2. Administrator specifies routing rules and filters (e.g., version rules, test delays) to control traffic flow between microservices.
+        </p>
+        <p> 3. A8 Controller monitors the A8 Registry and administrator input and then generates control information that is sent to the A8 Proxies.
+        </p>
+      </div>
+
+      <div>
+        <p>4. Requests to microservices are via an A8 Proxy (usually a client-side sidecar of another microservice).</p>
+        <p>5. A8 Proxy forwards request to an approriate microservice, depending on the request path and headers and the configuration specified by the controller.</p>
+        <p>The A8 service registration sidecar component is used to register and continuously send heartbeats to the registry on behalf of a microservice instance. This is a common registration design pattern used in many microservice frameworks, and will work for services running anywhere.</p>
+        <p>For more a more detailed look on how Amalgam8 works,</p>
+        <a href="">Please visit our Github page.</a>
+      </div>
+    </div>
+
   </div>
 </div>

@@ -81,8 +81,8 @@ h1, h2, h3, h4{
   text-align: center;
 
   img{
-    min-height: 10rem;
-    min-width: 10rem;
+    min-height: 15rem;
+    min-width: 15rem;
   }
 
 }
@@ -91,10 +91,23 @@ h1, h2, h3, h4{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  text-align: left;
+}
+
+.section__col{
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  
 }
 
 .section__what{
   padding-bottom: 2rem;
+}
+
+.section__how{
+  background-color: $purple1;
+  color: white;
 }
 
 .section__contribute{
