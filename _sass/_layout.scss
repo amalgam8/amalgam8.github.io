@@ -213,7 +213,7 @@ min-width: 150px;
       justify-content: center;
 
       div{
-        width: 98%;
+        width: inherit;
       }
     }
   }
@@ -306,12 +306,24 @@ min-width: 150px;
   }
 
   @include media-query($on-palm) {
+    .section__row{
+      text-align: center;
+      h2{
+        text-align: center;
+      }
+    }
 
     .why-image{
       img{
         width: 50%;
       }
     }
+      .why-image2{
+        img{
+          width: 70%;
+        }
+      }
+
   }
 
 }
