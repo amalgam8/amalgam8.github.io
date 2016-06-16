@@ -261,9 +261,14 @@ min-width: 150px;
 .section__learn{
   background-color: $off-white;
 
-    img{
-      width: 100%;
-    }
+  .wrapper{
+    width: 80%;
+  }
+
+  img{
+    width: 100%;
+    padding: 3rem 1rem 3rem 1rem;
+  }
 }
 
 .diagram{
