@@ -11,6 +11,15 @@ h2{
   font-size: 2rem;
 }
 
+a{
+  color: white;
+  text-decoration: underline;
+
+  &:hover{
+    color: $purple1;
+  }
+}
+
 .button{
   border: 5px solid $red;
   border-radius: 40px;
@@ -52,6 +61,14 @@ h2{
      .brand-icon{
        min-width: 150px;
      }
+
+      a{
+        text-decoration: none;
+
+        &:hover{
+          text-decoration: underline;
+        }
+      }
 
      .button{
        border: none;
@@ -269,10 +286,12 @@ h2{
     justify-content: center;;
     padding-top: 2rem;
     padding-bottom: 2rem;
+    text-decoration: none;
 
-  &:hover{
-    color: $pink;
-  }
+    &:hover{
+      color: $pink;
+      text-decoration: underline;
+    }
   }
 
   img{
