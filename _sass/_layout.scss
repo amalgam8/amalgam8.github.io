@@ -27,84 +27,80 @@ h2{
  * Site header
  */
 
-.top-block {
-  background-image: url("/assets/Header_Background_Pattern.svg"),
-    linear-gradient(
-      to right,
-      $purple, $pink
-    );
+ .top-block {
+   background-image: url("/assets/Header_Background_Pattern.svg"),
+   linear-gradient(
+   to right,
+   $purple, $pink
+   );
+   color: white;
+   text-align: center;
 
-}
+    .site-header {
+     min-height: 56px;
+     padding-right: 30px;
 
-.site-header {
-    // border-top: 5px solid $grey-color-dark;
-    // border-bottom: 1px solid $grey-color-light;
-    min-height: 56px;
-    padding-right: 30px;
-    // background-image:
-    //   linear-gradient(
-    //     to right,
-    //     $purple, $pink
-    //   );
+     .button{
+       border: none;
+       border-radius: 40px;
+       background-color: white;
+       padding: .8rem;
+       color: $purple;
+       width: 100%;
+       font-size: 14px;
+       text-align: center;
+     }
 
-      .button{
-            border: none;
-            border-radius: 40px;
-            background-color: white;
-            padding: .8rem;
-            color: $purple;
-            width: 100%;
-            font-size: 14px;
-            text-align: center;
-            // max-width: 18rem;
-          }
+     .site-title {
+       font-size: 26px;
+       font-weight: 300;
+       line-height: 56px;
+       letter-spacing: -1px;
+       margin-bottom: 0;
+       float: left;
+     }
 
-          .nav-wrapper{
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-          }
-}
+     .brand-icon{
+       min-width: 150px;
+     }
 
-.site-title {
-    font-size: 26px;
-    font-weight: 300;
-    line-height: 56px;
-    letter-spacing: -1px;
-    margin-bottom: 0;
-    float: left;
+     .nav-wrapper{
+       display: flex;
+       flex-direction: row;
+       justify-content: space-between;
+       align-items: center;
+       width: inherit;
+     }
 
+     @include media-query($on-palm)
+     {
+      padding-right: 15px;
+       .nav-wrapper{
+         justify-content: space-around;
+       }
+     }
+   }
 
-}
+   .splash{
+     height: 30rem;
+     display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-.brand-icon{
-min-width: 150px;
-}
+   @include media-query($on-palm)
+   {
 
-.brand-icon-footer{
-  max-width: 150px;
-}
+     .nav-wrapper{
+       justify-content: space-around;
+     }
 
+       h1{
+         font-size: 2rem;
+       }
+     }
 
-.splash
-{
-  // background-color: $purple;
-  // background-image:
-  //   linear-gradient(
-  //     to right,
-  //     $purple, $pink
-  //   );
-
-    height: 30rem;
-
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-}
+ }
 
 /**
 * Section content
@@ -162,11 +158,11 @@ min-width: 150px;
       padding: 1rem;
 
       &:nth-child(1){
-        width: 98%;
+        width: inherit;
       }
 
       &:nth-child(2){
-        width: 98%;
+        width: inherit;
       }
     }
   }
@@ -179,6 +175,13 @@ min-width: 150px;
   display: flex;
   flex-direction: column;
 
+}
+
+.section__what{
+  p{
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
 
 .section__how{
@@ -381,6 +384,11 @@ min-width: 150px;
       padding-top: 2rem;
     }
 }
+
+.brand-icon-footer{
+  max-width: 150px;
+}
+
 
 .footer-heading {
     font-size: 18px;
