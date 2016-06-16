@@ -40,17 +40,6 @@ h2{
      min-height: 56px;
      padding-right: 30px;
 
-     .button{
-       border: none;
-       border-radius: 40px;
-       background-color: white;
-       padding: .8rem;
-       color: $purple;
-       width: 100%;
-       font-size: 14px;
-       text-align: center;
-     }
-
      .site-title {
        font-size: 26px;
        font-weight: 300;
@@ -62,6 +51,17 @@ h2{
 
      .brand-icon{
        min-width: 150px;
+     }
+     
+     .button{
+       border: none;
+       border-radius: 40px;
+       background-color: white;
+       padding: .8rem;
+       color: $purple;
+       width: 100%;
+       font-size: 14px;
+       text-align: center;
      }
 
      .nav-wrapper{
@@ -90,6 +90,17 @@ h2{
 
    @include media-query($on-palm)
    {
+     .site-header{
+       .brand-icon{
+         min-width: 100px;
+       }
+
+       .button{
+         padding: .5rem;
+         width: 100%;
+         font-size: 12px;
+       }
+     }
 
      .nav-wrapper{
        justify-content: space-around;
