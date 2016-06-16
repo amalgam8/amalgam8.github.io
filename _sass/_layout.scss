@@ -3,6 +3,14 @@ h1, h2, h3, h4{
   text-align: center;
 }
 
+h1{
+  font-size: 3rem;
+}
+
+h2{
+  font-size: 2rem;
+}
+
 .button{
   border: 5px solid $red;
   border-radius: 40px;
@@ -185,7 +193,7 @@ min-width: 150px;
 .section__blurb{
   background-color: $cream;
   font-weight: 700;
-  font-size: 24px;
+  font-size: 1.5rem;
   text-align: center;
   padding-top: 2rem;
   padding-bottom: 2rem;
@@ -241,10 +249,31 @@ min-width: 150px;
     text-align: left;
   }
 
+  .section__row
+  {
+    align-items: center;
+  }
+
+  .why-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img{
+      width: 70%;
+    }
+  }
+
 }
 
 .section__why1{
   background-color: $purple1;
+
+  div > img{
+    text-align: center;
+    width: 80%;
+  }
+
 }
 
 .section__why2{
