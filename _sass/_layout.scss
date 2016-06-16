@@ -346,12 +346,6 @@ a{
     }
   }
 
-  .why-image2{
-    img{
-      width: 100%;
-    }
-  }
-
   @include media-query($on-palm) {
     .section__row{
       text-align: center;
@@ -367,7 +361,7 @@ a{
     }
       .why-image2{
         img{
-          width: 70%;
+          width: 100%;
         }
       }
 
