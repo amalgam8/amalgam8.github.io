@@ -2,17 +2,17 @@
   <img src="/assets/pattern.svg" alt="decorative x and o pattern">
   <div class="wrapper">
     <h2>How It Works</h2>
-    <p>At the heart of Amalgam8, are two multi-tenanted services:</p>
+    <p>Amalgam8 is composed of these three components:</p>
 
 
     <div class="section__row">
       <div>
-        <h3>Controller</h3>
-        <p>A multi-tenant controller that monitors the registry and updates the sidecar configuration accordingly. It provides APIs to the developer for configuring rules for request routing, fault injection, etc. These rules are then translated and sent to the sidecars belonging to the application.</p>
-      </div>
-      <div>
         <h3>Registry</h3>
         <p>A high performance multi-tenant service registry that provides a centralized view of all the microservices in an application regardless of where they are all actually running.</p>
+      </div>
+      <div>
+        <h3>Controller</h3>
+        <p>A multi-tenant controller that monitors the registry and updates the sidecar configuration accordingly. It provides APIs to the developer for configuring rules for request routing, fault injection, etc. These rules are then translated and sent to the sidecars belonging to the application.</p>
       </div>
       <div>
         <h3>Sidecar</h3>
