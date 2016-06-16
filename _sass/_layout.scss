@@ -269,6 +269,10 @@ h2{
     justify-content: center;;
     padding-top: 2rem;
     padding-bottom: 2rem;
+
+  &:hover{
+    color: $pink;
+  }
   }
 
   img{
