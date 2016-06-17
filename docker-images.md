@@ -21,7 +21,8 @@ amalgam8/a8-sidecar:0.1-alpine # reg + proxy sidecar (alpine base usually used i
 ### Standalone app images (usually used with sidecars in k8s pods)
 
 ```
-amalgam8/a8-examples-helloworld
+amalgam8/a8-examples-helloworld:v1
+amalgam8/a8-examples-helloworld:v2
 amalgam8/a8-examples-bookinfo-productpage:v1
 amalgam8/a8-examples-bookinfo-details:v1
 amalgam8/a8-examples-bookinfo-reviews:v1
@@ -33,7 +34,8 @@ amalgam8/a8-examples-bookinfo-ratings:v1
 ### App images with sidecar (app is managed by sidecar supervisor)
 
 ```
-amalgam8/a8-examples-helloworld-sidecar
+amalgam8/a8-examples-helloworld-sidecar:v1
+amalgam8/a8-examples-helloworld-sidecar:v2
 amalgam8/a8-examples-bookinfo-productpage-sidecar:v1
 amalgam8/a8-examples-bookinfo-details-sidecar:v1
 amalgam8/a8-examples-bookinfo-reviews-sidecar:v1
