@@ -7,8 +7,8 @@ The microservices in an Amalgam8 application can be polyglot, run in containers,
 
 Amalgam8 provides proxy and registration sidecars and other adapter mechanisms that are used for registering and calling
 microservices. Depending on a microservice's deployment runtime, integration with Amalgam8 can require little or no significant change
-to the microservice impelementation code because Amalgam8 is designed to leverage the benefits of any given runtime
-and then provide the easiest possible integration for each. For example, in Kubernetes, a microservice that adready has an associated
+to the microservice implementation code because Amalgam8 is designed to leverage the benefits of any given runtime
+and then provide the easiest possible integration for each. For example, in Kubernetes, a microservice that already has an associated
 Kubernetes service definition can be registered automatically using an Amalgam8 plugin providing
 an adapted view of the Kubernetes services in Amalgam8. 
 Similar plugins are possible for other runtime environments, but where they are not, Amalgam8 also provides registration
@@ -24,7 +24,7 @@ end-to-end resiliency testing. And most importantly, all of this is designed for
 
 ![high-level architecture](https://github.com/amalgam8/amalgam8.github.io/blob/master/images/architecture.jpg)
 
-At the heart of Amalgam8, are two mutli-tenanted services:
+At the heart of Amalgam8, are two multi-tenanted services:
 
 1. **Registry** - A high performance service registry that provides a centralized view of all the microservices in an application, regardless
    of where they are actually running.
@@ -34,13 +34,15 @@ At the heart of Amalgam8, are two mutli-tenanted services:
 Application run as tenants of these two servers. They register their services in the Registry and use the Controller to manage proxies,
 usually running in sidecars of the microservices.
 
-![how it works](https://github.com/amalgam8/amalgam8.github.io/blob/master/images/how-it-works.jpg)
-
 1. Microservice instances are registered in the A8 Registry. There are several ways this may be accomplished (see below).
 2. Administrator specifies routing rules and filters (e.g., version rules, test delays) to control traffic flow between microservices.
 3. A8 Controller monitors the A8 Registry and administrator input and then generates control information that is sent to the A8 Proxies.
 4. Requests to microservices are via an A8 Proxy (usually a client-side sidecar of another microservice)
-5. A8 Proxy forwards request to an approriate microservice, depending on the request path and headers and the configuration specified by the controller.
+5. A8 Proxy forwards request to an appropriate microservice, depending on the request path and headers and the configuration specified by the controller.
+
+These 5 steps are illustrated in the following diagram:
+
+![how it works](https://github.com/amalgam8/amalgam8.github.io/blob/master/images/how-it-works.jpg)
 
 ## Tenant Sidecar Process
 
@@ -55,7 +57,7 @@ Almagam8 provides a sidecar component architecture that can be configured and us
 
 Since most microservices run in some kind of container environment, Amalgam8 provides convenient Docker images that can be used
 as microservice application base images or simply to access one or more of the components. 
-The same components could, howoever, be
+The same components could, however, be
 made available and used in other ways such as from installation packages (deb, rpm, etc.) or plain executables.
 
 Depending on the application and specific microservice, only some or all of the components may be needed. 
@@ -64,7 +66,7 @@ in a single container:
 
 ![sidecar containers](https://github.com/amalgam8/amalgam8.github.io/blob/master/images/sidecar-containers.jpg)
 
-In Kubernetes, however, the app supervision would probabaly not be used as shown in diagram (a). The app would instead
+In Kubernetes, however, the app supervision would probably not be used as shown in diagram (a). The app would instead
 be likely running in its own separate container of a pod. For leaf microservices (i.e., ones that make no outgoing calls), the proxy and
 route management components would not be needed (b). Service Registration would not be needed for services in a runtime that 
 supports auto registration (c), for example, when using the amalgam8 registry adapter for Kubernetes (see below).
@@ -72,15 +74,15 @@ supports auto registration (c), for example, when using the amalgam8 registry ad
 ## Amalgam8 Service Registration
 
 To integrate and use a microservice in Amalgam8, it needs to be registered in the A8 Registry. 
-The most basic way of registering, which can be used for microservcies running on any platform / runtime, is shown in the following diagram:
+The most basic way of registering, which can be used for microservices running on any platform / runtime, is shown in the following diagram:
 
 ![basic registration](https://github.com/amalgam8/amalgam8.github.io/blob/master/images/basic-reg.jpg)
 
-The A8 service registration sidecar component is used to register and continuously send hartbeats to the registry on
+The A8 service registration sidecar component is used to register and continuously send heartbeats to the registry on
 behalf of a microservice instance.
 The registration sidecar keeps track of the health of the application (microservice A) and stops sending heartbeats if or when it terminates,
 soon after which the registration in the A8 Registry will time out and be removed. 
-If there is a temporary interuption in network connectivity, the service may time out and also be removed (making it unavailable temporarily)
+If there is a temporary interruption in network connectivity, the service may time out and also be removed (making it unavailable temporarily)
 until the network connection to the controlplane is reestablished and the sidecar reregisters the service.
 This is a common registration design pattern used in many microservice frameworks, and will work for services running anywhere.
 
@@ -97,7 +99,7 @@ to watch the Kubernetes registry and automatically mirror the endpoints in Amalg
 
 In this case, service B is an ordinary Kubernetes service defined in serviceB.yaml. There is nothing that needs to
 be added or changed to integrate it with an Amalgam8 system. Instances, as they come and go, will be maintained in the Kubernetes
-registry by the kubernetes runtime, and then automatcally mirrored in the A8 registry by the adapter.
+registry by the kubernetes runtime, and then automatically mirrored in the A8 registry by the adapter.
 
 The Amalgam8 registry is very flexible in this regard. Similar adapter plugins can be added to support other runtime environments
 that already manage service registrations.
@@ -126,11 +128,11 @@ with the [OpenResty/Lua](https://openresty.org/en/) extension as the Proxy engin
 
 The Route Management component of the tenant sidecar process works by communicating with the A8 Controller, in the control plane, to
 manage the configuration information controlling the Nginx servers. Incoming requests will then be passed to 
-the appropriate Lua functions, which will route the request to an approriate service, or version of a service,
-and then load balance to an approriate instance. 
+the appropriate Lua functions, which will route the request to an appropriate service, or version of a service,
+and then load balance to an appropriate instance. 
 
 A point worth highlighting is that although Amalgam8 includes convenient A8 Proxy container images with built-in
-implmentations of some of the most common proxy control features, the design is open and intended to allow applications
+implementations of some of the most common proxy control features, the design is open and intended to allow applications
 to extend the behavior by introducing their own custom routing rules and control logic.
 Specific rules provided to the A8 Controller can be considered opaque and will essentially be passed though to the
 A8 Proxy's that are intended to act on them. So, by simply extending the sidecar implementation to include matching Lua
