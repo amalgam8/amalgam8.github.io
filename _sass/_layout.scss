@@ -281,12 +281,23 @@ a{
   align-items: center;
   text-align: center;
 
-  a{
+  .github-wrapper{
     display: flex;
-    justify-content: center;;
     padding-top: 2rem;
     padding-bottom: 2rem;
+    justify-content: center;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  a{
+    display: flex;
+    justify-content: center;
     text-decoration: none;
+    width: 100%;
+    max-width: 20rem;
 
     &:hover{
       color: $pink;
