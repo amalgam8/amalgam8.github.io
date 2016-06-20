@@ -20,7 +20,7 @@ a microservices-based system. This includes edge and mid-tier version-routing ba
 criteria. Delays and failures can also be injected into the path of calls to and between microservices, enabling advanced
 end-to-end resiliency testing. And most importantly, all of this is designed for extensibility and is completely available in open source.
 
-## How it Works
+## How it Works <a id="how-it-works"></a>
 
 ![high-level architecture](https://github.com/amalgam8/amalgam8.github.io/blob/master/images/architecture.jpg)
 
@@ -44,7 +44,7 @@ These 5 steps are illustrated in the following diagram:
 
 ![how it works](https://github.com/amalgam8/amalgam8.github.io/blob/master/images/how-it-works.jpg)
 
-## Tenant Sidecar Process
+## Tenant Sidecar Process <a id="tenant-process"></a>
 
 Almagam8 provides a sidecar component architecture that can be configured and used by tenants in a number of ways.
 
@@ -71,7 +71,7 @@ be likely running in its own separate container of a pod. For leaf microservices
 route management components would not be needed (b). Service Registration would not be needed for services in a runtime that 
 supports auto registration (c), for example, when using the amalgam8 registry adapter for Kubernetes (see below).
 
-## Amalgam8 Service Registration
+## Amalgam8 Service Registration <a id="service-registration"></a>
 
 To integrate and use a microservice in Amalgam8, it needs to be registered in the A8 Registry. 
 The most basic way of registering, which can be used for microservices running on any platform / runtime, is shown in the following diagram:
@@ -114,7 +114,7 @@ the WeaveFlux service information in Etcd, something like this:
 The main point is that the A8 registry is designed to be open to these kinds of extensions, so that integrating a service into
 Amalgam8 can be as easy as possible in each particular case.
 
-## Amalgam8 Service Proxy
+## Amalgam8 Service Proxy <a id="service-proxy"></a>
 
 All calls to Amalgam8 microservices are via an A8 Proxy, allowing the A8 controller to manage traffic to and beteen all the services
 in the system. Most A8 Proxies are sidecars of other microsystems, but there are situations where they are not.
@@ -138,7 +138,7 @@ Specific rules provided to the A8 Controller can be considered opaque and will e
 A8 Proxy's that are intended to act on them. So, by simply extending the sidecar implementation to include matching Lua
 implementation code, custom rules can be specified and the system will behave as expected.
 
-## Resilience Testing
+## Resilience Testing <a id="resilience-testing"></a>
 
 The ability to inject into and affect the calls to or between microservices provided by A8 proxies,
 enables another very powerful feature of Amalgam8.
