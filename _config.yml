@@ -10,7 +10,7 @@ title: Amalgam8
 email: admin@amalgam8.io
 description: > # this means to ignore newlines until "baseurl:"
   Amalgam8 is an open-source multi-tenant integration framework for polyglot microservices.
-  It takes the tedium out of microservice integration, enabling faster development, and provides a centralized control plane to enable various DevOps functions such as red/black deployments, multi-version routing, resilience testing, etc.
+  It takes the tedium out of microservice integration, enabling faster development, and provides a centralized control plane to enable various DevOps functions such as red/black deployments, multi-version routing, and resilience testing.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://amalgam8.io" # the base hostname & protocol for your site
 github_username:  amalgam8
