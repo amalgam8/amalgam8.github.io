@@ -2,7 +2,7 @@
 
 ## Overview
 
-Amalgam8 is a multi-tenant microservice integration framework that works independently of any particular platform or runtime. The microservices in an Amalgam8 application can be written in any language, and run in Docker containers, virtual machines, or on a bare metal environment.
+Amalgam8 is a multi-tenant microservice integration platform that works independently of any particular container platform or programming language runtime. The microservices in an Amalgam8 application can be written in any language, and run in Docker containers, virtual machines, or on a bare metal environment.
 
 Amalgam8 provides proxy and registration sidecars, and other adaptors that are used for registering and calling
 microservices. On many microservice deployment runtimes, integration with Amalgam8 requires little or no change to the microservice implementation code, because Amalgam8 is designed to make use of the benefits provided by a runtime, to provide the easiest possible integration. For example, in Kubernetes, a microservice that already has an associated
