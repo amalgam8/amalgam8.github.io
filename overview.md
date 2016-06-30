@@ -42,7 +42,7 @@ usually running in sidecars of the microservices.
 
 These 5 steps are illustrated in the following diagram:
 
-![how it works](https://github.com/amalgam8/amalgam8.github.io/blob/master/images/how-it-works.jpg)
+![how it works](https://github.com/amalgam8/amalgam8.github.io/blob/master/images/how-amalgam8-works.png)
 
 ## Tenant Sidecar Process <a id="tenant-process"></a>
 
