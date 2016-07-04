@@ -1,3 +1,9 @@
+---
+layout: page
+title: Amalgam8 - Design and Features
+permalink: /overview.html
+---
+
 # Amalgam8 Microservices Fabric
 
 ## Overview
@@ -22,7 +28,7 @@ end-to-end resiliency testing. And most importantly, all of this is designed for
 
 ## How it Works <a id="how-it-works"></a>
 
-![high-level architecture](https://github.com/amalgam8/amalgam8.github.io/blob/master/images/architecture.jpg)
+![high-level architecture](assets/docs/amalgam8-architecture.svg)
 
 At the heart of Amalgam8, are two multi-tenanted services:
 
@@ -42,13 +48,13 @@ usually running in sidecars of the microservices.
 
 These 5 steps are illustrated in the following diagram:
 
-![how it works](https://github.com/amalgam8/amalgam8.github.io/blob/master/images/how-amalgam8-works.png)
+![how it works](assets/docs/how-amalgam8-works.svg)
 
 ## Tenant Sidecar Process <a id="tenant-process"></a>
 
 Almagam8 provides a sidecar component architecture that can be configured and used by tenants in a number of ways.
 
-![sidecar architecture](https://github.com/amalgam8/amalgam8.github.io/blob/master/images/sidecar.jpg)
+![sidecar architecture](assets/docs/amalgam8-sidecar-components.svg)
 
 * **Service Registration** - Registers and heartbeats a microservice instance in the Amalgam8 registry.
 * **Route Management** - Communicates with the A8 Controller in the control plane to manage configuration and control-rules of an A8 Proxy.
@@ -64,7 +70,7 @@ Depending on the application and specific microservice, only some or all of the 
 For example, a microservice that requires registration, makes outgoing calls, and requires app supervision might use all of them
 in a single container:
 
-![sidecar containers](https://github.com/amalgam8/amalgam8.github.io/blob/master/images/sidecar-containers.jpg)
+![sidecar containers](assets/docs/amalgam8-sidecar-configurations.svg)
 
 In Kubernetes, however, the app supervision would probably not be used as shown in diagram (a). The app would instead
 be likely running in its own separate container of a pod. For leaf microservices (i.e., ones that make no outgoing calls), the proxy and
@@ -76,7 +82,7 @@ supports auto registration (c), for example, when using the amalgam8 registry ad
 To integrate and use a microservice in Amalgam8, it needs to be registered in the A8 Registry. 
 The most basic way of registering, which can be used for microservices running on any platform / runtime, is shown in the following diagram:
 
-![basic registration](https://github.com/amalgam8/amalgam8.github.io/blob/master/images/basic-reg.jpg)
+![basic registration](assets/docs/amalgam8-service-registration.svg)
 
 The A8 service registration sidecar component is used to register and continuously send heartbeats to the registry on
 behalf of a microservice instance.
@@ -95,7 +101,7 @@ and reflected in the Kubernetes service registry.
 Rather than also explicitly registering this kind of service in the A8 Registry, an adapter plugin can be configured
 to watch the Kubernetes registry and automatically mirror the endpoints in Amalgam8:
 
-![k8s adapter](https://github.com/amalgam8/amalgam8.github.io/blob/master/images/k8s-adapter.jpg)
+![k8s adapter](assets/docs/amalgam8-registry-k8s-adapter.svg)
 
 In this case, service B is an ordinary Kubernetes service defined in serviceB.yaml. There is nothing that needs to
 be added or changed to integrate it with an Amalgam8 system. Instances, as they come and go, will be maintained in the Kubernetes
@@ -109,7 +115,7 @@ using the fluxctl command, endpoints of which are then automatically tracked and
 Integration with Amalgam8 could be done using exactly the same adapter pattern as in Kubernetes, only in this case adapting
 the WeaveFlux service information in Etcd, something like this:
 
-![weaveflux adapter](https://github.com/amalgam8/amalgam8.github.io/blob/master/images/weaveflux-adapter.jpg)
+![weaveflux adapter](assets/docs/amalgam8-registry-weaveflux-adapter.svg)
 
 The main point is that the A8 registry is designed to be open to these kinds of extensions, so that integrating a service into
 Amalgam8 can be as easy as possible in each particular case.
@@ -124,7 +130,7 @@ application as a whole.
 The A8 Proxy implementation uses [Nginx](https://nginx.org/en/)
 with the [OpenResty/Lua](https://openresty.org/en/) extension as the Proxy engine as shown in the following diagram:
 
-![a8 proxy](https://github.com/amalgam8/amalgam8.github.io/blob/master/images/proxy.jpg)
+![a8 proxy](assets/docs/amalgam8-sidecar-routing.svg)
 
 The Route Management component of the tenant sidecar process works by communicating with the A8 Controller, in the control plane, to
 manage the configuration information controlling the Nginx servers. Incoming requests will then be passed to 
@@ -146,7 +152,7 @@ Isolated end-to-end testing can be run on live systems without involving the mic
 Amalgam8 allows you to inject random delays or failures into the call path between microservices
 and then analyze the behavior provided by log messages from the A8 proxies. 
 
-![resilience testing](https://github.com/amalgam8/amalgam8.github.io/blob/master/images/testing.jpg)
+![resilience testing](assets/docs/amalgam8-gremlin-resilience-testing.svg)
 
 Using the integrated [Gremlin SDK](https://github.com/ResilienceTesting/gremlinsdk-python),
 Amalgam8 users can also perform systematic resilience testing with reproducible failure scenarios and assertions to
