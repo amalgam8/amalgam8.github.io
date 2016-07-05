@@ -65,8 +65,9 @@ The Amalgam8 platform consists of the following three components:
    provides a centralized view of all the microservices in an application,
    regardless of where they are actually running. To simplify integration
    of microservices that are already using a service registry, Amalgam8
-   registry provides adapters that automatically pull in information from
-   various service registry solutions such as Etcd (used by Kubernetes),
+   registry provides a plug-in point for adapters that can automatically
+   pull in information from
+   other service registry solutions such as Etcd (used by Kubernetes),
    Netflix Eureka, Consul, etc.
 
 2. **Controller** - A multi-tenant controller that monitors the registry
@@ -78,7 +79,7 @@ The Amalgam8 platform consists of the following three components:
 
 3. **Sidecar** -  Each microservice in the application is paired with a
    sidecar. Conceptually, the sidecar's basic responsibility includes service
-   registration, service discovery and *client-side load-balancing* of
+   registration (where required), service discovery and *client-side load-balancing* of
    requests across microservice instances. In addition to these basic
    responsibilities, the sidecar is responsible for essential functions
    such as version-aware routing, fault injection, ACLs, rate limiting,
@@ -100,7 +101,7 @@ work together.
 
 1. Microservice instances are registered in the Registry. There are several
    ways this may be accomplished as described in
-   [sidecar design](#sidecar-design) section.
+   [Amalgam8 Registry](#service-registration).
 2. The Developer uses the control plane API to configure high-level rules
    for request routing between services (e.g., splitting traffic across
    versions, injecting delays).
@@ -245,9 +246,6 @@ should be noted:
   etc., via the Proxy component, it is possible to leverage DevOps functions 
   such as failure-recovery testing between the microservice and third-party
   dependencies.
-
-In certain cases, a centralized group of proxies may be appropriate in some
-applications or for a gateway into the application as a whole.
 
 The Amalgam8 Proxy implementation uses [Nginx](https://nginx.org/en/) with
 the [OpenResty/Lua](https://openresty.org/en/) extension as the Proxy
