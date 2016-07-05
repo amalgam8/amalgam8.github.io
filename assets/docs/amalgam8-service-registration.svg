@@ -3,192 +3,152 @@
 
  <g>
   <title>background</title>
-  <rect fill="none" id="canvas_background" height="434" width="484" y="-1" x="-1"/>
+  <rect x="-1" y="-1" width="484" height="434" id="canvas_background" fill="none"/>
  </g>
  <g>
   <title>Layer 1</title>
-  <path id="svg_3" fill="#FFFFFF" d="m158.199032,363.987885l0,-119.074228c0,-16.41199 12.833758,-29.768557 28.603343,-29.768557l155.934353,0c15.769585,0 28.603343,13.356567 28.603343,29.768557l0,119.074228c0,16.41199 -12.833758,29.768557 -28.603343,29.768557l-155.934353,0c-15.769585,0 -28.603343,-13.356567 -28.603343,-29.768557zm0,0"/>
-  <path id="svg_4" stroke-linejoin="round" stroke="#000000" fill="none" d="m158.199032,363.987885l0,-119.074228c0,-16.41199 12.833758,-29.768557 28.603343,-29.768557l155.934353,0c15.769585,0 28.603343,13.356567 28.603343,29.768557l0,119.074228c0,16.41199 -12.833758,29.768557 -28.603343,29.768557l-155.934353,0c-15.769585,0 -28.603343,-13.356567 -28.603343,-29.768557zm0,0"/>
-  <path id="svg_5" fill="#FFFFFF" d="m158.199032,139.545188l0,-59.886305c0,-8.205995 6.458819,-14.927927 14.343612,-14.927927l184.369934,0c7.968673,0 14.427493,6.721932 14.427493,14.927927l0,59.886305c0,8.293293 -6.458819,15.015225 -14.427493,15.015225l-184.369934,0c-7.884792,0 -14.343612,-6.721932 -14.343612,-15.015225zm0,0"/>
-  <path id="svg_6" stroke-linejoin="round" stroke="#000000" fill="none" d="m158.199032,139.545188l0,-59.886305c0,-8.205995 6.458819,-14.927927 14.343612,-14.927927l184.369934,0c7.968673,0 14.427493,6.721932 14.427493,14.927927l0,59.886305c0,8.293293 -6.458819,15.015225 -14.427493,15.015225l-184.369934,0c-7.884792,0 -14.343612,-6.721932 -14.343612,-15.015225zm0,0"/>
-  <text x="0" y="0" id="svg_7" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,175.98175561479283,364.7735657423089) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve">T</text>
-  <text x="0" y="0" id="svg_8" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,182.69221726084695,364.7735657423089) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve">e</text>
-  <text x="0" y="0" id="svg_9" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,190.15760584208215,364.7735657423089) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve">n</text>
-  <text x="0" y="0" id="svg_10" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,197.62299442331735,364.7735657423089) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve">a</text>
-  <text x="0" y="0" id="svg_11" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,205.08838300455255,364.7735657423089) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve">n</text>
-  <text x="0" y="0" id="svg_12" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,212.55377158578776,364.7735657423089) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve">t</text>
-  <text x="0" y="0" id="svg_13" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,216.2445254911175,364.7735657423089) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve"/>
-  <text x="0" y="0" id="svg_14" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,175.98175561479283,381.36015172624593) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve">(</text>
-  <text x="0" y="0" id="svg_15" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,180.42743645530368,381.36015172624593) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve">a</text>
-  <text x="0" y="0" id="svg_16" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,187.89282503653888,381.36015172624593) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve">n</text>
-  <text x="0" y="0" id="svg_17" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,195.35821361777408,381.36015172624593) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve">y</text>
-  <text x="0" y="0" id="svg_18" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,202.0686752638282,381.36015172624593) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve"/>
-  <text x="0" y="0" id="svg_19" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,205.84330993973364,381.36015172624593) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve">p</text>
-  <text x="0" y="0" id="svg_20" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,213.30869852096885,381.36015172624593) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve">l</text>
-  <text x="0" y="0" id="svg_21" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,216.2445254911175,381.36015172624593) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve">a</text>
-  <text x="0" y="0" id="svg_22" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,223.7099140723527,381.36015172624593) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve">t</text>
-  <text x="0" y="0" id="svg_23" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,227.48454874825813,381.36015172624593) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve">f</text>
-  <text x="0" y="0" id="svg_24" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,231.17530265358792,381.36015172624593) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve">o</text>
-  <text x="0" y="0" id="svg_25" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,238.64069123482312,381.36015172624593) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve">r</text>
-  <text x="0" y="0" id="svg_26" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,243.08637207533397,381.36015172624593) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve">m</text>
-  <text x="0" y="0" id="svg_27" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,254.3263953324746,381.36015172624593) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve">)</text>
-  <text x="0" y="0" id="svg_28" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,171.78771708600902,84.54756043474174) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve">C</text>
-  <text x="0" y="0" id="svg_29" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,181.51788647278747,84.54756043474174) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve">o</text>
-  <text x="0" y="0" id="svg_30" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,188.98327505402267,84.54756043474174) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve">n</text>
-  <text x="0" y="0" id="svg_31" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,196.44866363525787,84.54756043474174) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve">t</text>
-  <text x="0" y="0" id="svg_32" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,200.13941754058766,84.54756043474174) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve">r</text>
-  <text x="0" y="0" id="svg_33" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,204.58509838109848,84.54756043474174) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve">o</text>
-  <text x="0" y="0" id="svg_34" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,212.0504869623337,84.54756043474174) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve">l</text>
-  <text x="0" y="0" id="svg_35" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,215.07019470305806,84.54756043474174) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve"/>
-  <text x="0" y="0" id="svg_36" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,218.76094860838782,84.54756043474174) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve">P</text>
-  <text x="0" y="0" id="svg_37" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,227.73619105998517,84.54756043474174) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve">l</text>
-  <text x="0" y="0" id="svg_38" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,230.75589880070953,84.54756043474174) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve">a</text>
-  <text x="0" y="0" id="svg_39" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,238.22128738194473,84.54756043474174) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve">n</text>
-  <text x="0" y="0" id="svg_40" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,245.68667596317997,84.54756043474174) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve">e</text>
-  <g transform="matrix(0.8388077057567642,0,0,-0.8729782096808947,-0.16786259412765503,534.1313384204025) " id="svg_41">
-   <clipPath transform="translate(0,1.1368683772161603e-13) " id="clip-256">
-    <path id="svg_42" d="m417.3,494.8l0,-47.6l-201.8,0l0,47.6l201.8,0zm0,0"/>
+  <path d="m158.19903,363.98789l0,-119.07423c0,-16.41199 12.83376,-29.76856 28.60334,-29.76856l155.93436,0c15.76958,0 28.60334,13.35657 28.60334,29.76856l0,119.07423c0,16.41199 -12.83376,29.76855 -28.60334,29.76855l-155.93436,0c-15.76958,0 -28.60334,-13.35656 -28.60334,-29.76855zm0,0" fill="#FFFFFF" id="svg_3"/>
+  <path d="m158.19903,363.98789l0,-119.07423c0,-16.41199 12.83376,-29.76856 28.60334,-29.76856l155.93436,0c15.76958,0 28.60334,13.35657 28.60334,29.76856l0,119.07423c0,16.41199 -12.83376,29.76855 -28.60334,29.76855l-155.93436,0c-15.76958,0 -28.60334,-13.35656 -28.60334,-29.76855zm0,0" fill="none" stroke="#000000" stroke-linejoin="round" id="svg_4"/>
+  <path d="m158.19903,139.54519l0,-59.88631c0,-8.20599 6.45882,-14.92792 14.34361,-14.92792l184.36994,0c7.96867,0 14.42749,6.72193 14.42749,14.92792l0,59.88631c0,8.29329 -6.45882,15.01522 -14.42749,15.01522l-184.36994,0c-7.88479,0 -14.34361,-6.72193 -14.34361,-15.01522zm0,0" fill="#FFFFFF" id="svg_5"/>
+  <path d="m158.19903,139.54519l0,-59.88631c0,-8.20599 6.45882,-14.92792 14.34361,-14.92792l184.36994,0c7.96867,0 14.42749,6.72193 14.42749,14.92792l0,59.88631c0,8.29329 -6.45882,15.01522 -14.42749,15.01522l-184.36994,0c-7.88479,0 -14.34361,-6.72193 -14.34361,-15.01522zm0,0" fill="none" stroke="#000000" stroke-linejoin="round" id="svg_6"/>
+  <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,175.98175561479283,364.7735657423089) " id="svg_7" y="0" x="0">T</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,182.69221726084695,364.7735657423089) " id="svg_8" y="0" x="0">e</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,190.15760584208215,364.7735657423089) " id="svg_9" y="0" x="0">n</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,197.62299442331735,364.7735657423089) " id="svg_10" y="0" x="0">a</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,205.08838300455255,364.7735657423089) " id="svg_11" y="0" x="0">n</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,212.55377158578776,364.7735657423089) " id="svg_12" y="0" x="0">t</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,216.2445254911175,364.7735657423089) " id="svg_13" y="0" x="0"/>
+  <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,175.98175561479283,381.36015172624593) " id="svg_14" y="0" x="0">(</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,180.42743645530368,381.36015172624593) " id="svg_15" y="0" x="0">a</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,187.89282503653888,381.36015172624593) " id="svg_16" y="0" x="0">n</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,195.35821361777408,381.36015172624593) " id="svg_17" y="0" x="0">y</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,202.0686752638282,381.36015172624593) " id="svg_18" y="0" x="0"/>
+  <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,205.84330993973364,381.36015172624593) " id="svg_19" y="0" x="0">p</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,213.30869852096885,381.36015172624593) " id="svg_20" y="0" x="0">l</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,216.2445254911175,381.36015172624593) " id="svg_21" y="0" x="0">a</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,223.7099140723527,381.36015172624593) " id="svg_22" y="0" x="0">t</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,227.48454874825813,381.36015172624593) " id="svg_23" y="0" x="0">f</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,231.17530265358792,381.36015172624593) " id="svg_24" y="0" x="0">o</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,238.64069123482312,381.36015172624593) " id="svg_25" y="0" x="0">r</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,243.08637207533397,381.36015172624593) " id="svg_26" y="0" x="0">m</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,254.3263953324746,381.36015172624593) " id="svg_27" y="0" x="0">)</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,171.78771708600902,84.54756043474174) " id="svg_28" y="0" x="0">C</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,181.51788647278747,84.54756043474174) " id="svg_29" y="0" x="0">o</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,188.98327505402267,84.54756043474174) " id="svg_30" y="0" x="0">n</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,196.44866363525787,84.54756043474174) " id="svg_31" y="0" x="0">t</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,200.13941754058766,84.54756043474174) " id="svg_32" y="0" x="0">r</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,204.58509838109848,84.54756043474174) " id="svg_33" y="0" x="0">o</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,212.0504869623337,84.54756043474174) " id="svg_34" y="0" x="0">l</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,215.07019470305806,84.54756043474174) " id="svg_35" y="0" x="0"/>
+  <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,218.76094860838782,84.54756043474174) " id="svg_36" y="0" x="0">P</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,227.73619105998517,84.54756043474174) " id="svg_37" y="0" x="0">l</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,230.75589880070953,84.54756043474174) " id="svg_38" y="0" x="0">a</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,238.22128738194473,84.54756043474174) " id="svg_39" y="0" x="0">n</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,245.68667596317997,84.54756043474174) " id="svg_40" y="0" x="0">e</text>
+  <g id="svg_41" transform="matrix(0.8388077057567642,0,0,-0.8729782096808947,-0.16786259412765503,534.1313384204025) ">
+   <clipPath id="clip-256">
+    <path d="m417.3,494.8l0,-47.6l-201.8,0l0,47.6l201.8,0zm0,0" id="svg_42"/>
    </clipPath>
-   <g id="svg_43" clip-path="url(#clip-256)">
-    <path id="svg_44" fill="#FFFFFF" d="m228.1,492.6l176.7,0c5.7,0 10.4,-4.6 10.4,-10.4l0,-22.4c0,-5.8 -4.7,-10.5 -10.4,-10.5l-176.7,0c-5.8,0 -10.5,4.7 -10.5,10.5l0,22.4c0,5.8 4.7,10.4 10.5,10.4zm0,0"/>
-    <path id="svg_45" stroke-linejoin="round" stroke-width="2.25" stroke="#9D6E80" fill="none" d="m228,492.6l176.7,0c5.8,0 10.5,-4.7 10.5,-10.5l0,-22.4c0,-5.7 -4.7,-10.4 -10.5,-10.4l-176.7,0c-5.7,0 -10.4,4.7 -10.4,10.4l0,22.4c0,5.8 4.7,10.5 10.4,10.5zm0,0"/>
+   <g clip-path="url(#clip-256)" id="svg_43">
+    <path d="m228.1,492.6l176.7,0c5.7,0 10.4,-4.6 10.4,-10.4l0,-22.4c0,-5.8 -4.7,-10.5 -10.4,-10.5l-176.7,0c-5.8,0 -10.5,4.7 -10.5,10.5l0,22.4c0,5.8 4.7,10.4 10.5,10.4zm0,0" fill="#FFFFFF" id="svg_44"/>
+    <path d="m228,492.6l176.7,0c5.8,0 10.5,-4.7 10.5,-10.5l0,-22.4c0,-5.7 -4.7,-10.4 -10.5,-10.4l-176.7,0c-5.7,0 -10.4,4.7 -10.4,10.4l0,22.4c0,5.8 4.7,10.5 10.4,10.5zm0,0" fill="none" stroke="#9D6E80" stroke-width="2.25" stroke-linejoin="round" id="svg_45"/>
    </g>
   </g>
-  <g transform="matrix(0.8388077057567642,0,0,-0.8729782096808947,-0.16786259412765503,534.1313384204025) " id="svg_46">
-   <clipPath transform="translate(0,1.1368683772161603e-13) " id="clip-257">
-    <path id="svg_47" d="m220.3,457.5l192.3,0l0,27l-192.3,0l0,-27zm0,0"/>
+  <g id="svg_46" transform="matrix(0.8388077057567642,0,0,-0.8729782096808947,-0.16786259412765503,534.1313384204025) ">
+   <clipPath id="clip-257">
+    <path d="m220.3,457.5l192.3,0l0,27l-192.3,0l0,-27zm0,0" id="svg_47"/>
    </clipPath>
-   <g id="svg_48" clip-path="url(#clip-257)">
-    <text x="0" y="0" id="svg_49" transform="matrix(1,0,0,-1,247,465) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve">A</text>
-    <text x="0" y="0" id="svg_50" transform="matrix(1,0,0,-1,257.7,465) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve">m</text>
-    <text x="0" y="0" id="svg_51" transform="matrix(1,0,0,-1,271,465) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve">a</text>
-    <text x="0" y="0" id="svg_52" transform="matrix(1,0,0,-1,279.9,465) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve">l</text>
-    <text x="0" y="0" id="svg_53" transform="matrix(1,0,0,-1,283.5,465) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve">g</text>
-    <text x="0" y="0" id="svg_54" transform="matrix(1,0,0,-1,292.4,465) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve">a</text>
-    <text x="0" y="0" id="svg_55" transform="matrix(1,0,0,-1,301.3,465) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve">m</text>
-    <text x="0" y="0" id="svg_56" transform="matrix(1,0,0,-1,314.6,465) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve">8</text>
-    <text x="0" y="0" id="svg_57" transform="matrix(1,0,0,-1,323.5,465) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve"/>
-    <text x="0" y="0" id="svg_58" transform="matrix(1,0,0,-1,327.9,465) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve">R</text>
-    <text x="0" y="0" id="svg_59" transform="matrix(1,0,0,-1,339.5,465) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve">e</text>
-    <text x="0" y="0" id="svg_60" transform="matrix(1,0,0,-1,348.4,465) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve">g</text>
-    <text x="0" y="0" id="svg_61" transform="matrix(1,0,0,-1,357.3,465) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve">i</text>
-    <text x="0" y="0" id="svg_62" transform="matrix(1,0,0,-1,360.9,465) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve">s</text>
-    <text x="0" y="0" id="svg_63" transform="matrix(1,0,0,-1,368.9,465) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve">t</text>
-    <text x="0" y="0" id="svg_64" transform="matrix(1,0,0,-1,373.3,465) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve">r</text>
-    <text x="0" y="0" id="svg_65" transform="matrix(1,0,0,-1,378.6,465) " fill="#000000" font-size="16" font-family="Helvetica" xml:space="preserve">y</text>
+   <g clip-path="url(#clip-257)" id="svg_48">
+    <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(1,0,0,-1,247,465) " id="svg_49" y="0" x="0">A</text>
+    <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(1,0,0,-1,257.7,465) " id="svg_50" y="0" x="0">m</text>
+    <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(1,0,0,-1,271,465) " id="svg_51" y="0" x="0">a</text>
+    <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(1,0,0,-1,279.9,465) " id="svg_52" y="0" x="0">l</text>
+    <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(1,0,0,-1,283.5,465) " id="svg_53" y="0" x="0">g</text>
+    <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(1,0,0,-1,292.4,465) " id="svg_54" y="0" x="0">a</text>
+    <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(1,0,0,-1,301.3,465) " id="svg_55" y="0" x="0">m</text>
+    <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(1,0,0,-1,314.6,465) " id="svg_56" y="0" x="0">8</text>
+    <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(1,0,0,-1,323.5,465) " id="svg_57" y="0" x="0"/>
+    <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(1,0,0,-1,327.9,465) " id="svg_58" y="0" x="0">R</text>
+    <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(1,0,0,-1,339.5,465) " id="svg_59" y="0" x="0">e</text>
+    <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(1,0,0,-1,348.4,465) " id="svg_60" y="0" x="0">g</text>
+    <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(1,0,0,-1,357.3,465) " id="svg_61" y="0" x="0">i</text>
+    <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(1,0,0,-1,360.9,465) " id="svg_62" y="0" x="0">s</text>
+    <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(1,0,0,-1,368.9,465) " id="svg_63" y="0" x="0">t</text>
+    <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(1,0,0,-1,373.3,465) " id="svg_64" y="0" x="0">r</text>
+    <text xml:space="preserve" font-family="Helvetica" font-size="16" fill="#000000" transform="matrix(1,0,0,-1,378.6,465) " id="svg_65" y="0" x="0">y</text>
    </g>
   </g>
-  <g transform="matrix(0.8388077057567642,0,0,-0.8729782096808947,-0.16786259412765503,534.1313384204025) " id="svg_66">
-   <clipPath transform="translate(0,1.1368683772161603e-13) " id="clip-258">
-    <path id="svg_67" d="m197.6,249.6l73,0l0,73.5l-73,0l0,-73.5zm0,0"/>
+  <g id="svg_66" transform="matrix(0.8388077057567642,0,0,-0.8729782096808947,-0.16786259412765503,534.1313384204025) ">
+   <clipPath id="clip-258">
+    <path d="m197.6,249.6l73,0l0,73.5l-73,0l0,-73.5zm0,0" id="svg_67"/>
    </clipPath>
-   <g id="svg_68" clip-path="url(#clip-258)">
-    <path id="svg_69" fill="#FFFFFF" d="m199,262.7l0,47.3c0,6.5 5.3,11.7 11.7,11.7l46.8,0c6.5,0 11.7,-5.2 11.7,-11.7l0,-47.3c0,-6.5 -5.2,-11.7 -11.7,-11.7l-46.8,0c-6.4,0 -11.7,5.2 -11.7,11.7zm0,0"/>
-    <path id="svg_70" stroke-linejoin="round" stroke-width="0.75" stroke="#442845" fill="none" d="m199,262.7l0,47.3c0,6.5 5.2,11.7 11.7,11.7l46.8,0c6.4,0 11.7,-5.2 11.7,-11.7l0,-47.3c0,-6.5 -5.3,-11.7 -11.7,-11.7l-46.8,0c-6.5,0 -11.7,5.2 -11.7,11.7zm0,0"/>
+   <g clip-path="url(#clip-258)" id="svg_68">
+    <path d="m199,262.7l0,47.3c0,6.5 5.3,11.7 11.7,11.7l46.8,0c6.5,0 11.7,-5.2 11.7,-11.7l0,-47.3c0,-6.5 -5.2,-11.7 -11.7,-11.7l-46.8,0c-6.4,0 -11.7,5.2 -11.7,11.7zm0,0" fill="#FFFFFF" id="svg_69"/>
+    <path d="m199,262.7l0,47.3c0,6.5 5.2,11.7 11.7,11.7l46.8,0c6.4,0 11.7,-5.2 11.7,-11.7l0,-47.3c0,-6.5 -5.3,-11.7 -11.7,-11.7l-46.8,0c-6.5,0 -11.7,5.2 -11.7,11.7zm0,0" fill="none" stroke="#442845" stroke-width="0.75" stroke-linejoin="round" id="svg_70"/>
    </g>
   </g>
-  <g transform="matrix(0.8388077057567642,0,0,-0.8729782096808947,-0.16786259412765503,534.1313384204025) " id="svg_71">
-   <clipPath transform="translate(0,1.1368683772161603e-13) " id="clip-259">
-    <path id="svg_72" d="m201,269.4l66.2,0l0,34l-66.2,0l0,-34zm0,0"/>
+  <g id="svg_71" transform="matrix(0.8388077057567642,0,0,-0.8729782096808947,-0.16786259412765503,534.1313384204025) ">
+   <clipPath id="clip-259">
+    <path d="m201,269.4l66.2,0l0,34l-66.2,0l0,-34zm0,0" id="svg_72"/>
    </clipPath>
-   <g id="svg_73" clip-path="url(#clip-259)">
-    <text x="0" y="0" id="svg_74" transform="matrix(1,0,0,-1,227,279) " fill="#000000" font-size="20" font-family="Helvetica" xml:space="preserve">A</text>
+   <g clip-path="url(#clip-259)" id="svg_73">
+    <text xml:space="preserve" font-family="Helvetica" font-size="20" fill="#000000" transform="matrix(1,0,0,-1,227,279) " id="svg_74" y="0" x="0">A</text>
    </g>
   </g>
-  <path id="svg_75" stroke-linejoin="round" stroke-width="2.25" stroke="#9D6E80" fill="none" d="m279.322865,284.110379c-15.769585,0 -31.53917,0 -47.224874,0l-1.006569,0"/>
-  <path id="svg_76" fill="#9D6E80" d="m225.974695,284.110379l9.143004,5.587061l0,0c0.587165,0.349191 1.342092,0.174596 1.677615,-0.436489c0.335523,-0.611085 0.167762,-1.396765 -0.419404,-1.745956l-5.536131,-3.404615l5.536131,-3.317317l0,0c0.587165,-0.349191 0.754927,-1.134872 0.419404,-1.745956c-0.335523,-0.611085 -1.09045,-0.78568 -1.677615,-0.436489c0,0 0,0 0,0l-9.143004,5.499763zm0,0"/>
-  <path id="svg_77" stroke-linejoin="round" stroke-width="2.25" stroke="#9D6E80" fill="none" d="m320.1728,253.294248l0,-105.019279l0,-0.960276"/>
-  <path id="svg_78" fill="#9D6E80" d="m320.1728,141.902229l-5.368369,9.515462l0,0c-0.335523,0.611085 -0.083881,1.396765 0.503285,1.745956c0.587165,0.349191 1.258212,0.174596 1.593735,-0.436489l3.27135,-5.761656l3.187469,5.761656l0,0c0.335523,0.611085 1.09045,0.78568 1.677615,0.436489c0.587165,-0.349191 0.838808,-1.134872 0.503285,-1.745956c0,0 0,0 0,0l-5.368369,-9.515462zm0,0"/>
-  <text x="0" y="0" id="svg_79" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,325.28952723949686,182.32111991900194) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">R</text>
-  <text x="0" y="0" id="svg_80" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,333.7614850676402,182.32111991900194) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">e</text>
-  <text x="0" y="0" id="svg_81" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,340.30418517254293,182.32111991900194) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">g</text>
-  <text x="0" y="0" id="svg_82" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,346.8468852774457,182.32111991900194) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">i</text>
-  <text x="0" y="0" id="svg_83" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,349.44718916529166,182.32111991900194) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">s</text>
-  <text x="0" y="0" id="svg_84" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,355.31884310558905,182.32111991900194) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">t</text>
-  <text x="0" y="0" id="svg_85" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,358.5901931580404,182.32111991900194) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">e</text>
-  <text x="0" y="0" id="svg_86" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,365.1328932629432,182.32111991900194) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">r</text>
-  <text x="0" y="0" id="svg_87" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,368.9914087094243,182.32111991900194) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve"/>
-  <text x="0" y="0" id="svg_88" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,372.26275876187566,182.32111991900194) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">/</text>
-  <text x="0" y="0" id="svg_89" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,375.534108814327,182.32111991900194) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve"/>
-  <text x="0" y="0" id="svg_90" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,378.80545886677845,182.32111991900194) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">h</text>
-  <text x="0" y="0" id="svg_91" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,385.3481589716812,182.32111991900194) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">e</text>
-  <text x="0" y="0" id="svg_92" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,391.8908590765839,182.32111991900194) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">a</text>
-  <text x="0" y="0" id="svg_93" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,398.4335591814867,182.32111991900194) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">r</text>
-  <text x="0" y="0" id="svg_94" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,402.29207462796785,182.32111991900194) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">t</text>
-  <text x="0" y="0" id="svg_95" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,405.5634246804192,182.32111991900194) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">b</text>
-  <text x="0" y="0" id="svg_96" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,412.106124785322,182.32111991900194) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">e</text>
-  <text x="0" y="0" id="svg_97" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,418.6488248902247,182.32111991900194) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">a</text>
-  <text x="0" y="0" id="svg_98" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,425.1915249951275,182.32111991900194) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">t</text>
-  <text x="0" y="0" id="svg_99" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,428.46287504757885,182.32111991900194) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve"/>
-  <text x="0" y="0" id="svg_100" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,325.28952723949686,197.16174948357713) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">s</text>
-  <text x="0" y="0" id="svg_101" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,331.1611811797942,197.16174948357713) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">e</text>
-  <text x="0" y="0" id="svg_102" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,337.703881284697,197.16174948357713) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">r</text>
-  <text x="0" y="0" id="svg_103" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,341.6462775017538,197.16174948357713) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">v</text>
-  <text x="0" y="0" id="svg_104" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,347.5179314420511,197.16174948357713) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">i</text>
-  <text x="0" y="0" id="svg_105" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,350.1182353298971,197.16174948357713) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">c</text>
-  <text x="0" y="0" id="svg_106" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,355.98988927019445,197.16174948357713) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">e</text>
-  <text x="0" y="0" id="svg_107" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,362.5325893750972,197.16174948357713) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">A</text>
-  <g transform="matrix(0.8388077057567642,0,0,-0.8729782096808947,-0.16786259412765503,534.1313384204025) " id="svg_108">
-   <clipPath transform="translate(0,1.1368683772161603e-13) " id="clip-260">
-    <path id="svg_109" d="m332.2,249l100.6,0l0,74.7l-100.6,0l0,-74.7zm0,0"/>
+  <path d="m279.32286,284.11038c-15.76958,0 -31.53917,0 -47.22487,0l-1.00657,0" fill="none" stroke="#9D6E80" stroke-width="2.25" stroke-linejoin="round" id="svg_75"/>
+  <path d="m225.97469,284.11038l9.14301,5.58706l0,0c0.58716,0.34919 1.34209,0.1746 1.67761,-0.43649c0.33553,-0.61108 0.16777,-1.39676 -0.4194,-1.74595l-5.53613,-3.40462l5.53613,-3.31732l0,0c0.58717,-0.34919 0.75493,-1.13487 0.4194,-1.74595c-0.33552,-0.61109 -1.09045,-0.78568 -1.67761,-0.43649c0,0 0,0 0,0l-9.14301,5.49976zm0,0" fill="#9D6E80" id="svg_76"/>
+  <path d="m320.1728,253.29425l0,-105.01928l0,-0.96028" fill="none" stroke="#9D6E80" stroke-width="2.25" stroke-linejoin="round" id="svg_77"/>
+  <path d="m320.1728,141.90223l-5.36837,9.51546l0,0c-0.33552,0.61109 -0.08388,1.39677 0.50329,1.74596c0.58716,0.34919 1.25821,0.17459 1.59373,-0.43649l3.27135,-5.76166l3.18747,5.76166l0,0c0.33552,0.61108 1.09045,0.78568 1.67762,0.43649c0.58716,-0.34919 0.8388,-1.13488 0.50328,-1.74596c0,0 0,0 0,0l-5.36837,-9.51546zm0,0" fill="#9D6E80" id="svg_78"/>
+  <text xml:space="preserve" font-family="Helvetica" font-size="14" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,325.28952723949686,182.32111991900194) " id="svg_79" y="0" x="0">R</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="14" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,333.7614850676402,182.32111991900194) " id="svg_80" y="0" x="0">e</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="14" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,340.30418517254293,182.32111991900194) " id="svg_81" y="0" x="0">g</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="14" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,346.8468852774457,182.32111991900194) " id="svg_82" y="0" x="0">i</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="14" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,349.44718916529166,182.32111991900194) " id="svg_83" y="0" x="0">s</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="14" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,355.31884310558905,182.32111991900194) " id="svg_84" y="0" x="0">t</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="14" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,358.5901931580404,182.32111991900194) " id="svg_85" y="0" x="0">e</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="14" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,365.1328932629432,182.32111991900194) " id="svg_86" y="0" x="0">r</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="14" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,368.9914087094243,182.32111991900194) " id="svg_87" y="0" x="0"/>
+  <text xml:space="preserve" font-family="Helvetica" font-size="14" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,372.26275876187566,182.32111991900194) " id="svg_88" y="0" x="0">/</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="14" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,375.534108814327,182.32111991900194) " id="svg_89" y="0" x="0"/>
+  <text xml:space="preserve" font-family="Helvetica" font-size="14" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,378.80545886677845,182.32111991900194) " id="svg_90" y="0" x="0">h</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="14" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,385.3481589716812,182.32111991900194) " id="svg_91" y="0" x="0">e</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="14" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,391.8908590765839,182.32111991900194) " id="svg_92" y="0" x="0">a</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="14" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,398.4335591814867,182.32111991900194) " id="svg_93" y="0" x="0">r</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="14" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,402.29207462796785,182.32111991900194) " id="svg_94" y="0" x="0">t</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="14" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,405.5634246804192,182.32111991900194) " id="svg_95" y="0" x="0">b</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="14" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,412.106124785322,182.32111991900194) " id="svg_96" y="0" x="0">e</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="14" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,418.6488248902247,182.32111991900194) " id="svg_97" y="0" x="0">a</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="14" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,425.1915249951275,182.32111991900194) " id="svg_98" y="0" x="0">t</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="14" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,428.46287504757885,182.32111991900194) " id="svg_99" y="0" x="0"/>
+  <text xml:space="preserve" font-family="Helvetica" font-size="14" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,325.28952723949686,197.16174948357713) " id="svg_100" y="0" x="0">s</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="14" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,331.1611811797942,197.16174948357713) " id="svg_101" y="0" x="0">e</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="14" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,337.703881284697,197.16174948357713) " id="svg_102" y="0" x="0">r</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="14" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,341.6462775017538,197.16174948357713) " id="svg_103" y="0" x="0">v</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="14" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,347.5179314420511,197.16174948357713) " id="svg_104" y="0" x="0">i</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="14" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,350.1182353298971,197.16174948357713) " id="svg_105" y="0" x="0">c</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="14" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,355.98988927019445,197.16174948357713) " id="svg_106" y="0" x="0">e</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="14" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,362.5325893750972,197.16174948357713) " id="svg_107" y="0" x="0">A</text>
+  <g id="svg_108" transform="matrix(0.8388077057567642,0,0,-0.8729782096808947,-0.16786259412765503,534.1313384204025) ">
+   <clipPath id="clip-260">
+    <path d="m332.2,249l100.6,0l0,74.7l-100.6,0l0,-74.7zm0,0" id="svg_109"/>
    </clipPath>
-   <g id="svg_110" clip-path="url(#clip-260)">
-    <path id="svg_111" fill="#EDEDED" d="m334.2,262.8l0,47.2c0,6.5 5.2,11.7 11.7,11.7l73.1,0c6.6,0 11.8,-5.2 11.8,-11.7l0,-47.2c0,-6.5 -5.2,-11.8 -11.8,-11.8l-73.1,0c-6.5,0 -11.7,5.3 -11.7,11.8zm0,0"/>
-    <path id="svg_112" stroke-linejoin="round" stroke-width="2" stroke="#442845" fill="none" d="m334.2,262.8l0,47.1c0,6.5 5.3,11.8 11.8,11.8l73.1,0c6.5,0 11.8,-5.3 11.8,-11.8l0,-47.1c0,-6.6 -5.3,-11.8 -11.8,-11.8l-73.1,0c-6.5,0 -11.8,5.2 -11.8,11.8zm0,0"/>
+   <g clip-path="url(#clip-260)" id="svg_110">
+    <path d="m334.2,262.8l0,47.2c0,6.5 5.2,11.7 11.7,11.7l73.1,0c6.6,0 11.8,-5.2 11.8,-11.7l0,-47.2c0,-6.5 -5.2,-11.8 -11.8,-11.8l-73.1,0c-6.5,0 -11.7,5.3 -11.7,11.8zm0,0" fill="#EDEDED" id="svg_111"/>
+    <path d="m334.2,262.8l0,47.1c0,6.5 5.3,11.8 11.8,11.8l73.1,0c6.5,0 11.8,-5.3 11.8,-11.8l0,-47.1c0,-6.6 -5.3,-11.8 -11.8,-11.8l-73.1,0c-6.5,0 -11.8,5.2 -11.8,11.8zm0,0" fill="none" stroke="#442845" stroke-width="2" stroke-linejoin="round" id="svg_112"/>
    </g>
   </g>
-  <g transform="matrix(0.8388077057567642,0,0,-0.8729782096808947,-0.16786259412765503,534.1313384204025) " id="svg_113">
-   <clipPath transform="translate(0,1.1368683772161603e-13) " id="clip-261">
-    <path id="svg_114" d="m337.6,248.8l92.9,0l0,75.2l-92.9,0l0,-75.2zm0,0"/>
-   </clipPath>
-   <g id="svg_115" clip-path="url(#clip-261)">
-    <text x="0" y="0" id="svg_116" transform="matrix(1,0,0,-1,349,307) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">A</text>
-    <text x="0" y="0" id="svg_117" transform="matrix(1,0,0,-1,358.3,307) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">m</text>
-    <text x="0" y="0" id="svg_118" transform="matrix(1,0,0,-1,370,307) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">a</text>
-    <text x="0" y="0" id="svg_119" transform="matrix(1,0,0,-1,377.8,307) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">l</text>
-    <text x="0" y="0" id="svg_120" transform="matrix(1,0,0,-1,380.9,307) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">g</text>
-    <text x="0" y="0" id="svg_121" transform="matrix(1,0,0,-1,388.7,307) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">a</text>
-    <text x="0" y="0" id="svg_122" transform="matrix(1,0,0,-1,396.5,307) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">m</text>
-    <text x="0" y="0" id="svg_123" transform="matrix(1,0,0,-1,408.1,307) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">8</text>
-    <text x="0" y="0" id="svg_124" transform="matrix(1,0,0,-1,359,290) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">S</text>
-    <text x="0" y="0" id="svg_125" transform="matrix(1,0,0,-1,368.3,290) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">e</text>
-    <text x="0" y="0" id="svg_126" transform="matrix(1,0,0,-1,376.1,290) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">r</text>
-    <text x="0" y="0" id="svg_127" transform="matrix(1,0,0,-1,380.8,290) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">v</text>
-    <text x="0" y="0" id="svg_128" transform="matrix(1,0,0,-1,387.8,290) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">i</text>
-    <text x="0" y="0" id="svg_129" transform="matrix(1,0,0,-1,390.9,290) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">c</text>
-    <text x="0" y="0" id="svg_130" transform="matrix(1,0,0,-1,397.9,290) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">e</text>
-    <text x="0" y="0" id="svg_131" transform="matrix(1,0,0,-1,405.7,290) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve"/>
-    <text x="0" y="0" id="svg_132" transform="matrix(1,0,0,-1,345,273) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">R</text>
-    <text x="0" y="0" id="svg_133" transform="matrix(1,0,0,-1,355.1,273) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">e</text>
-    <text x="0" y="0" id="svg_134" transform="matrix(1,0,0,-1,362.9,273) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">g</text>
-    <text x="0" y="0" id="svg_135" transform="matrix(1,0,0,-1,370.7,273) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">i</text>
-    <text x="0" y="0" id="svg_136" transform="matrix(1,0,0,-1,373.8,273) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">s</text>
-    <text x="0" y="0" id="svg_137" transform="matrix(1,0,0,-1,380.8,273) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">t</text>
-    <text x="0" y="0" id="svg_138" transform="matrix(1,0,0,-1,384.7,273) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">r</text>
-    <text x="0" y="0" id="svg_139" transform="matrix(1,0,0,-1,389.4,273) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">a</text>
-    <text x="0" y="0" id="svg_140" transform="matrix(1,0,0,-1,397.1,273) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">t</text>
-    <text x="0" y="0" id="svg_141" transform="matrix(1,0,0,-1,401,273) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">i</text>
-    <text x="0" y="0" id="svg_142" transform="matrix(1,0,0,-1,404.1,273) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">o</text>
-    <text x="0" y="0" id="svg_143" transform="matrix(1,0,0,-1,411.9,273) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">n</text>
-    <text x="0" y="0" id="svg_144" transform="matrix(1,0,0,-1,359,256) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">S</text>
-    <text x="0" y="0" id="svg_145" transform="matrix(1,0,0,-1,368.3,256) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">i</text>
-    <text x="0" y="0" id="svg_146" transform="matrix(1,0,0,-1,371.5,256) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">d</text>
-    <text x="0" y="0" id="svg_147" transform="matrix(1,0,0,-1,379.2,256) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">e</text>
-    <text x="0" y="0" id="svg_148" transform="matrix(1,0,0,-1,387,256) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">c</text>
-    <text x="0" y="0" id="svg_149" transform="matrix(1,0,0,-1,394,256) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">a</text>
-    <text x="0" y="0" id="svg_150" transform="matrix(1,0,0,-1,401.8,256) " fill="#000000" font-size="14" font-family="Helvetica" xml:space="preserve">r</text>
-   </g>
-  </g>
-  <text x="0" y="0" id="svg_151" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,239.7311412523069,297.55424359688004) " fill="#000000" font-size="12" font-family="Helvetica" xml:space="preserve">H</text>
-  <text x="0" y="0" id="svg_152" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,247.02876829239077,297.55424359688004) " fill="#000000" font-size="12" font-family="Helvetica" xml:space="preserve">e</text>
-  <text x="0" y="0" id="svg_153" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,252.5648991503854,297.55424359688004) " fill="#000000" font-size="12" font-family="Helvetica" xml:space="preserve">a</text>
-  <text x="0" y="0" id="svg_154" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,258.1849107789557,297.55424359688004) " fill="#000000" font-size="12" font-family="Helvetica" xml:space="preserve">l</text>
-  <text x="0" y="0" id="svg_155" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,260.44969158449896,297.55424359688004) " fill="#000000" font-size="12" font-family="Helvetica" xml:space="preserve">t</text>
-  <text x="0" y="0" id="svg_156" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,263.21775701349634,297.55424359688004) " fill="#000000" font-size="12" font-family="Helvetica" xml:space="preserve">h</text>
-  <text x="0" y="0" id="svg_157" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,239.7311412523069,309.7759385324125) " fill="#000000" font-size="12" font-family="Helvetica" xml:space="preserve">c</text>
-  <text x="0" y="0" id="svg_158" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,244.7639874868475,309.7759385324125) " fill="#000000" font-size="12" font-family="Helvetica" xml:space="preserve">h</text>
-  <text x="0" y="0" id="svg_159" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,250.38399911541782,309.7759385324125) " fill="#000000" font-size="12" font-family="Helvetica" xml:space="preserve">e</text>
-  <text x="0" y="0" id="svg_160" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,256.00401074398815,309.7759385324125) " fill="#000000" font-size="12" font-family="Helvetica" xml:space="preserve">c</text>
-  <text x="0" y="0" id="svg_161" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,261.0368569785287,309.7759385324125) " fill="#000000" font-size="12" font-family="Helvetica" xml:space="preserve">k</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="12" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,239.7311412523069,297.55424359688004) " id="svg_151" y="0" x="0">H</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="12" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,247.02876829239077,297.55424359688004) " id="svg_152" y="0" x="0">e</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="12" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,252.5648991503854,297.55424359688004) " id="svg_153" y="0" x="0">a</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="12" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,258.1849107789557,297.55424359688004) " id="svg_154" y="0" x="0">l</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="12" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,260.44969158449896,297.55424359688004) " id="svg_155" y="0" x="0">t</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="12" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,263.21775701349634,297.55424359688004) " id="svg_156" y="0" x="0">h</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="12" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,239.7311412523069,309.7759385324125) " id="svg_157" y="0" x="0">c</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="12" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,244.7639874868475,309.7759385324125) " id="svg_158" y="0" x="0">h</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="12" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,250.38399911541782,309.7759385324125) " id="svg_159" y="0" x="0">e</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="12" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,256.00401074398815,309.7759385324125) " id="svg_160" y="0" x="0">c</text>
+  <text xml:space="preserve" font-family="Helvetica" font-size="12" fill="#000000" transform="matrix(0.8388077057567642,0,0,0.8729782096808947,261.0368569785287,309.7759385324125) " id="svg_161" y="0" x="0">k</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="14" id="svg_1" y="280.5" x="287.5" stroke-width="0" fill="#000">Amalgam8</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="14" id="svg_2" y="297.5" x="295.5" stroke-width="0" fill="#000">Sidecar</text>
  </g>
 </svg>
