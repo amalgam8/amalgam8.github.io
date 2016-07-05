@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: doc
 title: Amalgam8 - Design and Features
 permalink: /overview.html
 ---
