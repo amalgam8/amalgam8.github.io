@@ -1,0 +1,71 @@
+<svg width="663.16" height="385.34" xmlns="http://www.w3.org/2000/svg" stroke="null" style="vector-effect: non-scaling-stroke;">
+ <defs stroke="null" style="vector-effect: non-scaling-stroke;">
+  <style stroke="null" style="vector-effect: non-scaling-stroke;">.cls-1,.cls-11,.cls-3,.cls-8{fill:#fff;}.cls-2,.cls-3{font-size:20px;font-weight:700;}.cls-2,.cls-4,.cls-6,.cls-7{fill:#444;}.cls-10,.cls-11,.cls-2,.cls-3,.cls-4,.cls-6,.cls-7,.cls-9{font-family:Montserrat;}.cls-11,.cls-4{font-size:10px;}.cls-5{fill:#ededed;}.cls-6,.cls-9{font-size:18px;}.cls-10,.cls-7{font-size:12px;}.cls-8{stroke:#452845;}.cls-12,.cls-8{stroke-miterlimit:10;}.cls-12{fill:none;stroke:#9d6e80;stroke-width:2px;}.cls-13{fill:#9d6e80;}</style>
+ </defs>
+ <title stroke="null" style="vector-effect: non-scaling-stroke;">Diagram 2</title>
+ <g stroke="null">
+  <title stroke="null">background</title>
+  <rect stroke="null" x="-1" y="-1" width="665.16" height="387.34" id="canvas_background" fill="#ffffff"/>
+ </g>
+ <g stroke="null">
+  <title stroke="null">Layer 1</title>
+  <g stroke="null" opacity="0.3" id="svg_30">
+   <rect stroke="#462735" fill="#444444" class="cls-1" width="97.160111" height="60.310012" rx="12" ry="13.78" id="svg_23" y="263.235314" x="502.705744"/>
+   <rect stroke="null" fill="#444444" class="cls-8" x="541.865817" y="267.015347" width="52.1" height="52.1" rx="13" ry="13" id="svg_25"/>
+   <text stroke="null" fill="#444444" class="cls-9" y="298.175349" x="560.255805" id="svg_26">A</text>
+   <rect stroke="null" class="cls-8" x="509.565805" y="273.015347" width="9.640012" height="44.06" id="svg_27" fill="#444444"/>
+   <line stroke="null" fill="#444444" class="cls-12" x1="525.505808" y1="295.065347" x2="541.515815" y2="295.065347" id="svg_28"/>
+   <polygon stroke="null" fill="#444444" class="cls-13" points="526.4764404296875,301.2056072950363 527.4963989257812,300.1056011915207 522.076416015625,295.0655926465988 527.4963989257812,290.03559386730194 526.4764404296875,288.93561828136444 519.87646484375,295.0655926465988 526.4764404296875,301.2056072950363 " id="svg_29"/>
+  </g>
+  <rect stroke="#462735" style="vector-effect: non-scaling-stroke;" class="cls-1" width="461.160001" height="128.309998" rx="13.78" ry="13.78" id="svg_1" y="55.000004" x="167.000017"/>
+  <rect stroke="null" class="cls-5" x="191.089998" y="127.099999" width="137.45003" height="39.000002" rx="12" ry="12" id="svg_90"/>
+  <rect stroke="null" class="cls-5" x="1623.159995" y="473.010001" width="165.6" height="50" rx="12" ry="12" transform="rotate(-180 1705.9599609375,498.010009765625) " id="svg_14"/>
+  <rect stroke="null" class="cls-5" x="800.559995" y="473.010001" width="128.55" height="50" rx="12" ry="12" transform="rotate(-180 864.8349609375,498.010009765625) " id="svg_15"/>
+  <rect stroke="null" style="vector-effect: non-scaling-stroke;" class="cls-5" x="188.09" y="67.1" width="415.450012" height="50" rx="12" ry="12" id="svg_24"/>
+  <rect stroke="null" class="cls-8" x="278.22" y="238.78" width="52.1" height="52.1" rx="13" ry="13" id="svg_40"/>
+  <rect stroke="null" class="cls-8" x="278.22" y="323.75" width="52.1" height="52.1" rx="13" ry="13" id="svg_42"/>
+  <text stroke="null" class="cls-9" y="271.940002" x="298.609985" id="svg_53">B</text>
+  <text stroke="null" class="cls-9" y="355.799988" x="298.609985" id="svg_55">C</text>
+  <line stroke="null" class="cls-12" x1="452.54" y1="146.43" x2="341.36" y2="146.43" id="svg_74"/>
+  <polygon stroke="null" class="cls-13" points="447.57000732421875,140.29000854492188 446.5400085449219,141.38999938964844 451.9599914550781,146.4199981689453 446.5400085449219,151.4600067138672 447.57000732421875,152.55999755859375 454.1600036621094,146.4199981689453 447.57000732421875,140.29000854492188 " id="svg_75"/>
+  <line stroke="null" class="cls-12" x1="400.96" y1="47.92" x2="400.96" y2="24.37" id="svg_76"/>
+  <polygon stroke="null" class="cls-13" points="407.0999755859375,42.95000076293945 406,41.91999816894531 400.969970703125,47.34000015258789 395.92999267578125,41.91999816894531 394.8299865722656,42.95000076293945 400.969970703125,49.540000915527344 407.0999755859375,42.95000076293945 " id="svg_77"/>
+  <line stroke="null" class="cls-12" x1="500.940087" y1="238.939971" x2="501.304721" y2="168.376471" id="svg_80"/>
+  <path stroke="null" class="cls-12" d="m349.30619,343.57l121.6338,-73.94213a5.24995,2.98837 0 0 0 -3.86203,-5.03787l-129.37798,0.26334" id="svg_82"/>
+  <polygon stroke="null" class="cls-13" points="354.3500061035156,347.1300048828125 354.25,345.6300048828125 346.8699951171875,346.1499938964844 346.8900146484375,338.75 345.3900146484375,338.75 345.3599853515625,347.760009765625 354.3500061035156,347.1300048828125 " id="svg_83"/>
+  <polygon stroke="null" class="cls-13" points="342.6499938964844,258.6700134277344 343.67999267578125,259.7699890136719 338.2799987792969,264.82000732421875 343.7200012207031,269.8399963378906 342.70001220703125,270.94000244140625 336.0799865722656,264.8299865722656 342.6499938964844,258.6700134277344 " id="svg_84"/>
+  <polyline stroke="null" class="cls-12" points="219.2899932861328,170.10000610351562 219.2899932861328,351.97010351296194 273.07953195823757,351.97010351296194 " id="svg_85"/>
+  <polygon stroke="null" class="cls-13" points="213.16000366210938,175.07000732421875 214.25999450683594,176.08999633789062 219.2899932861328,170.6699981689453 224.3300018310547,176.08999633789062 225.42999267578125,175.07000732421875 219.2899932861328,168.47000122070312 213.16000366210938,175.07000732421875 " id="svg_86"/>
+  <line stroke="null" class="cls-12" x1="271.939617" y1="266.630209" x2="219.939999" y2="266.630209" id="svg_87"/>
+  <path stroke="null" class="cls-13" d="m375.3,36.39l5.78,0a6.86,6.86 0 0 1 6.86,6.86l0,4.75a1.46,1.46 0 0 1 -1.46,1.46l-16.59,0a1.46,1.46 0 0 1 -1.46,-1.46l0,-4.75a6.86,6.86 0 0 1 6.87,-6.86z" id="svg_88"/>
+  <circle stroke="null" class="cls-13" cx="378.18" cy="29.54" r="5.96" id="svg_89"/>
+  <text stroke="null" fill="#191919" stroke-width="0" stroke-opacity="null" x="229.080002" y="151.169998" id="svg_91" font-size="16" font-family="Helvetica, Arial, sans-serif" text-anchor="start" xml:space="preserve" font-weight="normal">Registry</text>
+  <text stroke="null" fill="#191919" stroke-width="0" stroke-opacity="null" x="333.356838" y="100.008118" id="svg_92" font-size="18" font-family="Helvetica, Arial, sans-serif" text-anchor="start" xml:space="preserve" font-weight="normal">Amalgam8 API</text>
+  <rect stroke="null" style="vector-effect: non-scaling-stroke;" class="cls-5" x="469.089998" y="124.099999" width="137.45003" height="39.000002" rx="12" ry="12" id="svg_93"/>
+  <text stroke="null" fill="#191919" stroke-width="0" stroke-opacity="null" x="507.080002" y="148.169998" id="svg_94" font-size="16" font-family="Helvetica, Arial, sans-serif" text-anchor="start" xml:space="preserve" font-weight="normal">Controller</text>
+  <text stroke="null" fill="#191919" stroke-width="0" stroke-opacity="null" x="197.080002" y="90.169998" id="svg_100" font-size="14" font-family="Helvetica, Arial, sans-serif" text-anchor="start" xml:space="preserve" font-weight="normal">Version</text>
+  <text stroke="null" fill="#191919" stroke-width="0" stroke-opacity="null" x="198.080002" y="106.169998" id="svg_101" font-size="14" font-family="Helvetica, Arial, sans-serif" text-anchor="start" xml:space="preserve" font-weight="normal">Routing</text>
+  <text stroke="null" fill="#191919" stroke-width="0" stroke-opacity="null" x="527.080002" y="90.169998" id="svg_102" font-size="14" font-family="Helvetica, Arial, sans-serif" text-anchor="start" xml:space="preserve" font-weight="normal">Resilience</text>
+  <text stroke="null" fill="#191919" stroke-width="0" stroke-opacity="null" x="527.080002" y="106.169998" id="svg_103" font-size="14" font-family="Helvetica, Arial, sans-serif" text-anchor="start" xml:space="preserve" font-weight="normal">Testing</text>
+  <text stroke="null" fill="#191919" stroke-width="null" x="28.080002" y="273.169998" id="svg_107" font-size="18" font-family="Helvetica, Arial, sans-serif" text-anchor="start" xml:space="preserve" font-weight="bold">Tenant Space</text>
+  <text stroke="null" fill="#191919" stroke-width="null" x="28.080002" y="124.169998" id="svg_108" font-size="18" font-family="Helvetica, Arial, sans-serif" text-anchor="start" xml:space="preserve" font-weight="bold">Control Plane</text>
+  <text stroke="null" style="vector-effect: non-scaling-stroke;" fill="#191919" stroke-width="0" stroke-opacity="null" x="467.197637" y="345.640654" id="svg_109" font-size="14" font-family="Helvetica, Arial, sans-serif" text-anchor="start" xml:space="preserve" font-weight="normal">Sidecar</text>
+  <text stroke="null" fill="#191919" stroke-width="0" stroke-opacity="null" x="370.080002" y="140.169998" id="svg_112" font-size="14" font-family="Helvetica, Arial, sans-serif" text-anchor="start" xml:space="preserve" font-weight="normal">Endpoints</text>
+  <text style="cursor: move;" stroke="null" fill="#191919" stroke-width="0" stroke-opacity="null" x="409.080002" y="34.169998" id="svg_113" font-size="14" font-family="Helvetica, Arial, sans-serif" text-anchor="start" xml:space="preserve" font-weight="normal">2. Routing rules and actions</text>
+  <text stroke="null" style="vector-effect: non-scaling-stroke;" fill="#191919" stroke-width="0" stroke-opacity="null" x="386.315237" y="205.875889" id="svg_114" font-size="14" font-family="Helvetica, Arial, sans-serif" text-anchor="start" xml:space="preserve" font-weight="normal">3. Proxy control</text>
+  <text style="cursor: move;" stroke="null" fill="#191919" stroke-width="0" stroke-opacity="null" x="226.080002" y="200.169998" id="svg_116" font-size="14" font-family="Helvetica, Arial, sans-serif" text-anchor="start" xml:space="preserve" font-weight="normal">1. Auto registration</text>
+  <text stroke="null" style="vector-effect: non-scaling-stroke;" fill="#191919" stroke-width="0" stroke-opacity="null" x="531.079965" y="234.934726" id="svg_117" font-size="14" font-family="Helvetica, Arial, sans-serif" text-anchor="start" xml:space="preserve" font-weight="normal">4. Request</text>
+  <text style="cursor: move;" stroke="null" fill="#191919" stroke-width="0" stroke-opacity="null" x="391.080002" y="259.169998" id="svg_118" font-size="14" font-family="Helvetica, Arial, sans-serif" text-anchor="start" xml:space="preserve" font-weight="normal">5. Routing</text>
+  <g stroke="null" id="svg_22">
+   <rect stroke="#462735" class="cls-1" width="97.160111" height="60.310012" rx="12" ry="13.78" id="svg_6" y="247.941168" x="488.58807"/>
+   <rect stroke="null" class="cls-8" x="527.748143" y="251.721201" width="52.1" height="52.1" rx="13" ry="13" id="svg_38"/>
+   <text stroke="null" class="cls-9" y="282.881203" x="546.138131" id="svg_54">A</text>
+   <rect stroke="null" class="cls-8" x="495.448131" y="257.721201" width="9.640012" height="44.06" id="svg_57" fill="#4b252d"/>
+   <line stroke="null" class="cls-12" x1="511.388134" y1="279.771201" x2="527.398141" y2="279.771201" id="svg_78"/>
+   <polygon stroke="null" class="cls-13" points="512.3590087890625,285.91132628917694 513.3789672851562,284.8113201856613 507.9588623046875,279.77131164073944 513.3789672851562,274.74131286144257 512.3590087890625,273.64133727550507 505.75885009765625,279.77131164073944 512.3590087890625,285.91132628917694 " id="svg_79"/>
+  </g>
+  <line stroke="#191919" style="vector-effect: non-scaling-stroke;" stroke-width="2" stroke-dasharray="2,2" stroke-linecap="null" stroke-linejoin="null" id="svg_32" y2="329.729071" x2="481.580239" y1="300.317258" x1="494.521438" fill="none"/>
+  <line stroke="#191919" style="vector-effect: non-scaling-stroke;" stroke-width="2" stroke-dasharray="2,2" stroke-linecap="null" stroke-linejoin="null" id="svg_33" y2="272.081904" x2="518.050894" y1="237.964201" x1="533.345045" fill="none"/>
+  <polygon transform="rotate(-16.017162322998047 499.68515014648426,237.00500488281259) " stroke="null" class="cls-13" points="505.4301452636719,242.4398455619812 504.7601623535156,241.09984922409058 498.1401672363281,244.39983701705933 495.3301086425781,237.54984617233276 493.9401550292969,238.11983823776245 497.3601379394531,246.45984983444214 505.4301452636719,242.4398455619812 " id="svg_81"/>
+ </g>
+</svg>
