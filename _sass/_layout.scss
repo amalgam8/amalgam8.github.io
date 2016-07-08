@@ -443,6 +443,12 @@ a{
 .social-media-list {
     list-style: none;
     margin-left: 0;
+
+    img.icon{
+      width: 16px;
+      height: 16px;
+      // vertical-align: middle;
+    }
 }
 
 .footer-col-wrapper {
