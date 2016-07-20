@@ -1,8 +1,8 @@
 # Contributing
 
 ## Getting help
-If you are looking for something to work on, or need some assistance in debugging a problem or working out a fix to an issue, 
-please visit our [Slack channels](https://amalgam8.slack.com/) and will gladly help.
+If you are looking for something to work on, or need some assistance in debugging a problem or working out a fix to an issue, please visit our [Slack channels](https://amalgam8.slack.com/) and will gladly help.
+To join Amalgam8 Slack, please use [auto-invite](https://amalgam8-slack-invite.mybluemix.net/). 
 
 ## Reporting bugs
 If you are a user and you find a bug, please submit an issue to the appropriate sub-project. 
