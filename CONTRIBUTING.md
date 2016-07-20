@@ -48,7 +48,7 @@ If you can certify the [Developer's Certificate of Origin 1.1 (DCO)](http://elin
 
     Signed-off-by: Jane Doe <jane.doe@domain.com>
 
-When committing using the command line you can sign off using the `--signoff` or `-s flag`. 
+When committing using the command line you can sign off using the `--signoff` or `-s` flag. 
 This adds a Signed-off-by line by the committer at the end of the commit log message.
 
     git commit -s -m "Commit message"
