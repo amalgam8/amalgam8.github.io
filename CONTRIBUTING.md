@@ -25,12 +25,21 @@ Please make sure you have first successfully built and tested the code beforehan
   
 ### Coding guidelines
 
-#### Coding Go
+#### Coding in Go
 For sub-projects using Go&trade; please follow the [best practices](http://golang.org/doc/effective_go.html).
-You must format your code and run the following tools against your Go code and fix all errors and warnings:
-- [golint](https://github.com/golang/lint)
-- [go vet](https://golang.org/cmd/vet/)
-- [goimports](https://godoc.org/golang.org/x/tools/cmd/goimports)
+You must use the default Go formatting guidelines for your source code and
+run static analysis tools before submitting a pull request. These tasks can
+be run in an automated fashion by invoking
+```bash
+make precommit
+```
+You can install a git-hook into the local `.git/hooks/` directory, as a
+pre-commit ot pre-push hook.
+
+<!-- and run the following tools against your Go code and fix all errors and warnings: -->
+<!-- - [golint](https://github.com/golang/lint) -->
+<!-- - [go vet](https://golang.org/cmd/vet/) -->
+<!-- - [goimports](https://godoc.org/golang.org/x/tools/cmd/goimports) -->
 
   
 ## Legal stuff
