@@ -12,11 +12,16 @@
       </div>
       <div>
         <h3>Controller</h3>
-        <p>A multi-tenant controller that monitors the registry and updates the sidecar configuration accordingly. It provides APIs to the developer for configuring rules for request routing, fault injection, etc. These rules are then translated and sent to the sidecars belonging to the application.</p>
+        <p>A multi-tenant controller that provides APIs to the developer
+        for configuring rules for request routing, fault injection,
+        etc. These rules are then translated and sent to the sidecars
+        attached to various microservices.</p>
       </div>
       <div>
         <h3>Sidecar</h3>
-        <p>Applications run as tenants of these two services. A sidecar process automatically registers the microservice with the registry and receives routing rules from the controller. The sidecar configures the nginx proxy based on the routing rules.</p>
+        <p>Applications run as tenants of these two services. A sidecar
+        process automatically registers the microservice with the registry.
+        It receives instance information from the registry and routing rules from the controller. The sidecar configures the nginx proxy based on the routing rules.</p>
       </div>
     </div>
 

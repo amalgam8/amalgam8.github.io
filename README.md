@@ -1,6 +1,6 @@
 # amalgam8.github.io
 
-Amalgam8 - Microservice Fabric (website)
+Amalgam8 - Content and Version-based Microservice Routing Fabric (website)
 
 ##Running Locally
 
