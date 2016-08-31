@@ -41,6 +41,10 @@ pre-commit ot pre-push hook.
 <!-- - [go vet](https://golang.org/cmd/vet/) -->
 <!-- - [goimports](https://godoc.org/golang.org/x/tools/cmd/goimports) -->
 
+#### Updating dependencies
+
+Whenver adding/removing/updating dependencies (`make depend.update`), make sure to do so in a single, isolated commit, that touches only `glide.*` and `vendor/*` files.  
+This avoids polluting/obfuscating other commits in the same pull request, and keeps it easy to review.
   
 ## Legal stuff
 
