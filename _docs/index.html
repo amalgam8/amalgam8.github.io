@@ -12,5 +12,5 @@ introduction and getting started guide instead.
 
 {% for doc in site.docs %}
   <h4><a href="{{doc.url}}">{{ doc.title }}</a></h4>
-  <p>{{doc.excerpt}}</p>
+  <p>{{doc.excerpt | remove: "</p>" | append: " [Read more]</p>"}}</p>
 {% endfor %}
