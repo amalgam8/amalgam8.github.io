@@ -166,9 +166,18 @@ i.fa {
       color: white;
     }
 
+    li {
+        padding-bottom: 5px;
+    }
+
+    .social-list a {
+        text-decoration: none;
+    }
+
     @include media-query($on-palm--custom) {
       padding-top: 2rem;
     }
+
 }
 
 .brand-icon-footer{
