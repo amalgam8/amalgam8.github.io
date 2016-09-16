@@ -86,6 +86,7 @@ $on-laptop:        800px;
 }
 
 .navbar {
+    border-radius: 0;
     min-height: 60px;
 }
 
@@ -101,7 +102,10 @@ $on-laptop:        800px;
     text-decoration: underline;
 }
 
-.brand-icon { min-width: 150px; }
+.brand-icon { 
+    width: 150px;
+    max-width: 150px; 
+}
 
 i.fa {
     padding-right: 3px;
@@ -162,9 +166,18 @@ i.fa {
       color: white;
     }
 
+    li {
+        padding-bottom: 5px;
+    }
+
+    .social-list a {
+        text-decoration: none;
+    }
+
     @include media-query($on-palm--custom) {
       padding-top: 2rem;
     }
+
 }
 
 .brand-icon-footer{
@@ -179,4 +192,7 @@ i.fa {
 
 
 // Import partials from `sass_dir` (defaults to `_sass`)
-@import "syntax-highlighting";
+@import 
+    "video",
+    "syntax-highlighting"
+;

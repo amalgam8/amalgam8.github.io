@@ -27,12 +27,12 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="/intro">Intro</a></li>
-            <li><a href="/docs">Docs</a></li>
-            <li><a href="#">Community</a></li>
+            <li><a href="/docs/getting-started/">Intro</a></li>
+            <li><a href="/docs/">Docs</a></li>
+            <li><a href="https://amalgam8.slack.com/">Community</a></li>
             <li><a href="#">Demo</a></li>
             <li><a href="#"><i class="fa fa-lg fa-download"></i> Download</a></li>
-            <li><a href="#"><i class="fa fa-lg fa-github"></i>Github</a></li>
+            <li><a href="https://github.com/{{site.github_username}}/amalgam8"><i class="fa fa-lg fa-github"></i>Github</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -58,16 +58,19 @@
                 <div class="col-md-4">
                     <ul class="list-unstyled">
                         <li><a href="/docs">Documentation</a></li>
-                        <li><a href="https://github.com/amalgam8/amalgam8">GitHub</a></li>
-                        <li><a href="https://github.com/amalgam8/amalgam8/blob/master/LICENSE">License</a></li>
+                        <li><a href="https://github.com/{{site.github_username}}/amalgam8">GitHub</a></li>
+                        <li><a href="https://github.com/{{site.github_username}}/amalgam8/blob/master/LICENSE">License</a></li>
                     </ul>
 
-                    <ul class="list-unstyled">
+                    <ul class="list-unstyled social-list">
                         {% if site.github_username %}
                         <li>
-                            <a href="https://github.com/{{ include.username }}"><i class="fa fa-lg fa-github"></i> {{site.github_username}}</a>
+                            <a href="https://github.com/{{ site.github_username }}"><i class="fa fa-lg fa-github"></i> {{site.github_username}}</a>
                         </li>
                         {% endif %}
+                        <li>
+                            <a href="https://www.youtube.com/channel/UCExjqs56z0HZN-Ce-BJgNmg"><i class="fa fa-lg fa-youtube"></i> YouTube</a>
+                        </li>
                         <li>
                             <i class="fa fa-lg fa-slack"></i> <a href="https://amalgam8-slack-invite.mybluemix.net">amalgam8 on slack</a>
                         </li>
