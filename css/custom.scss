@@ -1,0 +1,182 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+
+//amalgm8 variables
+$black: black;
+$pink: #E95F6A;
+$purple: #5F2D4F;
+$off-white: #fffbf7;
+$cream: #fff4ea;
+$grey-text: #434343;
+
+$purple1: #442744;
+$purple2: #602d4e;
+$purple3: #8f4476;
+$purple4: #aa6192;
+
+$red: #d0011b;
+
+
+
+// Our variables
+$base-font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$base-font-size:   16px;
+$base-font-weight: 400;
+$small-font-size:  $base-font-size * 0.875;
+$base-line-height: 1.5;
+
+$spacing-unit:     30px;
+
+$text-color:       #111;
+$background-color: #fdfdfd;
+$brand-color:      #2a7ae2;
+
+$grey-color:       #828282;
+$grey-color-light: lighten($grey-color, 40%);
+$grey-color-dark:  darken($grey-color, 25%);
+
+// Width of the content area
+$content-width:    1000px;
+$nav-content-width:    1200px;
+
+
+$on-palm:          600px;
+$on-palm--custom:  730px;
+$on-laptop:        800px;
+
+%vertical-rhythm {
+    margin-bottom: $spacing-unit / 2;
+}
+
+// Use media queries like this:
+// @include media-query($on-palm) {
+//     .wrapper {
+//         padding-right: $spacing-unit / 2;
+//         padding-left: $spacing-unit / 2;
+//     }
+// }
+@mixin media-query($device) {
+    @media screen and (max-width: $device) {
+        @content;
+    }
+}
+
+/* --- General Overrides --- */
+.content {
+  font-family: 'Lora', 'Times New Roman', serif;
+  font-size: 18px;
+  color: #404040;
+  position: relative;
+  background: #FFF;
+
+  padding: 20px 15px;
+}
+
+.content p {
+  line-height: 1.5;
+  margin: 15px 0;
+}
+
+.content h1,h2,h3,h4,h5,h6 {
+  font-family: 'Open Sans Condensed', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 800;
+}
+
+.navbar {
+    min-height: 60px;
+}
+
+.navbar ul {
+    padding-top: 10px;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: white;
+}
+
+.navbar-inverse .navbar-nav>li>a:hover {
+    text-decoration: underline;
+}
+
+.brand-icon { min-width: 150px; }
+
+i.fa {
+    padding-right: 3px;
+}
+
+.icon {
+
+    > svg {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        vertical-align: middle;
+
+        path {
+            fill: $background-color;
+        }
+    }
+}
+
+.top-block {
+   background-image: url("/assets/Header_Background_Pattern.svg"),
+   linear-gradient(
+   to right,
+   $purple, $pink
+   );
+   color: white;
+   text-align: center;
+}
+
+/**
+ * Site footer
+ */
+ .edit-page-link{
+    float: right;
+    text-align: right;
+    padding-bottom: 20px;
+    z-index: 9999;
+
+    a{
+        text-transform: uppercase;
+        color: $black;
+    }
+}
+
+
+.site-footer {
+    // border-top: 1px solid $grey-color-light;
+    background-color: $purple;
+
+    padding: $spacing-unit 0;
+    padding-top: 90px;
+
+    color: white;
+    font-size: 15px;
+
+    a{
+      text-decoration: underline;
+      color: white;
+    }
+
+    @include media-query($on-palm--custom) {
+      padding-top: 2rem;
+    }
+}
+
+.brand-icon-footer{
+  max-width: 150px;
+}
+
+
+.footer-heading {
+    font-size: 18px;
+    margin-bottom: $spacing-unit / 2;
+}
+
+
+// Import partials from `sass_dir` (defaults to `_sass`)
+@import "syntax-highlighting";
