@@ -20,3 +20,22 @@ github_username:  amalgam8
 
 # Build settings
 markdown: kramdown
+permalink: /news/:year/:month/:day/:title/
+
+#repository: https://github.com/amalgam8/amalgam8.github.io
+timezone: America/New_York
+
+collections:
+  docs:
+    output: true
+
+exclude:
+  - README.md
+  - LICENSE
+  - Gemfile
+  - Gemfile.lock
+  - CNAME
+  - CONTRIBUTING.md
+  - .gitignore
+  - Vagrantfile
+  - .vagrant

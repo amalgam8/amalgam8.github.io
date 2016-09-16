@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>{{ page.title }} - {{ site.title }}</title>
+
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+   <link rel="stylesheet" type="text/css" href="{{ site.path }}/css/custom.css">
+
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans+Condensed:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+</head>
+<body>
+  <nav class="top-block navbar navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{{ site.baseurl }}/">
+            <img class="brand-icon" src="/assets/Amalgam8-logo.svg" alt="Amalgam8 brand logo showing a flask beaker with a chemical in it">
+          </a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/intro">Intro</a></li>
+            <li><a href="/docs">Docs</a></li>
+            <li><a href="#">Community</a></li>
+            <li><a href="#">Demo</a></li>
+            <li><a href="#"><i class="fa fa-lg fa-download"></i> Download</a></li>
+            <li><a href="#"><i class="fa fa-lg fa-github"></i>Github</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="content">
+        {{ content }}
+      </div>
+
+      <div class="edit-page-link">
+        <a href="{{site.github.repository_url}}/blob/master/{{page.path}}">Edit this page</a>
+      </div>
+    </div><!-- /.container -->
+
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-heading">
+                <img class="brand-icon-footer" src="/assets/Amalgam8-logo.svg" alt="Amalgam8 brand logo showing a flask beaker with a chemical in it">
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <ul class="list-unstyled">
+                        <li><a href="/docs">Documentation</a></li>
+                        <li><a href="https://github.com/amalgam8/amalgam8">GitHub</a></li>
+                        <li><a href="https://github.com/amalgam8/amalgam8/blob/master/LICENSE">License</a></li>
+                    </ul>
+
+                    <ul class="list-unstyled">
+                        {% if site.github_username %}
+                        <li>
+                            <a href="https://github.com/{{ include.username }}"><i class="fa fa-lg fa-github"></i> {{site.github_username}}</a>
+                        </li>
+                        {% endif %}
+                        <li>
+                            <i class="fa fa-lg fa-slack"></i> <a href="https://amalgam8-slack-invite.mybluemix.net">amalgam8 on slack</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-6 col-md-offset-2">
+                    <p>{{ site.description }}</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    {% include footer-scripts.html %}
+</body>
+</html>

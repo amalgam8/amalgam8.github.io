@@ -184,7 +184,8 @@ pre {
     margin-left: auto;
     padding-right: $spacing-unit;
     padding-left: $spacing-unit;
-    padding-top: $spacing-unit;
+    //padding-top: $spacing-unit / 2;
+    padding-bottom: $spacing-unit / 2;
 
     @include media-query($on-laptop) {
         max-width: -webkit-calc(#{$nav-content-width} - (#{$spacing-unit}));
