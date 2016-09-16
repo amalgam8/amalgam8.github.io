@@ -19,7 +19,7 @@ If you do not have (or don't want) `jekyll` installed there is a `Vagrantfile` y
 vagrant up
 vagrant ssh
 cd /vagrant
-jekyll serve --host 0.0.0.0 --port 4000
+jekyll serve --host 0.0.0.0 --port 4000 --force_polling --incremental
 ```
 
 From your host machine you can access the website at http://192.168.33.100:4000
