@@ -43,20 +43,18 @@ register their services in the Registry and use the Controller to manage
 the sidecars. The following diagram illustrates how the three components
 work together.
 
-![how it works](/docs/figures/how-amalgam8-works.svg)
+![how it works](/docs/figures/how-amalgam8-works.png)
 
-1. Microservice instances are registered in the Registry. There are several
-   ways this may be accomplished as described in
+1. Microservice instances are registered in the service registry by the
+   sidecars. There are several ways this may be accomplished as described in
    [Amalgam8 Registry](#service-registration).
 2. The Developer uses the control plane API to configure high-level rules
    for request routing between services (e.g., splitting traffic across
    versions, injecting delays).
-3. The Controller translates these rules into low-level control information
-   and sends them to the sidecars. In addition, it also sends control
-   information when new information (e.g., new services, new instances)
-   appears in the Registry.
+3. The route controller translates these rules into low-level control information
+   and sends them to the sidecars.
 4. A microservice invokes APIs of other microservices by pointing to the
    sidecar as the destination host. For e.g., [http://localhost:6379/serviceName/apiEndpoint]()
-5. The Nginx proxy component of the sidecar forwards the request to the
+5. The sidecar (which is based on Nginx/OpenResty) forwards the request to the
    appropriate microservice, depending on the request path and routing
    rules specified by the controller.
