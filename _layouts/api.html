@@ -8,7 +8,9 @@ layout: bootstrap
     <h4>REST APIs</h4>
     <ul class="list-unstyled">
         {% for doc in site.api %}
-        <li><a href="{{ doc.url }}">{{doc.title}}</a></li>
+            {% if doc.exclude != true %}
+                <li><a href="{{ doc.url }}">{{doc.title}}</a></li>
+            {% endif %}
         {% endfor %}
     </ul>
 </div>

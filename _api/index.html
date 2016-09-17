@@ -1,0 +1,14 @@
+---
+layout: api
+title: Amalgam8 API Documentation
+permalink: /api/index.html
+exclude: true
+---
+
+<h1>Amalgam8 REST API</h1>
+
+{% for doc in site.api %}
+    {% if doc.exclude != true %}
+        <h2><a href="{{doc.url}}">{{ doc.title }}</a> - <small>{{doc.info.description}}</small></h2>
+    {% endif %}
+{% endfor %}
