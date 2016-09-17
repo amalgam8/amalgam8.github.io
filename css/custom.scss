@@ -101,6 +101,12 @@ $on-laptop:        800px;
     }
 }
 
+.post-content img {
+    display: block;
+    width: 100%;
+}
+
+
 .navbar {
     border-radius: 0;
     min-height: 60px;
