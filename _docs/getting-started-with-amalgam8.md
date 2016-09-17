@@ -2,6 +2,7 @@
 layout: page
 title: Getting Started With Amalgam8
 permalink: /docs/getting-started/
+order: 0
 ---
 
 Running your application on top of the Amalgam8 microservice platform

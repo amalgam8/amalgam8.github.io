@@ -2,6 +2,7 @@
 layout: page
 title: Amalgam8 Registry
 permalink: /docs/registry/
+order: 3
 ---
 
 To integrate and use a microservice in Amalgam8, it needs to be registered

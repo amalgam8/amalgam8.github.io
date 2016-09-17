@@ -1,7 +1,8 @@
 ---
 layout: page
-title: What Is Amalgam8
+title: Introduction - What Is Amalgam8
 permalink: /docs/what-is-amalgam8/
+order: -1
 ---
 
 Before describing Amalgam8, it is important to understand two key concepts

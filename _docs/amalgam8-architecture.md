@@ -2,6 +2,7 @@
 layout: page
 title: Amalgam8 Architecture
 permalink: /docs/architecture/
+order: 1
 ---
 
 The Amalgam8 platform consists of the following three components:
