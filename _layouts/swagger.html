@@ -24,6 +24,47 @@ layout: api
             </a>
         </h3>
         <div class="swagger-method-details">
+            {% assign method_name = method[0] | upcase %}
+            {% if method_name == 'PARAMETERS' and method[1].size > 0 %}
+            <table class="swagger-parameters-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Located in</th>
+                        <th>Description</th>
+                        <th>Type</th>
+                    <tr>
+                </thead>
+                <tbody>
+                    {% for parameter in method[1] %}
+                    <tr>
+                        <td>
+                            {% if parameter.required %}
+                            <span class="swagger-parameter-required">
+                            {% endif %}
+                            {{ parameter.name }}
+                            {% if parameter.required %}
+                            </span>
+                            {% endif %}
+                        </td>
+                        <td>{{ parameter.in }}</td>
+                        <td>{{ parameter.description }}</td>
+                        <td>
+                            {% if parameter.type %}
+                            {{ parameter.type | capitalize }}
+                            {% if parameter.items %}
+                            of {{ parameter.items.type | capitalize }}
+                            {% endif %}
+                            {% else %}
+                            String
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% endif %}
+
             {% if method[1].parameters %}
             <div class="swagger-parameters">
                 <h4>Parameters</h4>
