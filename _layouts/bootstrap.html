@@ -65,20 +65,35 @@
     </div><!-- /.container -->
 
 
-    <footer class="site-footer">
-        <div class="container">
+    
+      <nav class="top-block navbar navbar-inverse">
+      <div class="container">
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-left">
+            <li><a href="/docs/what-is-amalgam8/">Intro</a></li>
+            <li><a href="/docs/">Docs</a></li>
+            <li><a href="/api/">API</a></li>
+            <li><a href="https://github.com/amalgam8/amalgam8/releases"><i class="fa fa-lg fa-download"></i> Download</a></li>
+            <li><a href="https://github.com/amalgam8"><i class="fa fa-lg fa-github"></i> Source</a></li>
+            <li><a href="https://amalgam8-slack-invite.mybluemix.net"><i class="fa fa-lg fa-slack"></i> Slack</a></li>
+            <li><a href="https://www.youtube.com/channel/UCExjqs56z0HZN-Ce-BJgNmg"><i class="fa fa-lg fa-youtube"></i> YouTube</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+        <div class="navbar-header">
+          <a class="navbar-brand" href="{{ site.baseurl }}/">
+            <img class="brand-icon" src="/assets/Amalgam8-logo.svg" alt="Amalgam8 brand logo showing a flask beaker with a chemical in it">
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- <footer class="site-footer">
+         <div class="container">
             <div class="footer-heading">
                 <img class="brand-icon-footer" src="/assets/Amalgam8-logo.svg" alt="Amalgam8 brand logo showing a flask beaker with a chemical in it">
             </div>
             <div class="row">
                 <div class="col-md-4">
-                    <ul class="list-unstyled">
-                        <li><a href="/docs/">Documentation</a></li>
-                        <li><a href="/api/">API</a></li>
-                        <li><a href="https://github.com/{{site.github_username}}/amalgam8">GitHub</a></li>
-                        <li><a href="https://github.com/{{site.github_username}}/amalgam8/blob/master/LICENSE">License</a></li>
-                    </ul>
-
                     <ul class="list-unstyled social-list">
                         {% if site.github_username %}
                         <li>
@@ -99,8 +114,7 @@
                 </div>
             </div>
         </div>
-    </footer>
-    
-    {% include footer-scripts.html %}
+    </footer> -->
+    <!-- {% include footer-scripts.html %} -->
 </body>
 </html>
