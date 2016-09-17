@@ -44,7 +44,7 @@ register their services in the Registry and use the Controller to manage
 the sidecars. The following diagram illustrates how the three components
 work together.
 
-![how it works](/docs/figures/how-amalgam8-works.png)
+![how it works](/docs/figures/how-amalgam8-works.svg)
 
 1. Microservice instances are registered in the service registry by the
    sidecars. There are several ways this may be accomplished as described in
