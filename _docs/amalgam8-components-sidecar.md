@@ -83,7 +83,7 @@ the sidecar are described in detail [below](#runtime).
 The communication model between a microservice, its sidecar (irrespective
 of the deployment model) and the target microservice is shown below:
 
-![Communication between app and sidecar](figures/amalgam8-sidecar-communication-model.svg)
+![Communication between app and sidecar](/docs/figures/amalgam8-sidecar-communication-model.svg)
 
 When you want to make API calls to other microservices from your
 application, you should call the sidecar at localhost:6379.  The format of
@@ -140,6 +140,7 @@ YAML file.
 | A8_LOGSTASH_SERVER | --logstash_server | logstash_server | logstash target for nginx logs |  | yes if `-log` is enabled |
 |  | --help, -h | show help | | |
 |  | --version, -v | print the version | | |
+{:.table .table-bordered .table-condensed .table-striped}
 
 ### Example configuration file
 
