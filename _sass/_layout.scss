@@ -417,7 +417,7 @@ a{
     background-color: $purple;
 
     padding: $spacing-unit 0;
-    padding-top: 90px;
+    padding-top: 50px;
 
     a{
       color: white;
@@ -431,6 +431,7 @@ a{
 
 .brand-icon-footer{
   max-width: 150px;
+  margin-top: -10px;
 }
 
 
@@ -448,6 +449,15 @@ a{
       width: 16px;
       height: 16px;
       // vertical-align: middle;
+    }
+
+    li {
+      display: inline;
+      padding-right: 5px;
+    }
+
+    a {
+      text-decoration: none;
     }
 }
 
@@ -476,6 +486,19 @@ a{
 .footer-col-3 {
     width: -webkit-calc(45% - (#{$spacing-unit} / 2));
     width:         calc(45% - (#{$spacing-unit} / 2));
+}
+
+.footer-col-left { 
+    float: left; 
+    margin-bottom: 15px; 
+    padding-left: 15px; 
+}
+
+.footer-col-right { 
+    float: right; 
+    margin-bottom: 15px; 
+    padding-left: 15px;
+    min-width: 150px; 
 }
 
 @include media-query($on-laptop) {
