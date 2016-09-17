@@ -64,7 +64,7 @@ $on-laptop:        800px;
     }
 }
 
-#doc-toc {
+#doc-sidebar, #api-sidebar {
     left: -230px;
 }
 
@@ -218,5 +218,6 @@ i.fa {
 @import 
     "video",
     "sidemenu",
-    "syntax-highlighting"
+    "syntax-highlighting",
+    "swagger"
 ;

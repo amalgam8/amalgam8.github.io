@@ -28,6 +28,8 @@ timezone: America/New_York
 collections:
   docs:
     output: true
+  api:
+    output: true
 
 exclude:
   - README.md
