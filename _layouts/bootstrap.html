@@ -64,43 +64,25 @@
 
     </div><!-- /.container -->
 
-
     <footer class="site-footer">
-        <div class="container">
-            <div class="footer-heading">
-                <img class="brand-icon-footer" src="/assets/Amalgam8-logo.svg" alt="Amalgam8 brand logo showing a flask beaker with a chemical in it">
+         <div class="container">
+            <div class="col-md-10">
+                <ul class="list-inline social-list">
+                  <li><a href="/docs/what-is-amalgam8/">Intro</a></li>
+                  <li><a href="/docs/">Docs</a></li>
+                  <li><a href="/api/">API</a></li>
+                  <li><a href="https://github.com/amalgam8/amalgam8/releases"><i class="fa fa-lg fa-download"></i> Download</a></li>
+                  <li><a href="https://github.com/amalgam8"><i class="fa fa-lg fa-github"></i> Source</a></li>
+                  <li><a href="https://amalgam8-slack-invite.mybluemix.net"><i class="fa fa-lg fa-slack"></i> Slack</a></li>
+                  <li><a href="https://www.youtube.com/channel/UCExjqs56z0HZN-Ce-BJgNmg"><i class="fa fa-lg fa-youtube"></i> YouTube</a></li>
+                </ul>
             </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <ul class="list-unstyled">
-                        <li><a href="/docs/">Documentation</a></li>
-                        <li><a href="/api/">API</a></li>
-                        <li><a href="https://github.com/{{site.github_username}}/amalgam8">GitHub</a></li>
-                        <li><a href="https://github.com/{{site.github_username}}/amalgam8/blob/master/LICENSE">License</a></li>
-                    </ul>
-
-                    <ul class="list-unstyled social-list">
-                        {% if site.github_username %}
-                        <li>
-                            <a href="https://github.com/{{ site.github_username }}"><i class="fa fa-lg fa-github"></i> {{site.github_username}}</a>
-                        </li>
-                        {% endif %}
-                        <li>
-                            <a href="https://www.youtube.com/channel/UCExjqs56z0HZN-Ce-BJgNmg"><i class="fa fa-lg fa-youtube"></i> YouTube</a>
-                        </li>
-                        <li>
-                            <i class="fa fa-lg fa-slack"></i> <a href="https://amalgam8-slack-invite.mybluemix.net">amalgam8 on slack</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="col-md-6 col-md-offset-2">
-                    <p>{{ site.description }}</p>
-                </div>
+            <div class="col-md-2">
+              <img class="brand-icon-footer" src="/assets/Amalgam8-logo.svg" alt="Amalgam8 brand logo showing a flask beaker with a chemical in it">
             </div>
         </div>
     </footer>
-    
+
     {% include footer-scripts.html %}
 </body>
 </html>
