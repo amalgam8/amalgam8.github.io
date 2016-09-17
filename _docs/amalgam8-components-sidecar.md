@@ -140,7 +140,7 @@ YAML file.
 | A8_LOGSTASH_SERVER | --logstash_server | logstash_server | logstash target for nginx logs |  | yes if `-log` is enabled |
 |  | --help, -h | show help | | |
 |  | --version, -v | print the version | | |
-{:.table}
+{:.table .table-bordered .table-condensed .table-striped}
 
 ### Example configuration file
 
