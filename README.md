@@ -2,6 +2,17 @@
 
 This repository contains the entire source for the [Amalgam8 Website](https://amalgam8.github.io). This is a [jekyll](https://jekyll.io) project, which builds the site from these source files.
 
+Content
+-------
+
+The website manages collections of blog posts, documentation, and API definitions. Docs and API definitions have their own sidebars.
+
+Documents are stored in the `_docs` directory and are written in markdown with frontmatter.
+
+Swagger APIs are stored in the `_api` directory and are *written in markdown* with the Swagger document being in YAML format and being completely contained within the front matter.
+
+You can use the [Swagger UI](http://editor.swagger.io/#/) to convert Swagger JSON documents to YAML.
+
 Contributions Welcome!
 ----------------------
 
