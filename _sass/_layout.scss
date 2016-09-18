@@ -89,6 +89,17 @@ a{
        width: inherit;
      }
 
+     .navbar-nav {
+       padding-top: 20px;
+       font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+       font-size: 14px;
+
+       li { display: inline; padding-right: 15px; }
+       li>a { color: $cream; line-height: 20px; }
+
+       i.fa { padding-right: 3px; }
+     }
+
      @include media-query($on-palm)
      {
       padding-right: 15px;
