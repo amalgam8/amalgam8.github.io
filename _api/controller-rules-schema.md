@@ -1,3 +1,10 @@
+---
+layout: api
+title: Controller Rules Schema
+description: describes the format for specifying controller rules
+---
+
+```json
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Rule",
@@ -311,3 +318,4 @@
     }
   }
 }
+```

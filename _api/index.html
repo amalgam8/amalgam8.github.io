@@ -9,6 +9,6 @@ exclude: true
 
 {% for doc in site.api %}
     {% if doc.exclude != true %}
-        <h2><a href="{{doc.url}}">{{ doc.title }}</a> - <small>{{doc.info.description}}</small></h2>
+        <h2><a href="{{doc.url}}">{{ doc.title }}</a> - <small>{{doc.description}}</small></h2>
     {% endif %}
 {% endfor %}
