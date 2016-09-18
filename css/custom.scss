@@ -46,6 +46,7 @@ $nav-content-width:    1200px;
 $on-palm:          600px;
 $on-palm--custom:  730px;
 $on-laptop:        800px;
+$on-desktop:      1024px;
 
 %vertical-rhythm {
     margin-bottom: $spacing-unit / 2;
@@ -104,6 +105,10 @@ $on-laptop:        800px;
 .post-content img {
     display: block;
     width: 100%;
+
+    @media screen and (min-width: $on-desktop) {
+        width: 60%;
+    }
 }
 
 
