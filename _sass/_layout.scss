@@ -455,6 +455,8 @@ a{
 .social-media-list {
     list-style: none;
     margin-left: 0;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
 
     img.icon{
       width: 16px;
@@ -464,7 +466,7 @@ a{
 
     li {
       display: inline;
-      padding-right: 5px;
+      padding-right: 15px;
     }
 
     a {
