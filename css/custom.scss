@@ -70,6 +70,10 @@ $on-desktop:      1024px;
 }
 
 /* --- General Overrides --- */
+article {
+    min-height: 800px;
+}
+
 .content {
     font-family: 'Lora', 'Times New Roman', serif;
     font-size: 18px;
