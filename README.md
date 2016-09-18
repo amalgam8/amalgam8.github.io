@@ -9,7 +9,17 @@ The website manages collections of blog posts, documentation, and API definition
 
 Documents are stored in the `_docs` directory and are written in markdown with frontmatter.
 
-Swagger APIs are stored in the `_api` directory and are *written in markdown* with the Swagger document being in YAML format and being completely contained within the front matter.
+Swagger API documents are stored in the `_api` directory and must reference the a URL for the actual swagger
+JSON file in the frontmatter parameter `spec`. For example:
+
+```
+---
+layout: swaggerui
+title: Route Controller
+description: The controller provides APIs to the developer for configuring rules for request routing, fault injection, etc.
+spec: https://raw.githubusercontent.com/amalgam8/amalgam8/master/api/swagger-spec/controller.json
+---
+```
 
 You can use the [Swagger UI](http://editor.swagger.io/#/) to convert Swagger JSON documents to YAML.
 
