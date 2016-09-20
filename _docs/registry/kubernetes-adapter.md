@@ -9,7 +9,7 @@ order: 3
 A microservice running in Kubernetes with a corresponding service
 definition, will already have the endpoints (instances) being tracked by
 the Kubernetes runtime (kubelet) and reflected in the Kubernetes service
-registry. Instead of using the sidecar to explicitly registering this
+registry. Instead of using the sidecar to explicitly register this
 service once again in the Registry, Amalgam8 provides a Kubernetes
 adapter. The adapter can be configured to watch the Kubernetes registry and
 automatically mirror the endpoints in Amalgam8 as shown in the figure
