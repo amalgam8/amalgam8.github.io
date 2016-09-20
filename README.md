@@ -8,6 +8,12 @@ Content
 The website manages collections of blog posts, documentation, and API definitions. Docs and API definitions have their own sidebars.
 
 Documents are stored in the `_docs` directory and are written in markdown with frontmatter.
+You can order the list of documents using the `order` attribute in the document's front matter. 
+The list of documents is sorted ascending by numerical `order`.
+
+You can organize documents into folders (under `_docs`) without impacting the generator. 
+This does not impact the document list. To group the list of documents by logical category use the 
+`category` attribute in the document's front matter. The sidebar will be sorted by `category` and then by `order`.
 
 Swagger API documents are stored in the `_api` directory and must reference the a URL for the actual swagger
 JSON file in the frontmatter parameter `spec`. For example:
