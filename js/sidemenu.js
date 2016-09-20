@@ -56,6 +56,7 @@
 
 	};
 
+/*
 	$(document).on('click', '.sidebar .list-group-item', function(){
 		$('.sidebar .list-group-item').each(function(){
 			$(this).removeClass('active');
@@ -66,7 +67,7 @@
 
 	$(document).on('click', '.sidebar .list-group-item', function(event){
 		var idToToggle, this_offset, this_x, this_y, href, side;
-		event.preventDefault();
+		//event.preventDefault();
 		href = $(this).attr('href');
 
 		if(href.substr(0,1)=='#'){
@@ -97,7 +98,7 @@
 			}
 		}
 	});
-
+*/
 
 	$(document).on('click','.toggler', function(){
 		var toggler = $(this);
@@ -112,6 +113,13 @@
 		}
 		doAnimation(container, containerWidth, side, status);
 	});
+
+	/* toggle category tree */
+    $(document).on('click', '.tree-toggle', function () {
+        $(this).children('i.fa').toggleClass('fa-caret-right');
+        $(this).children('i.fa').toggleClass('fa-caret-down');
+        $(this).parent().children('ul.tree').toggle(200);
+    });
 
 	/*Cerca un div con classe submenu e id uguale a quello passato*/
 	function searchSubMenu(id){
