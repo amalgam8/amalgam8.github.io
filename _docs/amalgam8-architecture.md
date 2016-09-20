@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Amalgam8 Architecture
+title: Architecture
 permalink: /docs/architecture/
 order: 1
 ---

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Amalgam8 Controller
+title: Route Controller
 permalink: /docs/controller/
 order: 2
 ---

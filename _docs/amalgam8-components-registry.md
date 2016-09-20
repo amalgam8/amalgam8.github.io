@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Amalgam8 Registry
+title: Service Registry
 permalink: /docs/registry/
 order: 3
 ---

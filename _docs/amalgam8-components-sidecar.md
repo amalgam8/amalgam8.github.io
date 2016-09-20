@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Amalgam8 Sidecar
+title: Sidecar
 permalink: /docs/sidecar/
 order: 4
 ---
