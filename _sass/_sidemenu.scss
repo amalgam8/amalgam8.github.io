@@ -28,6 +28,10 @@
 
 .sidebar {
       width: 230px;
+
+    @media screen and (min-width: $on-desktop) {
+        width: 20%;
+    }
 }
 .sidebar.sidebar-left{
       left:0px;
