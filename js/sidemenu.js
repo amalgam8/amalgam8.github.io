@@ -101,6 +101,7 @@
 */
 
 	$(document).on('click','.toggler', function(){
+		setSidebarWidth();	
 		var toggler = $(this);
 		var container = toggler.parent();
 		//var listaClassi = container[0].classList; //Old
@@ -180,7 +181,6 @@ function doAnimation(container, containerWidth, sidebarSide, sidebarStatus){
 		container.attr('data-status', 'opened');
 
 	}
-
 }
 
 function toggleArrow(toggler, side){
@@ -193,7 +193,25 @@ function toggleArrow(toggler, side){
 	}
 }
 
+var initialWidth = true;
+function setSidebarWidth() {
+	// adjust the size of the sidebar based on screen width.
+	// NOTE: this was in a media query but was replaced because of screen flicker
+	// Arbitrary value is 230px for mobile devices and 30% for desktop
+	if (initialWidth !== true) {
+		if (window.innerWidth > 1024) {
+			$(".sidebar").css("width", "30%");
+		}
+		else {
+			$(".sidebar").css("width", "230px");
+		}
+	}
+	initialWidth = false;
+}
+
 function onWindowResize() {
+	setSidebarWidth();
+
 	 $(".toggler").each( function(){
 		var container = $(this).parent();
 		var listaClassi = $(container[0]).attr('class').split(/\s+/); 
