@@ -12,7 +12,7 @@ Amalgam8 sidecar for communication between microservices instead of direct
 microservice-to-microservice communication. 
 
 The control plane setup, i.e., step (a) is needed only if you are running
-Amalgam8 locally. If Amalgam8 control plane is provided as a service, you
+Amalgam8 locally. If the Amalgam8 control plane is provided as a service, you
 need to obtain the URLs and authentication tokens for the controller and
 the registry.
 
