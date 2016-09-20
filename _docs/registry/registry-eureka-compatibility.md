@@ -2,7 +2,7 @@
 layout: page
 title: Eureka Compatibility
 permalink: /docs/registry/eureka-compatibility/
-category: Registry
+category: Service Registry
 order: 1
 ---
 

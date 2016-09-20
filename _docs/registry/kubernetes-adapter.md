@@ -1,8 +1,8 @@
 ---
 layout: page
-title: Kubernetes Registry Catalog
+title: Kubernetes Catalog
 permalink: /docs/registry/kubernetes-registry-catalog/
-category: Registry
+category: Service Registry
 order: 3
 ---
 

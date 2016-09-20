@@ -1,8 +1,8 @@
 ---
 layout: page
-title: Getting Started With Amalgam8
+title: Getting Started
 permalink: /docs/getting-started/
-exclude: true
+order: 1
 ---
 
 Running your application on top of the Amalgam8 microservice platform
@@ -80,4 +80,11 @@ or
 
 For detailed instructions on how to integrate your application with the
 sidecar, please refer to the
-[sidecar documentation](amalgam8-components-sidecar.md)
+[sidecar documentation](/docs/amalgam8-components-sidecar/)
+
+## Walkthoughs
+
+The Amalgam8 repository on GitHub has
+[detailed walkthroughs](https://github.com/amalgam8/amalgam8/tree/master/examples)
+for setting up the Amalgam8 control plane as well as demo applications that
+illustrate different features of Amalgam8.

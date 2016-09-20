@@ -2,7 +2,7 @@
 layout: page
 title: File-based Catalog
 permalink: /docs/registry/file-based-catalog/
-category: Registry
+category: Service Registry
 order: 2
 ---
 

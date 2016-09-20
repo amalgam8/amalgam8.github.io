@@ -2,7 +2,7 @@
 layout: page
 title: Route Controller
 permalink: /docs/controller/
-order: 2
+order: 3
 ---
 
 Amalgam8’s controller enables canary testing, red/black deployments, version-based routing rules, etc., with limited effort. Users can configure how traffic is routed across edge and mid-tier microservices using a variety of user-defined rules. 

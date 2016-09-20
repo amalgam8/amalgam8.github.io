@@ -2,7 +2,7 @@
 layout: page
 title: Sidecar
 permalink: /docs/sidecar/
-order: 4
+order: 5
 ---
 
 The Almagam8 sidecar has a flexible architecture that can be configured and
