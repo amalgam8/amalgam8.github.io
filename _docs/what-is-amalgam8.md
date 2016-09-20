@@ -34,8 +34,8 @@ from microservice A:v2 route all requests to B:v2
 from microservice A:v1 route 10% of requests to B:v2 and 90% to B:v1
 ```
 
-*A simple way to accomplish these functions is to control how
-microservices can talk to each other.*
+A simple way to accomplish these functions is to control how
+microservices can talk to each other.
 
 ## Amalgam8
 
