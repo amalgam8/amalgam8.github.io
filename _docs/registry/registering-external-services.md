@@ -1,7 +1,8 @@
 ---
 layout: page
 title: File-based Catalog
-permalink: /docs/registry/fscatalog/
+permalink: /docs/registry/file-based-catalog/
+category: Registry
 order: 2
 ---
 

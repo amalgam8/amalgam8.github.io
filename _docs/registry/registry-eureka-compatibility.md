@@ -1,7 +1,8 @@
 ---
 layout: page
 title: Eureka Compatibility
-permalink: /docs/registry/eureka/
+permalink: /docs/registry/eureka-compatibility/
+category: Registry
 order: 1
 ---
 
@@ -19,7 +20,7 @@ services in Amalgam8 such routing rules and resiliency testing. Ribbon will
 not use the sidecar for client-side load balancing
 
 
-### Eureka Client Configuration (Ribbon)
+# Eureka Client Configuration (Ribbon)
 
 Eureka service discovery is designed and used in single tenant environment,
 having a shared namespace, visible to all users. Since Amalgam8 can support
@@ -66,7 +67,7 @@ The above changes are sufficient to enable the Eureka client to interact
 with the Amalgam8 registry, and can be validated by issuing an HTTP GET to
 the /apps endpoint under the base URL.
 
-### Spring Cloud Integration
+# Spring Cloud Integration
 
 Spring Cloud uses the Eureka client API, but it's configuration is based on
 a YAML file (typically `.../src/main/resources/bootstrap.yml`). The
