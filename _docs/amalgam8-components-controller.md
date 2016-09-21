@@ -175,7 +175,7 @@ curl -i -X DELETE <controller URL>/v1/rules
 
 ### Full documentation
 
-Detailed documentation on the route controller's REST API can be found [here](/api/controller/).
+Detailed documentation on the route controller's REST API can be found [here](/api/controller-rules-schema/).
 
 Rules passed to the controller are validated against a [JSON schema](http://json-schema.org/) definition. The JSON schema describes the set of possible valid rule definitions. The full JSON schema definition for Amalgam8 controller rules is available [here](/api/controller-rules-schema.json).
 
