@@ -52,7 +52,7 @@ Action rules define actions that should be performed in specific circumstances. 
 Action rules are useful for testing deployments. The rule described above can be added via a call to the controller REST API:
 
 ```bash
-curl -i -X POST <controller URL>/v1/rules -H 'Accept: application/json' --data '{"rules": [{"priority": 10, "destination": "ratings", "actions": [{"action": "delay", "duration": 7.0, "probability": 1.0, "tags": ["v1"]}], "match": {"source": {"name": "serviceA", "tags": ["v2"]}}}]}' | jq .
+curl -i -X POST <controller URL>/v1/rules -H 'Accept: application/json' --data '{"rules": [{"priority": 10, "destination": "serviceB", "actions": [{"action": "delay", "duration": 7.0, "probability": 1.0, "tags": ["v1"]}], "match": {"source": {"name": "serviceA", "tags": ["v2"]}}}]}' | jq .
 ```
 
 Output:
