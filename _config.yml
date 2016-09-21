@@ -20,6 +20,10 @@ github_username:  amalgam8
 
 # Build settings
 markdown: kramdown
+kramdown:
+    input: GFM
+    hard_wrap: false
+
 permalink: /news/:year/:month/:day/:title/
 
 #repository: https://github.com/amalgam8/amalgam8.github.io
