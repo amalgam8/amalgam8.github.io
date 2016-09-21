@@ -17,13 +17,13 @@ Docker image.  Binary tarballs are available at the
 GitHub. To use the binary tarballs, add the following line to your
 Dockerfile:
 
-```Dockerfile
+```dockerfile
 RUN curl -sSL https://github.com/amalgam8/amalgam8/releases/download/${VERSION}/a8sidecar.sh | sh
 ```
 
 If you are using `wget`
 
-```Dockerfile
+```dockerfile
 RUN wget -qO- https://github.com/amalgam8/amalgam8/releases/download/${VERSION}/a8sidecar.sh | sh
 ```
 
@@ -38,7 +38,7 @@ configure the sidecar.
 
 A typical docker file will look like this:
 
-```Dockerfile
+```dockerfile
 FROM <somebaseimage>
 RUN curl -sSL https://github.com/amalgam8/amalgam8/releases/download/${VERSION}/a8sidecar.sh | sh
 
@@ -55,7 +55,7 @@ terminate as well.
 To use the sidecar to manage your application, set the `ENTRYPOINT` of your
 `Dockerfile` as follows:
 
-```Dockerfile
+```dockerfile
 ENTRYPOINT ["a8sidecar", "--config", "path/to/sidecar/config.yaml"]
 ```
 
@@ -63,7 +63,7 @@ In the sidecar's configuration file, provide the following arguments:
 
 ```yaml
 supervise: true
-app: [ "python", "helloworld.py ]
+app: [ "python", "helloworld.py" ]
 ```
 
 

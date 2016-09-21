@@ -29,58 +29,63 @@ or
 
 * Start the control plane services (Amalgam8 Controller and Registry)
 
-```bash
-    #registry
-    docker run -d amalgam8/a8-registry
-    #controller
-    docker run -d amalgam8/a8-controller
-```
+  ```bash
+  #registry
+  docker run -d amalgam8/a8-registry
+  #controller
+  docker run -d amalgam8/a8-controller
+  ```
 
 
-* Install the Amalgam8 CLI (`a8ctl`)
+* Install the [Amalgam8 CLI](https://github.com/amalgam8/a8ctl) (`a8ctl`)
 
-```bash
-    sudo pip install git+https://github.com/amalgam8/a8ctl
-```
+  ```bash
+  sudo pip install git+https://github.com/amalgam8/a8ctl
+  ```
 
 
 * Install the sidecar in your Dockerized microservice (assuming you have
   `curl` pre-installed)
 
-```Dockerfile
-    RUN curl -sSL https://github.com/amalgam8/amalgam8/releases/download/${VERSION}/a8sidecar.sh | sh
-```
+  ```dockerfile
+  RUN curl -sSL https://github.com/amalgam8/amalgam8/releases/download/${VERSION}/a8sidecar.sh | sh
+  ```
 
 
 * Launch your app via the sidecar
 
-```Dockerfile
-    ENTRYPOINT ["a8sidecar", "--proxy", "--register", "--supervise", "YOURAPP", "YOURAPP_ARG", "YOURAPP_ARG"]
-```
+  ```dockerfile
+  ENTRYPOINT ["a8sidecar", "--proxy", "--register", "--supervise", "YOURAPP", "YOURAPP_ARG", "YOURAPP_ARG"]
+  ```
 
-* Inject environment variables into your container
+  * Ensure that the following environment variables are present when you launch your app container
 
-
-```bash
+    ```bash
     A8_SERVICE=service_name:service_tags
     A8_ENDPOINT_PORT=port_where_service_is_listening
     A8_ENDPOINT_TYPE=http|https
     A8_REGISTRY_URL=http://a8registryURL
     A8_CONTROLLER_URL=http://a8controllerURL
-```
+    ```
 
-* Make API calls to other microservices via the sidecar [http://localhost:6379/serviceName/endpoint]()
+  For detailed instructions on how to integrate your application with the
+  sidecar, please refer to the [sidecar documentation](/docs/sidecar/).
 
-* Control traffic to microservices using the control plane API or the
-   [a8ctl](https://github.com/amalgam8/a8ctl) utility
 
-```bash
-    a8ctl route-set serviceName --default v1 --selector 'v2(user="Alice")' --selector 'v3(user="Bob")'
-```
+* Make API calls to other microservices via the sidecar using URLs of form
 
-For detailed instructions on how to integrate your application with the
-sidecar, please refer to the
-[sidecar documentation](/docs/amalgam8-components-sidecar/)
+  ```
+  http://localhost:6379/serviceName/endpoint
+  ```
+
+
+* Control traffic to microservices using the control plane's REST API or the
+  `a8ctl` CLI
+
+  ```bash
+  a8ctl route-set serviceName --default v1 --selector 'v2(user="Alice")' --selector 'v3(user="Bob")'
+  ```
+
 
 ## Walkthoughs
 

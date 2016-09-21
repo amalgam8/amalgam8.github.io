@@ -30,12 +30,9 @@ The Amalgam8 platform consists of the following three components:
    instances. In addition to these basic responsibilities, the sidecar is
    responsible for essential functions such as content and version-based
    routing, fault injection, ACLs, rate limiting, etc. From a design
-   standpoint, the choice of technology for the sidecar is irrelevant. *Any
-   implementation of the sidecar is sufficient (as a library or a helper
-   process) as long as the sidecar performs the above functions and is
-   dynamically programmable at runtime*.
-   
-   Amalgam8's sidecar implementation uses OpenResty + Nginx for request
+   standpoint, the choice of technology for the sidecar is irrelevant.
+
+   Amalgam8's sidecar implementation uses _OpenResty + Nginx_ for request
    routing, and employs a simple daemon for receiving and updating the routing
    rules in Nginx, and for service registration & heartbeat (where needed).
 
@@ -48,14 +45,23 @@ work together.
 
 1. Microservice instances are registered in the service registry by the
    sidecars. There are several ways this may be accomplished as described in
-   [Amalgam8 Registry](#service-registration).
+   [Amalgam8 Registry](/docs/registry/).
+
 2. The Developer uses the control plane API to configure high-level rules
    for request routing between services (e.g., splitting traffic across
    versions, injecting delays).
+
 3. The route controller translates these rules into low-level control information
    and sends them to the sidecars.
+
 4. A microservice invokes APIs of other microservices by pointing to the
-   sidecar as the destination host. For e.g., [http://localhost:6379/serviceName/apiEndpoint]()
+   sidecar as the destination host. The API endpoint is of the following
+   format:
+
+   ```
+   http://localhost:6379/serviceName/apiEndpoint
+   ```
+
 5. The sidecar (which is based on Nginx/OpenResty) forwards the request to the
    appropriate microservice, depending on the request path and routing
    rules specified by the controller.
