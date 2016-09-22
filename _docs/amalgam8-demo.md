@@ -5,43 +5,130 @@ permalink: /docs/amalgam8-demo/
 order: 1
 ---
 
-Amalgam8 platform can be deployed on the following container runtimes and
-PaaS environments. Pick an option below and follow the instructions in the
-respective section.
+This guide illustrates how to use Amalgam8 for version and content-based
+routing for two demo applications. The first is a simple `helloworld`
+application with one microservice, while the second is a slighly more
+complicated application called `bookinfo` composed of 4 microservices.
 
-* Localhost Deployment
-    * [Docker](#local-docker)
-    * [Kubernetes](#local-k8s)
-    * [Marathon/Mesos](#local-marathon)
-* Cloud Deployment
-    * [IBM Bluemix](#bluemix)
-    * [Google Compute Cloud](#gcp)
+The demo can be run on [Docker](https://www.docker.com) and
+[Kubernetes](https://kubernetes.io)-based environments locally as well as
+on PaaS environments such as [IBM Bluemix](https://bluemix.net) and
+[Google Cloud Platform](https://cloud.google.com).
 
-While Amalgam8 supports multi-tenancy, for the sake of simplicity, this
-walk through will setup Amalgam8 in single-tenant mode.
+_While Amalgam8 supports multi-tenancy, for the sake of simplicity, this
+demo will setup Amalgam8 in single-tenant mode._
 
-Before running the demos, we need to setup the requisite environment. 
+## Requirements
 
-* *Vagrant sandbox*: The repository's root directory includes a Vagrant
-  file that provides an environment with everything needed to run, and
-  build, the samples ([Docker](http://www.docker.com/),
-  [Kubernetes](http://kubernetes.io/),
-  [Amalgam8 CLI](https://github.com/amalgam8/amalgam8/a8ctl) already
-  installed. Depending on the runtime environement you want to try, using
-  it may be the easiest way to get Amalgam8 up and running.
+* [Docker](https://www.docker.com/products/docker#/)
+  You need `docker` 1.10 or later and `docker-compose` 1.5.1 or later.
 
-* *Custom setup*: If you are not using the vagrant environment, then
-  install the following pre-requisites:
+* Amalgam8 Python CLI. On Linux and Mac OS X, run the folowing command:
 
-  * Amalgam8 python CLI
+  ```bash
+  sudo pip install git+https://github.com/amalgam8/amalgam8/a8ctl
+  ```
 
-    ```bash
-    sudo pip install git+https://github.com/amalgam8/amalgam8/a8ctl
-    ```
+### Additional Requirements
+
+* If you are planning to use Kubernetes, then you need a
+  working kubernetes installation. To install kubernetes locally, checkout
+  [minikube](https://github.com/kubernetes/minikube).
+  
+  * If you are using Google Cloud Platform, setup the
+    [Google Cloud SDK](https://cloud.google.com/sdk/).
+
+* If you are planning to run the demos on IBM Bluemix, you need to have
+  the [CF CLI 6.12.0 or later](https://github.com/cloudfoundry/cli/releases), and
+  the [Bluemix CLI 0.3.3 or later](https://clis.ng.bluemix.net/).
+
+With the requirements out of the way, lets move on to the next stage:
+running Amalgam8
+
+## Deployment
+
+There are two components we need for the demo: the Amalgam8 Control Plane
+and the microservice application itself. Lets setup each of these
+components one by one.
+
+### Amalgam8 Control Plane
+
+The Amalgam8 Control Plane consists of the
+[service registry](/docs/registry/) and the
+[route controller](/docs/controller/). The two components are deployed in a
+non-HA configuration, with a Redis based datastore backend. In addition to
+these two components, for the purposes of this demo, a stock ELK stack is
+also included as part of the control plane deployment scripts.
+
+The commands to deploy the control plane for different environments are as
+follows:
+
+_Docker Compose_
+  
+```bash
+docker-compose -f <url_to_a8_controlplane.yml> up -d
+```
+
+_Kubernetes_ on localhost or on Google Cloud
+
+```bash
+kubectl create -f <url_to_a8_controlplane.yaml>
+```
+
+_IBM Bluemix_
+
+1. Login to Bluemix and initialize the container environment using 
+
+   ```
+   bluemix login
+   bluemix ic init
+   ```
+
+1. Create Bluemix routes (DNS names) for the registry, controller and the bookinfo app's gateway:  
+
+   ```bash
+   cf create-route <your bluemix space> mybluemix.net -n <your registry route>
+   cf create-route <your bluemix space> mybluemix.net -n <your controller route>
+   cf create-route <your bluemix space> mybluemix.net -n <your bookinfo route>
+   ```
+
+   where `<your bluemix space>` is the name of your Bluemix space and
+   `<your route ...>` is a unique route name for `registry`, `controller`
+   and `bookinfo`. For example `my-space-name-a8-registry`,
+   `my-space-name-a8-controller`, etc. Make a note of the route names you
+   choose for the next step.
+
+
+1. Download the scripts to automate Bluemix deployment from this
+   [here](https://url_to_bluemix_scripts).
+   
+1. Customize the _.bluemixrc_ in the downloaded folder as follows:
+    * BLUEMIX_REGISTRY_NAMESPACE should be your Bluemix registry namespace
+      obtained from the folowing command:
+
+      ```bash
+      bluemix ic namespace-get
+      ```
+
+    * REGISTRY_HOSTNAME should be the route name assigned to the registry in the previous step
+
+    * CONTROLLER_HOSTNAME should be the route name assigned to the controller in the previous step
+
+    * BOOKINFO_HOSTNAME should be the route name assigned to the bookinfo gateway in the previous step
+
+1. Deploy the control plane services (registry and controller) on bluemix.
+
+   ```bash
+   bluemix/deploy-controlplane.sh
+   ```
+
+   Verify that the controller and registry are running using the following commands: 
+
+   ```bash
+   bluemix ic groups
+   ```
  
-  * [Docker 1.10 or later](https://docs.docker.com/engine/installation/)
-  * [Docker Compose 1.5.1 or later](https://docs.docker.com/compose/install/)
-
+   You should see the groups `amalgam8_controller` and `amalgam8_registry` listed in the output.
 
 ## Amalgam8 with Docker - local environment <a id="local-docker"></a>
 
@@ -313,96 +400,6 @@ The following setup has been tested with Kubernetes v1.2.3.
 
    ```bash
    kubernetes/cleanup.sh
-   ```
-
-## Amalgam8 with Marathon/Mesos - local environment <a id="local-marathon"></a>
-
-The following setup has been tested with Marathon 0.15.2 and Mesos 0.26.0.
-
-1. Download the [Vagrantfile](Vagrantfile)
-
-2. **Edit the Vagrant file** and add the following line inside the `config.vm` block:
-
-   ```ruby
-   config.vm.network "private_network", ip: "192.168.33.33/24"
-   ```
-
-3. Start the Vagrant environment.
-
-   ```bash
-   vagrant up
-   vagrant ssh
-   ```
-
-   Once inside the vagrant box, switch to the Amalgam8 examples folder and setup the required environment variables
-
-   ```bash
-   cd amalgam8/examples
-   export A8_CONTROLLER_URL=http://192.168.33.33:31200
-   export A8_REGISTRY_URL=http://192.168.33.33:31300
-   ```
-
-1. Start the local control plane services (registry and controller) and the ELK stack by running the following script:
-   
-   ```bash
-   marathon/run-controlplane-marathon.sh start
-   ```
-
-   From your browser, confirm that the Marathon dashboard is accessible at
-   `http://192.168.33.33:8080` and the Mesos dashboard at `http://192.168.33.33:5050`
-
-   Verify that the controller and registry are running via the Marathon dashboard.
-
-   The single host marathon/mesos deployment is based on Holiday Check's [mesos-in-the-box](https://github.com/holidaycheck/mesos-in-the-box).
-
-1. Launch the API Gateway
-    
-   ```bash
-   marathon/run-component.sh gateway start
-   ```
-
-1. Confirm that the API gateway is running by accessing the
-    `http://192.168.33.33:32000` from your browser. If all is well, you should
-    see a simple **Welcome to nginx!** page in your browser.
-
-1. Follow the instructions for the sample that you want to run.
-
-    (a) **helloworld** sample
-
-    * Start the helloworld application:
-
-      ```bash
-      marathon/run-component.sh helloworld start
-      ```
-        
-    * Follow the instructions for the [Helloworld](apps/helloworld/) example
-
-    * To shutdown the helloworld instances, run the following commands:
-   
-      ```bash
-      marathon/run-component.sh helloworld stop
-      ```
-
-    (b) **bookinfo** sample
-
-    * Start the bookinfo application:
-    
-      ```bash
-      marathon/run-component.sh bookinfo start
-      ```
-
-    * Follow the instructions for the [Bookinfo](apps/bookinfo/) example
-
-    * To shutdown the bookinfo instances, run the following commands:
-    
-      ```bash
-      marathon/run-component.sh bookinfo stop
-      ```
-
-1. When you are finished, shut down the gateway and control plane services by running the following commands:
-
-   ```bash
-   marathon/cleanup.sh
    ```
 
 ## Amalgam8 on IBM Bluemix <a id="bluemix"></a>
