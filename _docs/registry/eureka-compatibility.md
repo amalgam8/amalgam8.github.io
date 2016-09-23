@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Eureka Compatibility
+title: Eureka API Compatibility
 permalink: /docs/registry/eureka-compatibility/
 category: Service Registry
 order: 1

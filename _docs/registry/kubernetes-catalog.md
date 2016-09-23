@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Kubernetes Catalog
-permalink: /docs/registry/kubernetes-registry-catalog/
+permalink: /docs/registry/kubernetes-catalog/
 category: Service Registry
 order: 3
 ---
