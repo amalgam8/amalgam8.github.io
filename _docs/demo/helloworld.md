@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Hello World!
-permalink: /docs/amalgam8-demo/helloworld/
+permalink: /docs/demo/helloworld/
 category: Demo
 order: 2
 ---
