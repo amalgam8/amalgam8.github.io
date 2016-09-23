@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Bookinfo
-permalink: /docs/amalgam8-demo/bookinfo/
+permalink: /docs/demo/bookinfo/
 category: Demo
 order: 3
 ---

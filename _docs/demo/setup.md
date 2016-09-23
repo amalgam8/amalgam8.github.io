@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Setup
-permalink: /docs/amalgam8-demo/setup/
+permalink: /docs/demo/setup/
 category: Demo
 order: 1
 ---
