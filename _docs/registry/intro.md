@@ -30,7 +30,7 @@ Registry, it re-registers the service.  This is a common service
 registration design pattern used in many microservice frameworks, and will
 work for services running anywhere.
 
-** Interoperability**.  A key design feature of Amalgam8 Registry is to
+**Interoperability**.  A key design feature of Amalgam8 Registry is to
 leverage features of any particular runtime platform that a microservice
 may be deployed in.  The Registry supports the concept of catalogs --
 pluggable modules that can be used to populate the Registry with
@@ -42,7 +42,7 @@ registration information from Kubernetes, Eureka.  In addition, the
 Amalgam8 Registry can be used directly as a drop-in replacement for Netflix
 Eureka without the need for an explicit catalog.
 
-** Registering external services**.  Amalgam8 is typically used to control 
+**Registering external services**.  Amalgam8 is typically used to control 
 communication between internal application microservices. However, routing
 rules may also be injected for external cloud- and Web-based services, such
 social network sites, hosted database services that are part of the cloud
