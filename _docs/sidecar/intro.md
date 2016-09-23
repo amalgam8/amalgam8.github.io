@@ -1,7 +1,8 @@
 ---
 layout: page
-title: Sidecar
+title: Introduction
 permalink: /docs/sidecar/
+category: Sidecar
 order: 0
 ---
 
