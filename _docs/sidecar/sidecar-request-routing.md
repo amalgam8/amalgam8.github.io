@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Intelligent Request Routing
-permalink: /docs/sidecar/sidecar-intelligent-request-routing/
+permalink: /docs/sidecar/sidecar-request-routing/
 category: Sidecar
 order: 5
 ---
