@@ -17,7 +17,20 @@ demo will setup Amalgam8 in single-tenant mode.
 * Amalgam8 Python CLI. On Linux and Mac OS X, run the folowing command:
 
   ```bash
-  sudo pip install git+https://github.com/amalgam8/amalgam8/a8ctl
+  pip install --user git+https://github.com/amalgam8/amalgam8/a8ctl
+  ```
+
+  Add the location of the `a8ctl` command to the `PATH` environment
+  variable. On OS X, do
+
+  ```bash
+  export PATH=$PATH:${HOME}/Library/Python/2.7/bin
+  ```
+
+  On Linux, do
+
+  ```bash
+  export PATH=$PATH:${HOME}/.local/bin/a8ctl
   ```
 
 ### Additional Requirements
@@ -51,13 +64,13 @@ follows:
 _Docker Compose_
   
 ```bash
-docker-compose -f <url_to_a8_controlplane.yml> up -d
+docker-compose -f examples/docker-controlplane.yaml up -d
 ```
 
 _Kubernetes_ on localhost or on Google Cloud
 
 ```bash
-kubectl create -f <url_to_a8_controlplane.yaml>
+kubectl create -f examples/k8s-controlplane.yaml
 ```
 
 _IBM Bluemix_
@@ -101,7 +114,7 @@ _IBM Bluemix_
 1. Deploy the control plane services (registry and controller) on bluemix.
 
    ```bash
-   ./a8-bluemix create controlplane
+   examples/a8-bluemix create controlplane
    ```
 
    Verify that the controller and registry are running using the following commands: 
@@ -151,50 +164,3 @@ A8_REGISTRY_URL=http://<registry route>.mybluemix.net
 
 where `<controller route>` and `<registry route>` correspond to the routes
 that you set for the controller and registry respectively.
-
-### 3. Demo Applications
-
-Two demo applications are provided with this distribution. The first is a
-simple `helloworld` application with one microservice. We will use this app
-to play with some of Amalgam8's basic version-based routing
-capabilities. The second application, called `bookinfo` is a polyglot
-application with 4 microservices written using Python, Ruby and Java. We
-will use the bookinfo application to demonstrate several features of Amalgam8.
-
-
-The commands to deploy a sample application for different environments are as
-follows:
-
-_Docker Compose_
-  
-```bash
-docker-compose -f <url_to_a8_docker_demos.yaml> up -d
-```
-
-_Kubernetes_ on localhost or on Google Cloud
-
-```bash
-kubectl create -f <url_to_a8_k8s_demos.yaml>
-```
-
-_IBM Bluemix_
-
-1. Create Bluemix routes (DNS names) for the registry, controller and the bookinfo app's gateway:  
-
-   ```bash
-   cf create-route <your bluemix space> mybluemix.net -n <your bookinfo route>
-   ```
-
-1. Specify the route name in the _.bluemixrc_ in the BOOKINFO_HOSTNAME variable.
-
-1. Deploy the bookinfo application on bluemix.
-
-   ```bash
-   ./a8-bluemix create bookinfo
-   ```
-
-   Verify that the services are running using the following commands: 
-
-   ```bash
-   bluemix ic groups
-   ```
