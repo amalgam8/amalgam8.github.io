@@ -6,7 +6,7 @@ category: Sidecar
 order: 0
 ---
 
-The Almagam8 sidecar has a flexible architecture that can be configured and
+The Amalgam8 sidecar has a flexible architecture that can be configured and
 used by applications in a number of ways. The sidecar can be split into the
 following functional components:
 
