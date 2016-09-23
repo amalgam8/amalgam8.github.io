@@ -9,7 +9,7 @@ order: 3
 The following instructions apply to both Docker-based and Kubernetes-based
 installations. Configuration options can be set via environment variables,
 command line flags, or YAML configuration files.  *Order of precedence is
-command line flags first, then environmenmt variables, configuration files,
+command line flags first, then environment variables, configuration files,
 and lastly default values.*
 
 The following table lists all the configuration options, their equivalent
