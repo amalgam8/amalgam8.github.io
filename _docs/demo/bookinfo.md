@@ -57,13 +57,13 @@ environments are as follows:
 _Docker Compose_
   
 ```bash
-docker-compose -f <url_to_a8_docker_demo_bookinfo.yaml> up -d
+docker-compose -f examples/docker-bookinfo.yaml up -d
 ```
 
 _Kubernetes_ on localhost or on Google Cloud
 
 ```bash
-kubectl create -f <url_to_a8_k8s_demo_bookinfo.yaml>
+kubectl create -f examples/k8s-bookinfo.yaml
 ```
 
 _IBM Bluemix_
@@ -88,36 +88,37 @@ _IBM Bluemix_
    bluemix ic groups
    ```
 
-1. Confirm that the microservices are running, by running the following command:
+### Listing the Services in the App
 
-   ```bash
-   a8ctl service-list
-   ```
-   
-   The expected output is the following:
-   
-   ```
-   +-------------+---------------------+
-   | Service     | Instances           |
-   +-------------+---------------------+
-   | productpage | v1(1)               |
-   | ratings     | v1(1)               |
-   | details     | v1(1)               |
-   | reviews     | v1(1), v2(1), v3(1) |
-   +-------------+---------------------+
-   ```
+You can view the microservices that are running using the following command:
+
+```bash
+a8ctl service-list
+```
+    
+The expected output is the following:
+
+```bash
++------------+--------------+
+| Service    | Instances    |
++------------+--------------+
+| helloworld | v1(2), v2(2) |
++------------+--------------+
+```
+
+There are 4 instances of the helloworld service. Two are instances of
+version "v1" and the other two belong to version "v2".
 
 ## Set the default routes
 
 By default, routes need not be set in Amalgam8. When no routes are present,
 Amalgam8 sidecars route requests in a random fashion to one of the
-instances of the target microservice. However, when multiple versions of a
-microservice are operational (as is common in typical production
-scenarios), it is advisable to explicitly set a default route for each microservice.
+instances of the target microservice. However, _it is advisable to
+explicitly set a default route for each microservice, so that when a new
+version of a microservice is introduced, traffic to the new version can be
+released in a controlled fashion_.
 
-Lets route all of the incoming traffic to version v1 only for each service.
-Run the following command:
-
+Lets route all of the incoming traffic to version `v1` only for each service.
 
 ```bash
 a8ctl route-set productpage --default v1
@@ -191,25 +192,25 @@ You should now see ratings (1-5 stars) next to each review.
 Instead of taking a Chaos-based approach to resilience testing, Amalgam8
 uses a systematic approach to test the resilience of microservices. We
 refer to this systematic resilience testing framework as
-[Gremlin](https://developer.ibm.com/open/2016/06/06/systematically-resilience-testing-of-microservices-with-gremlin/).
+[Gremlin](https://developer.ibm.com/open/2016/06/06/systematically-resilience-testing-of-microservices-with-gremlin/). Using
+the framework with Amalgam8, you can define the set of _faults_ to be
+injected into your application and a set of _assertions_ that validate
+whether the application has properly recovered from the failure.
 
-The Gremlin framework can be used to test the ability of microservice-based
-applications to recover from user-defined failure scenarios. In addition to
-the fault injection, it allows the developer to script the set of
-assertions that must be satisfied by the application as a whole when
-recovering from the failure. In this demo we are only going to demonstrate
-a couple of simple features to highlight the underlying support for Gremlin
-provided by the Amalgam8 runtime.
+In this demo, we will test the bookinfo application with the newly
+introduced `reviews:v2` version of the reviews microservice. The
+_reviews:v2 service has a 10s timeout for its calls to the ratings 
+service. We will _inject a 7s delay_ between the reviews:v2 and ratings
+microservices and ensure that the end-to-end flow works without any errors.
 
-* In the bookinfo application, the *reviews:v2 service has a 10 second timeout
-  for its calls to the ratings service*. To test that the end-to-end flow
-  works under normal circumstances, we are going to *inject a 7 second delay*
-  into the ratings microservice call from the reviews microservice, to make
-  sure that all microservices in the call chain function correctly.
+### Fault Injection w/ Manual Verification
+
+Lets start with simple fault injection first.
 
 * Lets add a fault injection rule via the `a8ctl` CLI that injects a 7s
-  delay in all requests with an HTTP Cookie header value for the user
-  "jason".
+  delay in all requests with an HTTP Cookie header containing the value
+  `user=jason`. In other words, we are confining the faults only to the QA
+  user.
 
   ```bash
   a8ctl action-add --source reviews:v2 --destination ratings --cookie user=jason --action 'v1(1->delay=7)'
@@ -224,11 +225,11 @@ provided by the Amalgam8 runtime.
   You should see the following output:
 
   ```
-  +-------------+----------------+-------------------------------+----------+--------------------+--------------------------------------+
-  | Destination | Source         | Headers                       | Priority | Actions            | Rule Id                              |
-  +-------------+----------------+-------------------------------+----------+--------------------+--------------------------------------+
-  | ratings     | reviews:v2     | Cookie:.*?user=jason          | 10       | v1(1.0->delay=7.0) | e76d79e6-8b3e-45a7-87e7-674480a92d7c |
-  +-------------+----------------+-------------------------------+----------+--------------------+--------------------------------------+    
+  +-------------+----------------+---------------------------+----------+--------------------+--------------------------------------+
+  | Destination | Source         | Headers                   | Priority | Actions            | Rule Id                              |
+  +-------------+----------------+---------------------------+----------+--------------------+--------------------------------------+
+  | ratings     | reviews:v2     | Cookie:.*?user=jason      | 10       | v1(1.0->delay=7.0) | e76d79e6-8b3e-45a7-87e7-674480a92d7c |
+  +-------------+----------------+---------------------------+----------+--------------------+--------------------------------------+    
   ```
 
 * Lets see the fault injection in action. Ideally the frontpage of the
@@ -241,16 +242,20 @@ provided by the Amalgam8 runtime.
   You will see that the webpage loads in about 6 seconds. The reviews section
   will show *Sorry, product reviews are currently unavailable for this book*.
 
-  Something is not working as expected in the application. If the reviews
-  service has a 10 second timeout, the product page should have returned
-  after 7 seconds with full content. What we see however is that the entire
-  reviews section is unavailable.
+_**Impact of fault:**_ If the reviews service has a 10s timeout, the
+product page should have returned after 7s with full content. What we saw
+however is that the entire reviews section is unavailable._
 
 Notice that we are restricting the failure impact to user Jason only. If
 you login as any other user, say "shriram" or "frank", you would not
 experience any delays.
 
-### Use a Gremlin Recipe to systematically test the application
+### Fault Injection + Automated Verification
+
+Fault injection alone is insufficient, as it requires manual effort to
+monitor the application and identify which services failed to recover. In
+any reasonably sized application, this troubleshooting process can get
+quite complicated and time consuming.
 
 We'll now use a *gremlin recipe* that describes the application topology
 (`topology.json`), reproduces the (7 seconds delay) failure scenario (`gremlins.json`),
@@ -271,7 +276,7 @@ that we expect to pass: each service in the call chain should return `HTTP
 * Run the recipe using the following command from the main examples folder:
 
   ```bash
-  a8ctl recipe-run --topology bookinfo-topology.json --scenarios bookinfo-gremlins.json --checks bookinfo-checks.json --header 'Cookie' --pattern='user=jason'
+  a8ctl recipe-run --topology examples/bookinfo-topology.json --scenarios examples/bookinfo-gremlins.json --checks examples/bookinfo-checks.json --header 'Cookie' --pattern='user=jason'
   ```
 
   You should see the following output:
@@ -313,28 +318,34 @@ that we expect to pass: each service in the call chain should return `HTTP
 
 #### Understanding the output
 
-We set a 7s delay between `reviews` (v2) and `ratings:v1` service. Since
-the `reviews` service had a 10s timeout, it successfully completed the API
-call to the `ratings` service despite the network delay. We also see that
-the `productpage` service returned a HTTP 200 to the `gateway` service
-within the 7s response time limit we had set. While these checks seem to
-succeed, the webpage output still does not match our expectation. Why?
+* We set a 7s delay between `reviews` (v2) and `ratings:v1` service.
 
-The answer lies in the failing check between `productpage` and `reviews`
-service. The above output indicates that the productpage microservice timed
-out on its API call to the reviews service (via sidecar) and subsequently
-closed the connection. This is inferred by the status code HTTP 499, which
-is Nginx's code to indicate that the caller closed its TCP connection
-prematurely. However, we also see that the call from reviews to ratings
-service was successful! This behavior suggests that the _productpage
-service has a smaller timeout to the reviews service, compared to the
-timeout duration between the reviews and ratings service._
+* Since the `reviews` service had a 10s timeout, it successfully completed
+the API call to the `ratings` service despite the network delay (as shown
+in last line of the output above)
+
+* We also saw that the `productpage` service returned a HTTP 200 to the
+`gateway` service within the 7s response time limit we had set (the first
+two lines in the output above).
+
+While these checks seem to succeed, the webpage output still does not match
+our expectation. Why?
+
+_**What went wrong?**_ The answer lies in the failing check between
+`productpage` and `reviews` service. The third line, a _failing assertion_
+in the above output indicates that the productpage microservice timed out
+on its API call to the reviews service (via sidecar) and subsequently
+closed the connection. However, the table also shows that the call from
+reviews to ratings service was successful.
+
+This behavior suggests that the _productpage service has a smaller timeout
+to the reviews service, compared to the timeout duration between the
+reviews and ratings service._
 
 What we have here is a typical bug in microservice applications:
-**conflicting failure handling policies in different
-microservices**. Gremlin's systematic resilience testing approach enables
-us to spot such issues in production deployments without impacting real
-users.
+**conflicting failure handling policies in different microservices**.  The
+systematic resilience testing approach enables you to spot such issues in
+production deployments without impacting real users.
 
 #### Fixing the bug
 

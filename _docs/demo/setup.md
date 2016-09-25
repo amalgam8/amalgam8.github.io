@@ -12,26 +12,11 @@ demo will setup Amalgam8 in single-tenant mode.
 ## Requirements
 
 * [Docker](https://www.docker.com/products/docker#/)
-  You need `docker` 1.10 or later and `docker-compose` 1.5.1 or later.
+  You need `docker` 1.10 or higher and `docker-compose` 1.5.1 or higher.
 
-* Amalgam8 Python CLI. On Linux and Mac OS X, run the folowing command:
-
-  ```bash
-  pip install --user git+https://github.com/amalgam8/amalgam8/a8ctl
-  ```
-
-  Add the location of the `a8ctl` command to the `PATH` environment
-  variable. On OS X, do
-
-  ```bash
-  export PATH=$PATH:${HOME}/Library/Python/2.7/bin
-  ```
-
-  On Linux, do
-
-  ```bash
-  export PATH=$PATH:${HOME}/.local/bin/a8ctl
-  ```
+* [Python 2.7.9](https://www.python.org/downloads/) or higher. If you are
+  using Linux or Mac OS X, you should already have the requisite version of
+  Python in your system.
 
 ### Additional Requirements
 
@@ -125,7 +110,32 @@ _IBM Bluemix_
  
    You should see the groups `amalgam8_controller` and `amalgam8_registry` listed in the output.
 
-## Configuring the a8ctl CLI
+## Setting up the Amalgam8 CLI
+
+The `a8ctl` command line utility provides a convenient way to setup and
+manage routes across microservices as well as inspect the state of the
+system. The CLI can be installed via the `pip` tool (available as part of
+standard Python installation) directly from Python's package repository or
+from `a8ctl` [github repository](https://github.com/amalgam8/a8ctl).
+
+Run the folowing command to install the a8ctl into your home directory:
+
+```bash
+pip install --user a8ctl
+```
+
+Add the location of the `a8ctl` command to the `PATH` environment
+variable. On OS X, run
+
+```bash
+export PATH=$PATH:${HOME}/Library/Python/2.7/bin
+```
+
+On Linux, run
+
+```bash
+export PATH=$PATH:${HOME}/.local/bin/a8ctl
+```
 
 To use the Amalgam8 CLI (`a8ctl`) for the demo walkthroughs we need
 to setup two environment variables: `A8_CONTROLLER_URL` and
