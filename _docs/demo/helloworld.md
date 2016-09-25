@@ -19,13 +19,13 @@ environments are as follows:
 _Docker Compose_
   
 ```bash
-docker-compose -f <url_to_a8_docker_demo_helloworld.yaml> up -d
+docker-compose -f examples/docker-helloworld.yaml up -d
 ```
 
 _Kubernetes_ on localhost or on Google Cloud
 
 ```bash
-kubectl create -f <url_to_a8_k8s_demo_bookinfo.yaml>
+kubectl create -f examples/k8s-helloworld.yaml
 ```
 
 _IBM Bluemix_
@@ -50,23 +50,26 @@ _IBM Bluemix_
    bluemix ic groups
    ```
 
-1. Confirm that the microservices are running, by running the following command:
+### Listing the Services in the App
 
-   ```bash
-   a8ctl service-list
-   ```
+You can view the microservices that are running using the following command:
+
+```bash
+a8ctl service-list
+```
     
-   The expected output is the following:
+The expected output is the following:
 
-   ```bash
-   +------------+--------------+
-   | Service    | Instances    |
-   +------------+--------------+
-   | helloworld | v1(2), v2(2) |
-   +------------+--------------+
-   ```
+```bash
++------------+--------------+
+| Service    | Instances    |
++------------+--------------+
+| helloworld | v1(2), v2(2) |
++------------+--------------+
+```
 
-    There are 4 instances of the helloworld service. 2 are instances of version "v1" and 2 are version "v2". 
+There are 4 instances of the helloworld service. Two are instances of
+version "v1" and the other two belong to version "v2".
 
 ## Version-based routing
 
