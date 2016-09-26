@@ -9,6 +9,14 @@ order: 1
 While Amalgam8 supports multi-tenancy, for the sake of simplicity, this
 demo will setup Amalgam8 in single-tenant mode.
 
+## Download
+
+Download and unzip the
+[latest release](https://www.github.com/amalgam8/amalgam8/releases/download/latest_release/a8examples.zip)
+of the demo scripts and configuration files. Links to previous releases can
+be found on the
+[Amalgam8 Releases](https://github.com/amalgam8/amalgam8/releases) page.
+
 ## Requirements
 
 * [Docker](https://www.docker.com/products/docker#/)
