@@ -3,7 +3,7 @@ layout: page
 title: Configuration
 permalink: /docs/controller/controller-configuration-options/
 category: Controller
-order: 3
+order: 1
 ---
 
 The following instructions apply to both Docker-based and Kubernetes-based
@@ -35,11 +35,20 @@ The following environment variables are available. All of them are optional.
 A8_LOG_LEVEL=debug
 ```
 
-**Persistent Storage Backend:** Controller by default will use in-memory
- storage, to persist created rules to a redis storage backend, enable
- the following options:
+## Persistent Storage Backend
+
+Controller by default will use in-memory storage.  To persist created rules
+to a redis storage backend, enable the following options:
 
 ```bash
 A8_DATABASE_TYPE=redis
 A8_DATABASE_HOST=redis://redis:6379
+```
+
+The `redis:alpine` image from dockerhub does not have a password set by default
+(redis does not use a username).  If the redis instance in use is configured
+with a password, set the options above and this additional option as well:
+
+```bash
+A8_DATABASE_USERNAME=myusername
 ```
