@@ -50,5 +50,5 @@ The `redis:alpine` image from dockerhub does not have a password set by default
 with a password, set the options above and this additional option as well:
 
 ```bash
-A8_DATABASE_USERNAME=myusername
+A8_DATABASE_PASSWORD=mypassword
 ```
