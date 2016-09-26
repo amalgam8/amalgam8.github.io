@@ -22,8 +22,6 @@ mode. Please refer to the
 [Redis Clustering](http://redis.io/topics/cluster-tutorial) documentation
 for details on setting up a highly available Redis backend.
 
-**Authentication & Multi-tenancy:** By default, the Controller operates in
-a single-tenant mode without any authentication. In multi-tenant mode, it
-supports two authentication mechanisms: a trusted auth mode for local
-testing and development purposes, and a JWT auth mode for production
-deployments.
+[Authentication & Multi-tenancy](/docs/controller/controller-authentication/)
+section describes running the controller in single and multi-tenant modes
+and the forms of authentication available.
