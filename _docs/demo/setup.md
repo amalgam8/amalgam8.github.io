@@ -11,11 +11,9 @@ demo will setup Amalgam8 in single-tenant mode.
 
 ## Download
 
-Download and unzip the
-[latest release](https://www.github.com/amalgam8/amalgam8/releases/download/latest_release/a8examples.zip)
-of the demo scripts and configuration files. Links to previous releases can
-be found on the
-[Amalgam8 Releases](https://github.com/amalgam8/amalgam8/releases) page.
+Download and unzip the latest release of Amalgam8 demos from the
+[Amalgam8 Releases](https://www.github.com/amalgam8/amalgam8/releases)
+page.
 
 ## Requirements
 
@@ -92,7 +90,7 @@ _IBM Bluemix_
 1. Download the scripts to automate Bluemix deployment from this
    [here](https://url_to_bluemix_scripts).
    
-1. Customize the _.bluemixrc_ in the downloaded folder as follows:
+1. Customize the _bluemix.cfg_ in the downloaded folder as follows:
     * BLUEMIX_REGISTRY_NAMESPACE should be your Bluemix registry namespace
       obtained from the folowing command:
 
