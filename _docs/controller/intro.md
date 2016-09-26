@@ -22,6 +22,6 @@ mode. Please refer to the
 [Redis Clustering](http://redis.io/topics/cluster-tutorial) documentation
 for details on setting up a highly available Redis backend.
 
-[Authentication & Multi-tenancy](/docs/controller/controller-authentication/)
-section describes running the controller in single and multi-tenant modes
+**[Authentication & Multi-tenancy](/docs/controller/controller-authentication/):**
+This section describes running the controller in single and multi-tenant modes
 and the forms of authentication available.
