@@ -16,7 +16,6 @@ The following environment variables are available. All of them are optional.
 | Environment Key | Flag Name                   | Description | Default Value |
 |:----------------|:----------------------------|:------------|:--------------|
 | A8_API_PORT | --api_port | API port | 8080 |
-| A8_CONTROL_TOKEN | --control_token | Controller API authentication token | ABCDEFGHIJKLMNOP |
 | A8_ENCRYPTION_KEY | --encryption_key | secret key | abcdefghijklmnop |
 | A8_DATABASE_TYPE |  --database_type |	database type | memory |
 | A8_DATABASE_USERNAME | --database_username | database username | |
@@ -25,6 +24,7 @@ The following environment variables are available. All of them are optional.
 | A8_LOG_LEVEL | --log_level | logging level (debug, info, warn, error, fatal, panic) | info |
 | A8_AUTH_MODE | --auth_mode | Authentication modes. Supported values are: 'trusted', 'jwt'" | |
 | A8_JWT_SECRET | --jwt_secret | Secret key for JWT authentication | |
+| A8_REQUIRE_HTTPS | --require_https | Require clients to use HTTPS for API calls | |
 | | --help, -h | show help | |
 | | --version, -v | print the version | |
 {:.table .table-bordered .table-condensed .table-striped}
