@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Introduction
-permalink: /docs/controller/intro
+permalink: /docs/controller/
 category: Controller
 order: 0
 ---
