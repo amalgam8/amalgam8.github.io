@@ -13,7 +13,8 @@ demo will setup Amalgam8 in single-tenant mode.
 
 Download and unzip the latest release of Amalgam8 demos from the
 [Amalgam8 Releases](https://www.github.com/amalgam8/amalgam8/releases)
-page.
+page. You should find a folder named `examples` after extracting files from
+the zip archive.
 
 ## Requirements
 
@@ -87,15 +88,12 @@ _IBM Bluemix_
    choose for the next step.
 
 
-1. Download the scripts to automate Bluemix deployment from this
-   [here](https://url_to_bluemix_scripts).
-   
-1. Customize the _bluemix.cfg_ in the downloaded folder as follows:
+1. Customize the _examples/bluemix.cfg_ in the downloaded folder as follows:
     * BLUEMIX_REGISTRY_NAMESPACE should be your Bluemix registry namespace
       obtained from the folowing command:
 
       ```bash
-      bluemix ic namespace-get
+      bluemix ic namespace get
       ```
 
     * REGISTRY_HOSTNAME should be the route name assigned to the registry in the previous step
@@ -154,8 +152,8 @@ control plane.
 _Docker Compose_
 
 ```bash
-A8_CONTROLLER_URL=http://localhost:31200
-A8_REGISTRY_URL=http://localhost:31300
+export A8_CONTROLLER_URL=http://localhost:31200
+export A8_REGISTRY_URL=http://localhost:31300
 ```
 
 _Kubernetes_
@@ -163,8 +161,8 @@ _Kubernetes_
 On minikube
 
 ```bash
-A8_CONTROLLER_URL=http://$(minikube ip):31200
-A8_REGISTRY_URL=http://$(minikube ip):31300
+export A8_CONTROLLER_URL=http://$(minikube ip):31200
+export A8_REGISTRY_URL=http://$(minikube ip):31300
 ```
 
 On Google Cloud Platform, assign a public IP to the Node running the
@@ -174,8 +172,8 @@ respectively.
 _IBM Bluemix_
 
 ```bash
-A8_CONTROLLER_URL=http://<controller route>.mybluemix.net
-A8_REGISTRY_URL=http://<registry route>.mybluemix.net
+export A8_CONTROLLER_URL=http://<controller route>.mybluemix.net
+export A8_REGISTRY_URL=http://<registry route>.mybluemix.net
 ```
 
 where `<controller route>` and `<registry route>` correspond to the routes

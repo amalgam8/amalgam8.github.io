@@ -79,7 +79,7 @@ _IBM Bluemix_
 1. Deploy the bookinfo application on bluemix.
 
    ```bash
-   ./a8-bluemix create bookinfo
+   examples/a8-bluemix create bookinfo
    ```
 
    Verify that the services are running using the following commands: 
@@ -88,7 +88,7 @@ _IBM Bluemix_
    bluemix ic groups
    ```
 
-### Listing the Services in the App
+### List the Services in the App
 
 You can view the microservices that are running using the following command:
 
@@ -99,15 +99,20 @@ a8ctl service-list
 The expected output is the following:
 
 ```bash
-+------------+--------------+
-| Service    | Instances    |
-+------------+--------------+
-| helloworld | v1(2), v2(2) |
-+------------+--------------+
++-------------+---------------------+
+| Service     | Instances           |
++-------------+---------------------+
+| reviews     | v1(1), v2(1), v3(1) |
+| details     | v1(1)               |
+| ratings     | v1(1)               |
+| productpage | v1(1)               |
++-------------+---------------------+
 ```
 
-There are 4 instances of the helloworld service. Two are instances of
-version "v1" and the other two belong to version "v2".
+There are 4 microservices as described in the diagram above. The `reviews`
+microservice has 3 versions v1, v2, and v3. Note that in a realistic
+deployment, new versions of a microservice are deployed over time
+instead of deploying all versions simultaneously.
 
 ## Set the default routes
 
@@ -244,9 +249,9 @@ Lets start with simple fault injection first.
 
 _**Impact of fault:**_ If the reviews service has a 10s timeout, the
 product page should have returned after 7s with full content. What we saw
-however is that the entire reviews section is unavailable._
+however is that the entire reviews section is unavailable.
 
-Notice that we are restricting the failure impact to user Jason only. If
+Notice that we are restricting the failure impact to user `jason` only. If
 you login as any other user, say "shriram" or "frank", you would not
 experience any delays.
 
@@ -282,7 +287,7 @@ that we expect to pass: each service in the call chain should return `HTTP
   You should see the following output:
 
   ```
-  Inject test requests with HTTP header Cookie: value, where value matches the pattern user=jason
+  Inject test requests with HTTP header Cookie matching the pattern user=jason
   When done, press Enter key to continue to validation phase
   ```
 
@@ -416,3 +421,24 @@ Transfer complete for reviews: sending 100% of traffic to v3
 If you log in to the `productpage` as any user, you should see book reviews
 with *red* colored star ratings for each review.
 
+## Cleanup
+
+To remove the `bookinfo` application,
+
+_Docker Compose_
+  
+```bash
+docker-compose -f examples/docker-bookinfo.yaml kill
+```
+
+_Kubernetes_ on localhost or on Google Cloud
+
+```bash
+kubectl delete -f examples/k8s-bookinfo.yaml
+```
+
+_IBM Bluemix_
+
+```bash
+examples/a8-bluemix destroy bookinfo
+```
