@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Authentication Options & Multi-Tenancy
+title: Authentication & Multi-Tenancy
 permalink: /docs/controller/controller-authentication/
 category: Controller
 order: 2
