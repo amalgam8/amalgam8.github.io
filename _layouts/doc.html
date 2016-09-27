@@ -8,14 +8,33 @@ layout: bootstrap
     <ul class="list-unstyled">
         {% assign cats = site.docs | group_by: "category" %}
         {% for cat in cats %}
-            <li><label class="tree-toggle"><i class="fa fa-caret-down"></i> {{ cat.name | default: "Guides" }}</label>
+            <li>
+                <label class="tree-toggle"><i class="fa fa-caret-down"></i> {{ cat.name | default: "Guides" }}</label>
                 <ul class="list-unstyled tree">
-                    {% assign docs = cat.items | sort: "order" %}
+
+                {% assign subcats = cat.items | group_by: "subcategory" %}
+                {% for subcat in subcats %}
+                    {% assign subcat_name = subcat.name | default: "EMPTY" %}
+                    {% if subcat_name != "EMPTY" %}
+                        <li>
+                            <label class="tree-toggle"><i class="fa fa-caret-down"></i> {{ subcat_name }}</label>
+                            <ul class="list-unstyled tree">
+                    {% endif %}
+
+                    {% assign docs = subcat.items | sort: "order" %}
                     {% for doc in docs %}
                         {% if doc.exclude != true %}
                         <li><a href="{{doc.url}}">{{ doc.title }}</a></li>
                         {% endif %}
                     {% endfor %}
+
+                    {% if subcat_name != "EMPTY" %}
+                            </ul>
+                        </li>
+                    {% endif %}
+                        
+                {% endfor %}
+                
                 </ul>
             </li>
         {% endfor %}
