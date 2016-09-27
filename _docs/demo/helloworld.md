@@ -6,12 +6,12 @@ category: Demo
 order: 2
 ---
 
-This demo starts two versions of a helloworld microservice, to demonstrate
-how Amalgam8 can be used to split incoming traffic between the two
-versions. You can define the proportion of traffic to each microservice as
-a percentage.
+This demo starts two versions of a helloworld microservice each with two
+versions, in order to demonstrate how Amalgam8 can be used to split
+incoming traffic between the two versions. You can define the proportion of
+traffic to each microservice as a percentage.
 
-## Deploy the App
+## Deploy and Scale the App
 
 The commands to deploy the helloworld demo application for different
 environments are as follows:
@@ -22,11 +22,21 @@ _Docker Compose_
 docker-compose -f examples/docker-helloworld.yaml up -d
 ```
 
+Scale the individual versions as follows:
+
+```bash
+docker-compose -f examples/docker-helloworld.yaml scale helloworld-v1=2
+docker-compose -f examples/docker-helloworld.yaml scale helloworld-v2=2
+```
+
 _Kubernetes_ on localhost or on Google Cloud
 
 ```bash
 kubectl create -f examples/k8s-helloworld.yaml
 ```
+
+The above command automatically launches two instances of each version of
+`helloworld`.
 
 _IBM Bluemix_
 
@@ -41,8 +51,11 @@ _IBM Bluemix_
 1. Deploy the helloworld application on bluemix.
 
    ```bash
-   ./a8-bluemix create helloworld
+   examples/a8-bluemix create helloworld
    ```
+
+   The above command automatically launches two instances of each version
+   of `helloworld`.
 
    Verify that the services are running using the following commands: 
 
@@ -50,7 +63,7 @@ _IBM Bluemix_
    bluemix ic groups
    ```
 
-### Listing the Services in the App
+### List the Services in the App
 
 You can view the microservices that are running using the following command:
 
@@ -151,3 +164,25 @@ version "v1" and the other two belong to version "v2".
    Note: if you use a browser instead of cURL to access the service and continually refresh the page, 
    it will always return the same version (v1 or v2), because a cookie is set to maintain version affinity.
    However, the browser still alternates in a random manner between instances of the specific version.
+
+## Cleanup
+
+To remove the `helloworld` application,
+
+_Docker Compose_
+  
+```bash
+docker-compose -f examples/docker-helloworld.yaml kill
+```
+
+_Kubernetes_ on localhost or on Google Cloud
+
+```bash
+kubectl delete -f examples/k8s-helloworld.yaml
+```
+
+_IBM Bluemix_
+
+```bash
+examples/a8-bluemix destroy helloworld
+```
