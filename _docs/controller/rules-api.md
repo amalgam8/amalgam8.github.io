@@ -1,17 +1,11 @@
 ---
 layout: page
-title: Route Controller
-permalink: /docs/controller/
+title: A8 Rules REST API
+permalink: /docs/controller/rules-api
+category: Controller
 order: 3
 ---
 
-Amalgam8’s controller enables canary testing, red/black deployments, version-based routing rules, etc., with limited effort. Users can configure how traffic is routed across edge and mid-tier microservices using a variety of user-defined rules. 
-
-The Amalgam8 controller holds user-defined routing and testing rule definitions for the Amalgam8 sidecar. The controller validates and optimizes rule definitions provided by the user via a REST API. Sidecars then obtain and interpret these rule definitions and use information from the Amalgam8 registry to route and manipulate requests.
-
-<!-- TODO: INSERT DIAGRAM -->
-
-## Defining and managing rules <a id="rules"></a>
 Rule definitions are managed via the Amalgam8 controller's REST API. A simple commandline interface that calls this REST API is available for basic use cases. The CLI documentation is available [here](linktocli). However, for more advanced functionality or defining rules programmatically, the controller API can be called directly. The following describes basic invocation of the controller REST API using `curl` with the utility `jq` to format the output `json`. For these commands we assume that the controller is running in global authorization mode so that no authentication is required.
 
 There are two basic types of rules,
@@ -177,7 +171,8 @@ curl -i -X DELETE <controller URL>/v1/rules
 
 Detailed documentation on the route controller's REST API can be found [here](/api/controller/).
 
-Rules passed to the controller are validated against a [JSON schema](http://json-schema.org/) definition. The JSON schema describes the set of possible valid rule definitions. The full JSON schema definition for Amalgam8 controller rules is available [here](/api/controller-rules-schema/).
+Rules passed to the controller conform to the [A8 Rules DSL](/docs/controller/rules-dsl) and
+are validated against a [JSON schema](http://json-schema.org/) definition that is available [here](/api/controller-rules-schema/).
 
 ## Service references in rules vs services registered in registry
 Amalgam8 controller rule definitions reference services. The Amalgam8 registry also keeps track of active services. However, the services referenced in Amalgam8 controller rules and the services registered in the Amalgam8 registry are independent.
