@@ -61,6 +61,7 @@ A8_JWT_SECRET=secretkey
 JWT tokens can be generated and validated at [jwt.io](https://jwt.io).
 
 **Header:**
+
 ```json
 {
   "alg": "HS256",
@@ -69,12 +70,14 @@ JWT tokens can be generated and validated at [jwt.io](https://jwt.io).
 ```
 
 **Payload:**
+
 ```json
 {
   "exp": 1501184124,
   "namespace": "mynamespace"
 }
 ```
+
 The `Payload` can contain additional properties in the JSON but it must
 contain the two above minimum.  Choose an `"exp"` time appropriate for the
 desired level of security.  After this date/time, the token will no longer be
