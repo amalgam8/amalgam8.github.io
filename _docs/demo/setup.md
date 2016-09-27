@@ -35,8 +35,8 @@ the zip archive.
     [Google Cloud SDK](https://cloud.google.com/sdk/).
 
 * If you are planning to run the demos on IBM Bluemix, you need to have
-  the [CF CLI 6.12.0 or later](https://github.com/cloudfoundry/cli/releases), and
-  the [Bluemix CLI 0.3.3 or later](https://clis.ng.bluemix.net/).
+  the CF CLI 6.14 or later with the IBM Containers plug-in as
+  described in this [document](https://console.ng.bluemix.net/docs/containers/container_cli_cfic.html).
 
 With the requirements out of the way, lets move on to the next stage:
 running Amalgam8.
