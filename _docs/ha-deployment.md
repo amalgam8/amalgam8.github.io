@@ -5,9 +5,9 @@ permalink: /docs/ha/
 order: 2
 ---
 
-The Amalgam8 control plane can easily be deployed to support high availablility. When deployed with an external database backend, registry and controller instances are stateless, meaning any instance can fulfill requests from any client. This enables highly available and horizontally scalable deployments. 
+When deployed with an external database backend, registry and controller instances are stateless, meaning any instance can fulfill requests from any client. This enables highly available and horizontally scalable deployments. 
 
-*[Control plane architecture showing multiple registry and controller instances with database backend]*
+![control plane HA architecture](/docs/figures/amalgam8-control-plane-ha.svg)
 
 # Principles
 
