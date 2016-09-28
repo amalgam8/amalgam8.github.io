@@ -12,9 +12,8 @@ The Amalgam8 platform consists of the following three components:
    regardless of where they are actually running. To simplify integration
    of microservices that are already using a service registry, Amalgam8
    registry provides a plug-in point for adapters that can automatically
-   pull in information from
-   other service registry solutions such as Etcd (used by Kubernetes),
-   Netflix Eureka, and Spring Cloud Discovery.
+   pull in information from other service registry solutions such as
+   Kubernetes and Netflix Eureka.
 
 2. **Controller** - A multi-tenant service for managing routing across
    microservices via the sidecars. Routes programmed at the controller are
@@ -36,10 +35,7 @@ The Amalgam8 platform consists of the following three components:
    routing, and employs a simple daemon for receiving and updating the routing
    rules in Nginx, and for service registration & heartbeat (where needed).
 
-Applications run as tenants of the Registry and the Controller. They
-register their services in the Registry and use the Controller to manage
-the sidecars. The following diagram illustrates how the three components
-work together.
+The following diagram illustrates how the three components work together:
 
 ![how it works](/docs/figures/how-amalgam8-works.svg)
 
