@@ -2,7 +2,7 @@
 layout: page
 title: A8 Rules DSL
 permalink: /docs/controller/rules-dsl/
-category: Controller
+category: Route Controller
 order: 5
 ---
 

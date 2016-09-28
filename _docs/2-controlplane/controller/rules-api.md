@@ -2,7 +2,7 @@
 layout: page
 title: A8 Rules REST API
 permalink: /docs/controller/rules-api
-category: Controller
+category: Route Controller
 order: 4
 ---
 

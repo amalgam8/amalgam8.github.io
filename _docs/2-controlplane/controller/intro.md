@@ -2,7 +2,7 @@
 layout: page
 title: Introduction
 permalink: /docs/controller/
-category: Controller
+category: Route Controller
 order: 0
 ---
 

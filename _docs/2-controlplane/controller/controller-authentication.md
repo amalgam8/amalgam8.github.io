@@ -2,7 +2,7 @@
 layout: page
 title: Authentication & Multi-Tenancy
 permalink: /docs/controller/controller-authentication/
-category: Controller
+category: Route Controller
 order: 2
 ---
 

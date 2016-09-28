@@ -2,7 +2,7 @@
 layout: page
 title: HA Deployment
 permalink: /docs/controller/high-availability/
-category: Controller
+category: Route Controller
 order: 3
 ---
 

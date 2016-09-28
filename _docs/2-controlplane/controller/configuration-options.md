@@ -2,7 +2,7 @@
 layout: page
 title: Configuration
 permalink: /docs/controller/controller-configuration-options/
-category: Controller
+category: Route Controller
 order: 1
 ---
 
