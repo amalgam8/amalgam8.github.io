@@ -3,7 +3,7 @@ layout: page
 title: A8 Rules DSL
 permalink: /docs/controller/rules-dsl/
 category: Controller
-order: 4
+order: 5
 ---
 
 The Amalgam8 controller [API for managing rules](/docs/controller/rules-api) uses a Rules DSL based on JSON.
@@ -285,7 +285,7 @@ Other fields of an action depends on the value of the `action` field, which is o
 
 A "delay" action is used to delay a request by a specified amount of time.
 
-The `duration` field is used to indicate the ammount of delay, in seconds.
+The `duration` field is used to indicate the amount of delay, in seconds.
 
 An optional `probability` field, a value between 0 and 1, can be used to only delay a certain percentage of requests.
 All request are delayed by default.

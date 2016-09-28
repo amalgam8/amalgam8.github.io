@@ -93,7 +93,7 @@ _IBM Bluemix_
       obtained from the folowing command:
 
       ```bash
-      bluemix ic namespace get
+      bluemix ic namespace-get
       ```
 
     * REGISTRY_HOSTNAME should be the route name assigned to the registry in the previous step

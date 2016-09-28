@@ -268,9 +268,13 @@ and adds a set of assertions (`checklist.json`)
 that we expect to pass: each service in the call chain should return `HTTP
 200 OK` and the productpage should respond in 7 seconds.
 
-**Note:** Set the A8_LOG_SERVER environment variable to point to the
+**Note 1:** Set the A8_LOG_SERVER environment variable to point to the
   elasticsearch server created during the control plane setup. By default,
   it points to `localhost:30200`.
+
+**Note 2:** This commands in this section will work only on docker local
+  and kubernetes based environments. Automated verification of failure
+  recovery currently _does not work for Bluemix deployments_.
 
 * Remove the delay rule that we added in the previous step:
 

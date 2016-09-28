@@ -3,7 +3,7 @@ layout: page
 title: A8 Rules REST API
 permalink: /docs/controller/rules-api
 category: Controller
-order: 3
+order: 4
 ---
 
 Rule definitions are managed via the Amalgam8 controller's REST API. A simple commandline interface that calls this REST API is available for basic use cases. The CLI documentation is available [here](linktocli). However, for more advanced functionality or defining rules programmatically, the controller API can be called directly. The following describes basic invocation of the controller REST API using `curl` with the utility `jq` to format the output `json`. For these commands we assume that the controller is running in global authorization mode so that no authentication is required.

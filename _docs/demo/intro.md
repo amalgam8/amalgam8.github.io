@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Intro
+title: Introduction
 permalink: /docs/demo/
 category: Demo
 order: 0

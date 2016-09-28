@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Authentication Options & Multi-Tenancy
+title: Authentication & Multi-Tenancy
 permalink: /docs/controller/controller-authentication/
 category: Controller
 order: 2
@@ -26,8 +26,7 @@ In `trusted` and `jwt`, an Authentication header is required for all
 API calls to the controller.  The header must be in the form
 `Authentication: Bearer <TOKEN_VALUE>`.  Any rules created will be mapped
 to the particular tenant associated with the provided Authentication header.
-The following namespace authorization methods are supported and controlled
-via the `A8_AUTH_MODE` environment variable (or `--auth_mode` flag):
+
 
 ## Trusted Authentication
 
@@ -61,6 +60,7 @@ A8_JWT_SECRET=secretkey
 JWT tokens can be generated and validated at [jwt.io](https://jwt.io).
 
 **Header:**
+
 ```json
 {
   "alg": "HS256",
@@ -69,12 +69,14 @@ JWT tokens can be generated and validated at [jwt.io](https://jwt.io).
 ```
 
 **Payload:**
+
 ```json
 {
   "exp": 1501184124,
   "namespace": "mynamespace"
 }
 ```
+
 The `Payload` can contain additional properties in the JSON but it must
 contain the two above minimum.  Choose an `"exp"` time appropriate for the
 desired level of security.  After this date/time, the token will no longer be

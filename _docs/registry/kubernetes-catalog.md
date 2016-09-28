@@ -3,7 +3,7 @@ layout: page
 title: Kubernetes Catalog
 permalink: /docs/registry/kubernetes-catalog/
 category: Service Registry
-order: 3
+order: 4
 ---
 
 A microservice running in Kubernetes with a corresponding service

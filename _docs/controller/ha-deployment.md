@@ -1,21 +1,31 @@
 ---
 layout: page
 title: HA Deployment
-permalink: /docs/ha/
-order: 2
+permalink: /docs/controller/high-availability/
+category: Controller
+order: 3
 ---
 
-The Amalgam8 control plane can easily be deployed to support high availablility. When deployed with an external database backend, registry and controller instances are stateless, meaning any instance can fulfill requests from any client. This enables highly available and horizontally scalable deployments. 
+When deployed with an external database backend, registry and controller
+instances are stateless, meaning any instance can fulfill requests from any
+client. This enables highly available and horizontally scalable
+deployments.
 
-*[Control plane architecture showing multiple registry and controller instances with database backend]*
+![control plane HA architecture](/docs/figures/amalgam8-control-plane-ha.svg)
 
 # Principles
 
 Deploying a highly available Amalgam8 control plane requires the following:
 
 * Multiple control plane container instances to provide redundancy.
+
 * Load balancer(s) to distribute requests to the control plane containers.
-* An external persistent storage backend such as Redis. The control plane supports in-memory storage for development, but this cannot be used for deployments with multiple controller instances because each instance maintains its own copy of the data. In addition, no data is persisted with the in-memory store, which is not practical for real deployments.
+
+* Redis-based persistent storage backend deployed in HA mode. Please refer
+to the [Redis Clustering](http://redis.io/topics/cluster-tutorial)
+documentation for details on setting up a highly available Redis
+backend. For local development and testing purposes, the control plane
+components support in-memory storage.
 
 # Kubernetes
 
