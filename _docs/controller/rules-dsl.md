@@ -184,8 +184,13 @@ The `tags` field is a list of instance tags to identifying the target instances 
 If there are multiple registered instances with the specified tag(s), they will be routed to in a round-robin fashion.
 
 The `weight` field is an optional value between 0 and 1 that represents the percentage of requests to route
-to instances associated with the corresponding backend. The default value is 1, which corresponds to all requests,
-or more precisely "all remaining" requests after backends ahead of it in the list have been evaluated.
+to instances associated with the corresponding backend. If not set, the backend will, along with
+other backends without a `weight` field, handle the percentage of requests that are not handled by weighted backends.
+In other words, the remaining traffic after totalling the percentages of all the weighted backends, 
+will be distributed equally across any unweighted backends.
+
+The total percentage of requests covered by the set of backends in the list, using explicit or implicit weighting, must equal 100.
+If less or greater than 100, the behavior of the route is undefined.
 
 For example, the following rule will route 25% of traffic for the "reviews" service to instances with
 the "v2" tag and the remaining traffic (i.e., 75%) to "v1".
@@ -280,7 +285,7 @@ Other fields of an action depends on the value of the `action` field, which is o
 
 A "delay" action is used to delay a request by a specified amount of time.
 
-The `duration` field is used to indicate the ammount of delay, in seconds.
+The `duration` field is used to indicate the amount of delay, in seconds.
 
 An optional `probability` field, a value between 0 and 1, can be used to only delay a certain percentage of requests.
 All request are delayed by default.
