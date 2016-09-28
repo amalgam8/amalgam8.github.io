@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Introduction to Amalgam8 Concepts
-permalink: /docs/what-is-amalgam8/
+title: Introduction
+permalink: /docs/introduction/
 order: 0
 ---
 
