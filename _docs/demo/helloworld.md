@@ -43,7 +43,7 @@ _IBM Bluemix_
 1. Create Bluemix routes (DNS names) for the registry, controller and the helloworld app's gateway:  
 
    ```bash
-   cf create-route <your bluemix space> mybluemix.net -n <your helloworld route>
+   bluemix cf create-route <your bluemix space> mybluemix.net -n <your helloworld route>
    ```
 
 1. Specify the route name in the _.bluemixrc_ in the HELLOWORLD_HOSTNAME variable.

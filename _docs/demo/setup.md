@@ -77,8 +77,8 @@ _IBM Bluemix_
 1. Create Bluemix routes (DNS names) for the registry, controller and the bookinfo app's gateway:  
 
    ```bash
-   cf create-route <your bluemix space> mybluemix.net -n <your registry route>
-   cf create-route <your bluemix space> mybluemix.net -n <your controller route>
+   bluemix cf create-route <your bluemix space> mybluemix.net -n <your registry route>
+   bluemix cf create-route <your bluemix space> mybluemix.net -n <your controller route>
    ```
 
    where `<your bluemix space>` is the name of your Bluemix space and
