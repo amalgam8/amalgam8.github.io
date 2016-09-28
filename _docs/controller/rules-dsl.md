@@ -3,7 +3,7 @@ layout: page
 title: A8 Rules DSL
 permalink: /docs/controller/rules-dsl/
 category: Controller
-order: 4
+order: 5
 ---
 
 The Amalgam8 controller [API for managing rules](/docs/controller/rules-api) uses a Rules DSL based on JSON.

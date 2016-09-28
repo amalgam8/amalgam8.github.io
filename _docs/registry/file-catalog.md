@@ -3,7 +3,7 @@ layout: page
 title: File Catalog
 permalink: /docs/registry/file-catalog/
 category: Service Registry
-order: 2
+order: 3
 ---
 
 The File-based catalog extension allows the registry to pull static service

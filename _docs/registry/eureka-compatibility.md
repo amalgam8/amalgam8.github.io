@@ -3,7 +3,7 @@ layout: page
 title: Eureka API Compatibility
 permalink: /docs/registry/eureka-compatibility/
 category: Service Registry
-order: 1
+order: 2
 ---
 
 Amalgam8 registry is fully API compatible with

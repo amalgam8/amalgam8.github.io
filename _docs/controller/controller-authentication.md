@@ -26,8 +26,7 @@ In `trusted` and `jwt`, an Authentication header is required for all
 API calls to the controller.  The header must be in the form
 `Authentication: Bearer <TOKEN_VALUE>`.  Any rules created will be mapped
 to the particular tenant associated with the provided Authentication header.
-The following namespace authorization methods are supported and controlled
-via the `A8_AUTH_MODE` environment variable (or `--auth_mode` flag):
+
 
 ## Trusted Authentication
 
