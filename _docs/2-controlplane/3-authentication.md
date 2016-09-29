@@ -1,21 +1,22 @@
 ---
 layout: page
-title: Authentication & Multi-Tenancy
+title: Authentication
 permalink: /docs/control-plane/authentication/
 category: Control Plane
 order: 1
 ---
 
-By default, the Controller operates in a single-tenant mode without
-any authentication. In multi-tenant mode, it supports two authentication
-mechanisms: a trusted auth mode for local testing and development
-purposes, and a JWT auth mode for production deployments.
+By default, the Control Plane services operate in a single-tenant mode
+without any authentication. In multi-tenant mode, the registry and the
+controller support two authentication mechanisms: a trusted auth mode for
+local testing and development purposes, and a JWT auth mode for production
+deployments.
 
 # Single-Tenant Mode
 
 In single-tenant mode, there is no authentication header required in the
-API calls to controller.  Any rules created in this mode are applied to
-all sidecar instances polling this Amalgam8 controller instance.
+API calls to controller or registry.  Any rules created in this mode are applied to
+all sidecar instances polling the Amalgam8 controller and registry.
 
 **Configuration Options:** This mode runs by default and requires no
 additional environment variables or command line flags be set at run time.
@@ -23,7 +24,7 @@ additional environment variables or command line flags be set at run time.
 # Multi-Tenant Mode
 
 In `trusted` and `jwt`, an Authentication header is required for all
-API calls to the controller.  The header must be in the form
+API calls to the controller and registry.  The header must be in the form
 `Authentication: Bearer <TOKEN_VALUE>`.  Any rules created will be mapped
 to the particular tenant associated with the provided Authentication header.
 
