@@ -44,8 +44,8 @@ running Amalgam8.
 ## Setting up the Control Plane
 
 The Amalgam8 Control Plane consists of two components: the
-[service registry](/docs/registry/) and the
-[route controller](/docs/controller/).  In addition to these two
+[service registry](/docs/control-plane/registry/) and the
+[route controller](/docs/control-plane/controller/).  In addition to these two
 components, for the purposes of this demo, a stock ELK stack is also
 included as part of the control plane deployment scripts, to collect logs
 from the microservices in the application.

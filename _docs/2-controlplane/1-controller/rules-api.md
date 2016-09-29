@@ -172,10 +172,11 @@ curl -i -X DELETE <controller URL>/v1/rules
 
 Detailed documentation on the route controller's REST API can be found [here](/api/controller/).
 
-Rules passed to the controller conform to the [A8 Rules DSL](/docs/controller/rules-dsl) and
+Rules passed to the controller conform to the [A8 Rules DSL](/docs/control-plane/controller/rules-dsl/) and
 are validated against a [JSON schema](http://json-schema.org/) definition that is available [here](/api/controller-rules-schema/).
 
 ## Service references in rules vs services registered in registry
+
 Amalgam8 controller rule definitions reference services. The Amalgam8 registry also keeps track of active services. However, the services referenced in Amalgam8 controller rules and the services registered in the Amalgam8 registry are independent.
 
 * Registry services: are composed of transient endpoints that are registered and maintained by heartbeats from sidecars. Registry endpoints (and therefore the services they are part of) may appear or disappear due to networking, crashes, new deployments, etc.
