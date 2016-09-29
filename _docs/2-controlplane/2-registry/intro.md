@@ -1,8 +1,9 @@
 ---
 layout: page
 title: Introduction
-permalink: /docs/registry/
-category: Service Registry
+permalink: /docs/control-plane/registry/
+category: Control Plane
+subcategory: Service Registry
 order: 0
 ---
 

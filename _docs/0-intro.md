@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Introduction
-permalink: /docs/introduction/
+title: Amalgam8 Concepts
+permalink: /docs/amalgam8-microservice-routing/
 order: 0
 ---
 
@@ -48,18 +48,50 @@ orchestration layer
 [Marathon](https://mesosphere.github.io/marathon/)) or the cloud platform
 (Amazon AWS, IBM Bluemix, Google Cloud Platform, Microsoft Azure, etc.
 
-Amalgam8 uses the sidecar model or the ambassador pattern for building
-microservices applications. The sidecar runs as in independent process and
-takes care of service registration, discovery and request routing to
-various microservices. The sidecar model simplifies development of polyglot
-applications.
+**[Amalgam8 Sidecar](/docs/sidecar/):** Amalgam8 uses the sidecar model or
+the ambassador pattern for building microservices applications. The sidecar
+runs as in independent process and takes care of service registration,
+discovery and request routing to various microservices. The sidecar model
+simplifies development of polyglot applications.
 
-Through the Amalgam8 Control Plane, you can dynamically program the
-sidecars in each microservice and control how requests are routed between
-microservices. The control plane provides REST APIs that serve as the basis
-for building tools for various DevOps tasks such as
-[A/B testing](https://www.optimizely.com/ab-testing/), internal releases
-and dark launches,
+**[Amalgam8 Control Plane](/docs/control-plane/):** The microservice runtime
+management layer, called the Amalgam8 Control Plane, can be used to
+dynamically program the sidecars in each microservice and control how
+requests are routed between microservices. It consists of a [Route
+Controller](/docs/control-plane/controller/) and a [Service Registry](/docs/control-plane/registry/).
+
+The following diagram illustrates how these components work together:
+
+![how it works](/docs/figures/how-amalgam8-works.svg)
+
+1. Microservice instances are registered in the service registry by the
+   sidecars. There are several ways this may be accomplished as described in
+   [Amalgam8 Registry](/docs/control-plane/registry/).
+
+2. The Developer uses the control plane API to configure high-level rules
+   for request routing between services (e.g., splitting traffic across
+   versions, injecting delays).
+
+3. The route controller translates these rules into low-level control information
+   and sends them to the sidecars.
+
+4. A microservice invokes APIs of other microservices by pointing to the
+   sidecar as the destination host. The API endpoint is of the following
+   format:
+
+   ```
+   http://localhost:6379/serviceName/apiEndpoint
+   ```
+
+5. The sidecar (which is based on Nginx/OpenResty) forwards the request to the
+   appropriate microservice, depending on the request path and routing
+   rules specified by the controller.
+
+
+The control plane provides REST
+APIs that serve as the basis for building tools for various DevOps tasks
+such as [A/B testing](https://www.optimizely.com/ab-testing/), internal
+releases and dark launches,
 [canary releases](http://martinfowler.com/bliki/CanaryRelease.html),
 red/black deployments,
 [resilience testing](https://developer.ibm.com/open/2016/06/06/systematically-resilience-testing-of-microservices-with-gremlin/),

@@ -1,8 +1,9 @@
 ---
 layout: page
 title: A8 Rules DSL
-permalink: /docs/controller/rules-dsl/
-category: Route Controller
+permalink: /docs/control-plane/controller/rules-dsl/
+category: Control Plane
+subcategory: Route Controller
 order: 5
 ---
 

@@ -1,8 +1,9 @@
 ---
 layout: page
 title: Configuration
-permalink: /docs/registry/registry-configuration-options/
-category: Service Registry
+permalink: /docs/control-plane/registry/registry-configuration-options/
+category: Control Plane
+subcategory: Service Registry
 order: 1
 ---
 

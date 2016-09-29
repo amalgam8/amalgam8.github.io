@@ -1,9 +1,9 @@
 ---
 layout: page
-title: HA Deployment
-permalink: /docs/controller/high-availability/
-category: Route Controller
-order: 3
+title: High Availability
+permalink: /docs/control-plane/high-availability/
+category: Control Plane
+order: 2
 ---
 
 When deployed with an external database backend, registry and controller

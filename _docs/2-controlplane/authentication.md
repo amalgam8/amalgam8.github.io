@@ -1,9 +1,9 @@
 ---
 layout: page
 title: Authentication & Multi-Tenancy
-permalink: /docs/controller/controller-authentication/
-category: Route Controller
-order: 2
+permalink: /docs/control-plane/authentication/
+category: Control Plane
+order: 1
 ---
 
 By default, the Controller operates in a single-tenant mode without
