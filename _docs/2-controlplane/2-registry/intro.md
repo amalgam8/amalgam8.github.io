@@ -51,20 +51,20 @@ platform, etc.  This extends Amalgam8's benefits, such as resiliency
 testing, to include the full set of services used by the application.  To
 enable specifying routing rules on external services, they must first be
 visible via the Amalgam8 registry. The
-[File catalog](/docs/registry/file-catalog/) can be used to register such
+[File catalog](/docs/control-plane/registry/file-catalog/) can be used to register such
 external services with the registry.
 
 The rest of this guide is structured as follows:
 
-* [Eureka API Compatibility](/docs/registry/eureka-compatibility) describes
+* [Eureka API Compatibility](/docs/control-plane/registry/eureka-compatibility) describes
   how to use the Amalgam8 Registry as a drop-in replacement for Netflix
   Eureka, and configure clients such as Ribbon or Spring Cloud applications
   that use the Eureka API.
 
-* [File Catalog](/docs/registry/file-catalog/) describes how to use the
+* [File Catalog](/docs/control-plane/registry/file-catalog/) describes how to use the
   file-based catalog to register external services such as third party
   APIs with the Amalgam8 Registry.
   
-* [Kubernetes Catalog](/docs/registry/kubernetes-catalog/) describes how to
+* [Kubernetes Catalog](/docs/control-plane/registry/kubernetes-catalog/) describes how to
   configure the Amalgam8 Registry to synchronize registration information
   from Kubernetes' built in service registry.

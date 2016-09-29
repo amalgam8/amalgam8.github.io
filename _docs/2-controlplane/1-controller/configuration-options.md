@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Configuration
-permalink: /docs/control-plane/controller/controller-configuration-options/
+permalink: /docs/control-plane/controller/
 category: Control Plane
 subcategory: Route Controller
 order: 1
