@@ -50,7 +50,7 @@ orchestration layer
 
 **[Amalgam8 Sidecar](/docs/sidecar/):** Amalgam8 uses the sidecar model or
 the ambassador pattern for building microservices applications. The sidecar
-runs as in independent process and takes care of service registration,
+runs as an independent process and takes care of service registration,
 discovery and request routing to various microservices. The sidecar model
 simplifies development of polyglot applications.
 
