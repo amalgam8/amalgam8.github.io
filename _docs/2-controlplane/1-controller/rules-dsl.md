@@ -1,12 +1,13 @@
 ---
 layout: page
 title: A8 Rules DSL
-permalink: /docs/controller/rules-dsl/
-category: Controller
+permalink: /docs/control-plane/controller/rules-dsl/
+category: Control Plane
+subcategory: Route Controller
 order: 5
 ---
 
-The Amalgam8 controller [API for managing rules](/docs/controller/rules-api) uses a Rules DSL based on JSON.
+The Amalgam8 controller [API for managing rules](/docs/control-plane/controller/rules-api/) uses a Rules DSL based on JSON.
 For example, a simple rule to send 100% of incoming traffic for the "reviews" microservice
 to version "v1" can be described using the Rules DSL as follows.
 

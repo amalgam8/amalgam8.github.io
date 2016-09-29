@@ -8,10 +8,13 @@ layout: bootstrap
     <ul class="list-unstyled">
         {% assign cats = site.docs | group_by: "category" %}
         {% for cat in cats %}
+           {% assign cat_name = cat.name | default: "EMPTY" %}
+           {% if cat_name != "EMPTY" %}
             <li>
-                <label class="tree-toggle"><i class="fa fa-caret-down"></i> {{ cat.name | default: "Guides" }}</label>
+                <label class="tree-toggle"><i class="fa fa-caret-down"></i> {{ cat_name }}</label>
                 <ul class="list-unstyled tree">
-
+           {% endif %}
+                  
                 {% assign subcats = cat.items | group_by: "subcategory" %}
                 {% for subcat in subcats %}
                     {% assign subcat_name = subcat.name | default: "EMPTY" %}
@@ -34,9 +37,11 @@ layout: bootstrap
                     {% endif %}
                         
                 {% endfor %}
-                
+
+           {% if cat_name != "EMPTY" %} 
                 </ul>
             </li>
+           {% endif %}
         {% endfor %}
     </ul>        
 </div>

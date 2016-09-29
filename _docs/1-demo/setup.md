@@ -44,8 +44,8 @@ running Amalgam8.
 ## Setting up the Control Plane
 
 The Amalgam8 Control Plane consists of two components: the
-[service registry](/docs/registry/) and the
-[route controller](/docs/controller/).  In addition to these two
+[service registry](/docs/control-plane/registry/) and the
+[route controller](/docs/control-plane/controller/).  In addition to these two
 components, for the purposes of this demo, a stock ELK stack is also
 included as part of the control plane deployment scripts, to collect logs
 from the microservices in the application.
@@ -77,8 +77,8 @@ _IBM Bluemix_
 1. Create Bluemix routes (DNS names) for the registry, controller and the bookinfo app's gateway:  
 
    ```bash
-   cf create-route <your bluemix space> mybluemix.net -n <your registry route>
-   cf create-route <your bluemix space> mybluemix.net -n <your controller route>
+   bluemix cf create-route <your bluemix space> mybluemix.net -n <your registry route>
+   bluemix cf create-route <your bluemix space> mybluemix.net -n <your controller route>
    ```
 
    where `<your bluemix space>` is the name of your Bluemix space and

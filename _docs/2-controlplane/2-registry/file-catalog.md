@@ -1,8 +1,9 @@
 ---
 layout: page
 title: File Catalog
-permalink: /docs/registry/file-catalog/
-category: Service Registry
+permalink: /docs/control-plane/registry/file-catalog/
+category: Control Plane
+subcategory: Service Registry
 order: 3
 ---
 

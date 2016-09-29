@@ -1,8 +1,9 @@
 ---
 layout: page
 title: Configuration
-permalink: /docs/registry/registry-configuration-options/
-category: Service Registry
+permalink: /docs/control-plane/registry/registry-configuration-options/
+category: Control Plane
+subcategory: Service Registry
 order: 1
 ---
 
@@ -27,12 +28,12 @@ The following environment variables are available. All of them are optional.
 | `A8_REQUIRE_HTTPS` | `--require_https` | Require clients to use HTTPS for API calls | `false` |
 {:.table .table-bordered .table-condensed .table-striped}
 
-## Authentication and Authorization
+## Authentication and Multi-tenancy
 
 The Amalgam8 Registry supports multi-tenancy by isolating each tenant into
 a separate namespace.  It supports the same set of authentication
 mechanisms as the Route Controller. Please refer to the
-[Authentication & Multi-tenancy](/docs/controller/controller-authentication/)
+[Authentication & Multi-tenancy](/docs/control-plane/controller/controller-authentication/)
 for further details.
 
 ## Clustering
@@ -81,5 +82,5 @@ with the content of the Registry itself.
 | `A8_K8S_URL` | `--k8s_url` | Enable kubernetes catalog and specify the API server | (none) |
 | `A8_K8S_TOKEN` | `--k8s_token` | Kubernetes API token | (none) |
 | `A8_EUREKA_URL` | `--eureka_url` | Enable eureka catalog and specify the API server. Multiple API servers can be specified using multiple flags | (none) |
-| `A8_FS_CATALOG` | `--fs_catalog` | Enable FileSystem catalog and specify the directory of the config files. The format of the file names in the directory should be `<namespace>.conf`. See [File Catalog](/docs/registry/file-catalog/) for more information | (none) |
+| `A8_FS_CATALOG` | `--fs_catalog` | Enable FileSystem catalog and specify the directory of the config files. The format of the file names in the directory should be `<namespace>.conf`. See [File Catalog](/docs/control-plane/registry/file-catalog/) for more information | (none) |
 {:.table .table-bordered .table-condensed .table-striped}
