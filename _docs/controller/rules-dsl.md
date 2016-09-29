@@ -270,12 +270,12 @@ All remaining requests will be sent to "v1".
 Notice that the header-based rule has the higher priority (2 vs. 1). If it was lower, these rules wouldn't work as expected since the
 weight-based rule, with no specific match criteria, would be executed first which would then simply route all traffic
 to "v1", even requests that include the matching "Foo" header. Once a rule is found that applies to the incoming
-request, it wil be executed and the rule-execution process will terminate. That's why it's very important to
+request, it will be executed and the rule-execution process will terminate. That's why it's very important to
 carefully consider the priorities of each rule when there is more than one.
 
 ## Action Rule Properties <a id="action-rules"></a>
 
-A action rule is one that contains an `actions` field in the A8 Rules DSL.
+An action rule is one that contains an `actions` field in the A8 Rules DSL.
 
 The `actions` field is a list of objects that specify one or more actions to execute in the rule's corresponding request path.
 The kind of action to execute is indicated by the value of the `action` field of each object in the list.
