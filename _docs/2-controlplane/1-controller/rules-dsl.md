@@ -181,7 +181,7 @@ Each backend in the `backends` list is an object with the following fields.
 
 Of these fields, `tags` is the only required one, the others are optional.
 
-The `tags` field is a list of instance tags to identifying the target instances (e.g., version) to route requests to.
+The `tags` field is a list of instance tags to identify the target instances (e.g., version) to route requests to.
 If there are multiple registered instances with the specified tag(s), they will be routed to in a round-robin fashion.
 
 The `weight` field is an optional value between 0 and 1 that represents the percentage of requests to route
