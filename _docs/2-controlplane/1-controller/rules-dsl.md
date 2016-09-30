@@ -4,7 +4,7 @@ title: A8 Rules DSL
 permalink: /docs/control-plane/controller/rules-dsl/
 category: Control Plane
 subcategory: Route Controller
-order: 5
+order: 3
 ---
 
 The Amalgam8 controller [API for managing rules](/docs/control-plane/controller/rules-api/) uses a Rules DSL based on JSON.
