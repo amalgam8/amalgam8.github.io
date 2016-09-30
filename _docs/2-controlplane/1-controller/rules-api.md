@@ -1,7 +1,7 @@
 ---
 layout: page
 title: A8 Rules REST API
-permalink: /docs/control-plane/controller/rules-api
+permalink: /docs/control-plane/controller/rules-api/
 category: Control Plane
 subcategory: Route Controller
 order: 2
