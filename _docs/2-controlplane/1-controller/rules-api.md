@@ -7,7 +7,13 @@ subcategory: Route Controller
 order: 2
 ---
 
-Rule definitions are managed via the Amalgam8 controller's REST API. A simple commandline interface that calls this REST API is available for basic use cases. The CLI documentation is available [here](https://github.com/amalgam8/a8ctl). However, for more advanced functionality or defining rules programmatically, the controller API can be called directly. The following describes basic invocation of the controller REST API using `curl` with the utility `jq` to format the output `json`. For these commands we assume that the controller is running in global authorization mode so that no authentication is required.
+Rule definitions are managed via the Amalgam8 controller's REST API. 
+A simple commandline interface that calls this REST API is available for basic use cases.
+The CLI documentation is available [here](https://github.com/amalgam8/a8ctl). 
+However, for more advanced functionality or defining rules programmatically, the controller API supports a 
+powerful [Rules DSL](/docs/control-plane/controller/rules-dsl/) and can be called directly. 
+
+The following describes basic invocation of the controller REST API using `curl` with the utility `jq` to format the output `json`. For these commands we assume that the controller is running in global authorization mode so that no authentication is required.
 
 There are two basic types of rules,
 
