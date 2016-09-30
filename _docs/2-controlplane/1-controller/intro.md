@@ -7,7 +7,7 @@ subcategory: Route Controller
 order: 0
 ---
 
-One of the, if not the most, valuable features of Amalgam8 is its ability to
+One, if not the most, valuable feature of Amalgam8 is its ability to
 dynamically program rules for routing and manipulating requests across microservices in a running application.
 The controller provides an API to configure rules for request routing, fault injection, etc.,
 enabling a host of higher level functions such as
