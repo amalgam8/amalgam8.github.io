@@ -39,9 +39,10 @@ information from other sources instead of the sidecar, such as Etcd,
 Consul, Kubernetes' internal registry, Netflix Eureka, etc.
 
 Currently, the Registry provides catalog adapters that can obtain service
-registration information from Kubernetes, Eureka.  In addition, the
-Amalgam8 Registry can be used directly as a drop-in replacement for Netflix
-Eureka without the need for an explicit catalog.
+registration information from Kubernetes and Eureka. In addition, for
+Eureka the Amalgam8 Registry also supports the Eureka API and can therefore
+alternatively be used directly as a drop-in replacement for Eureka
+in environments where Netflix Eureka is not also deployed.
 
 **Registering external services**.  Amalgam8 is typically used to control 
 communication between internal application microservices. However, routing
