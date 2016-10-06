@@ -38,7 +38,7 @@ When deploying the registry (control plane) in Kubernetes itself, the url can si
 the environment variables provided by the Kubernetes runtime.
 
 ```
-A8_K8S_URL=https://$KUBERNETES_SERVICE_HOST:$KUBERNETES_SERVICE_PORT`
+A8_K8S_URL=https://$KUBERNETES_SERVICE_HOST:$KUBERNETES_SERVICE_PORT
 ```
 
 ## Service Definitions
