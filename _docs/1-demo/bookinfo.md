@@ -49,6 +49,10 @@ restricted to only the QA user `jason`.
 * After fixing the bugs exposed by systematic resilience testing, we will
 gradually rollout a new version `reviews v3` similar to a canary rollout.
 
+## Ensure that the Amalgam8 Control Plane is deployed
+
+If not done already, deploy the [Amalgam8 Control Plane](https://www.amalgam8.io/docs/demo/setup/).
+
 ## Deploy the App
 
 The commands to deploy the bookinfo demo application for different
