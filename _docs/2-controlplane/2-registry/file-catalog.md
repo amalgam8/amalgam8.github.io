@@ -77,9 +77,9 @@ The instance endpoint information is added in file called `default.conf`
 (the file name determines the registry's namespace used, in this case the
 external database instance is registered in the default namespace).
 
-The sample file shows the service credentials added as metadata to the
-instance. This is done for illustrative purpose only, and credentials may
-be provided to the calling application directly.
+The metadata fields can be used to specify arbitrary information such as access credentials.
+Note that the Amalgam8 sidecar that proxying requests to external services does not read the 
+metadata information.
 
 ```json
 {
@@ -104,19 +104,20 @@ be provided to the calling application directly.
 
 The file is stored in a location accessible to the Amalgam8 registry, to
 allow the registry to integrate the data on startup.  For example, the
-following command will load catalogs from `/amalgam8/fs_catalog/` (note
-that we specify the path to the _directory_ containing the file, not the
+following docker command will mount the host directory `/amalgam8/fs_catalog/` 
+inside the container and load the catalogs in that directory (note
+that we specify the path to the _directory_ containing the file(s), not the
 full file path).
 
 ```bash
-docker run amalgam8/a8-registry:latest --fs_catalog=/amalgam8/fs_catalog/
+docker run -v /amalgam8/fs_catalog:/amalgam8/fs_catalog -p 8080:8080 amalgam8/a8-registry:latest --fs_catalog=/amalgam8/fs_catalog/
 ```
 
 Once the registry is running, we can confirm the external service is
 registered successfully, and a call to
 
 ```bash
-curl amalgam8-registry:8080/api/v1/instances
+curl localhost:8080/api/v1/instances
 ```
 
 results in:
