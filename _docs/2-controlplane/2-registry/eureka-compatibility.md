@@ -68,6 +68,20 @@ The above changes are sufficient to enable the Eureka client to interact
 with the Amalgam8 registry, and can be validated by issuing an HTTP GET to
 the /apps endpoint under the base URL.
 
+## Sets tags for routing rules
+
+The Amalgam8 routing rules are tags-based. The Service Registry allows the user to
+set tags through the Eureka API by using the eureka metadata configuration.
+
+Amalgam8 tags should be defined in the eureka metadata map using the `amalgam8.tags` key
+as a semicolon separated list of strings (tags).
+
+The following configuration snippest shows how to sepcify tags in the eureka property file:
+
+```properties
+eureka.metadata.amalgam8.tags=v2;amalgam8
+```
+
 # Spring Cloud Integration
 
 Spring Cloud uses the Eureka client API, but it's configuration is based on
