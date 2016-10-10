@@ -79,7 +79,7 @@ as a semicolon separated list of strings (tags).
 The following configuration snippest shows how to sepcify tags in the eureka property file:
 
 ```properties
-eureka.metadata.amalgam8.tags=v2&#x003B;amalgam8
+eureka.metadata.amalgam8.tags=v2;amalgam8
 ```
 
 # Spring Cloud Integration
