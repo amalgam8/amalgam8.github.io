@@ -20,7 +20,7 @@ run the Amalgam8 protocol (e.g., a database service), and allows:
 To enable this catalog type you have to provide the `--fs_catalog` command
 line flag and set it to the directory of the catalog configuration files
 (one file per namespace).  The name of the configuration file should be
-`<namespace>.conf`, and it contains a single JSON object holding an array
+`<namespace>.json`, and it contains a single JSON object holding an array
 of instances.  Each instance is formatted according to the registration
 body defined in the
 [API Swagger Documentation](/api/registry).  Service
@@ -73,7 +73,7 @@ database using Amalgam8.
 
 ### 1. Registring an External Service
 
-The instance endpoint information is added in file called `default.conf`
+The instance endpoint information is added in file called `default.json`
 (the file name determines the registry's namespace used, in this case the
 external database instance is registered in the default namespace).
 
