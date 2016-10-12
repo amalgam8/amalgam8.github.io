@@ -1,6 +1,6 @@
 # Amalgam8 Website
 
-This repository contains the entire source for the [Amalgam8 Website](https://amalgam8.github.io). This is a [jekyll](https://jekyll.io) project, which builds the site from these source files.
+This repository contains the entire source for the [Amalgam8 Website](https://amalgam8.github.io). This is a [jekyll](https://jekyllrb.com) project, which builds the site from these source files.
 
 Content
 -------
