@@ -27,17 +27,8 @@ The rest of this guide is organized as follows:
   sidecar as a proxy to make API calls to dependent microservices.
   
 * [Configuration](/docs/sidecar/sidecar-configuration-options/) section provides details on
-  various runtime configuration options while launching the sidecar.
+  various runtime configuration options while launching the sidecar, including
+  automatic service registration, health checks, and request proxying.
 
-    * [Automatic Service Registration](/docs/sidecar/sidecar-auto-service-registration/)
-      describes how to setup the sidecar to automatically register the
-      microservice with the Amalgam8 Service Registry.
-
-    * [Intelligent Request Routing](/docs/sidecar/sidecar-request-routing/)
-      describes how to setup the sidecar for request proxying wherein it
-      performs content and version-based routing routing based on the rules
-      provided by the control plane.
-
-    * [Logging](/docs/sidecar/sidecar-logging-api-calls/)
-      describes how the sidecar logs the API calls and which log files need
-      to be managed by the user.
+* [Logging](/docs/sidecar/sidecar-logging-api-calls/) describes how the sidecar logs the API 
+  calls and which log files need to be managed by the user.
