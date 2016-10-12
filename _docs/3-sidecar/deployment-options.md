@@ -31,6 +31,8 @@ Replace ${VERSION} with the specific version of Amalgam8 you would
 like. The set of releases are available
 [here](https://github.com/amalgam8/amalgam8/releases).
 
+**Note:** The above script is intended for Debian and Ubuntu based docker images only.
+
 Make sure to launch the sidecar along with your application. The sidecar
 can be launched using the `a8sidecar` command. Please refer to the
 [configuration options](configuration-options/) page for details on how to
