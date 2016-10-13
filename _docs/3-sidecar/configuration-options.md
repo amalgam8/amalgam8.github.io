@@ -29,7 +29,6 @@ YAML file.
 | A8_HEALTHCHECKS | --healthchecks | healthchecks (additional details below) | comma separated list of health check URIs (http only) |  | no |
 | A8_REGISTER | --register | register | enable automatic service registration and heartbeat | false | See note above |
 | A8_PROXY | --proxy | proxy | enable automatic service discovery and load balancing across services using NGINX | false | See note above |
-| A8_LOG | --log | log | enable logging of outgoing requests through proxy using FileBeat | false | no |
 | A8_SUPERVISE | --supervise | supervise | Manage application process. If application dies, sidecar process is killed as well. All arguments provided after the flags will be considered as part of the application invocation | false | no |
 | A8_REGISTRY_URL | --registry_url | registry.url | registry URL |  | yes if `-register` is enabled |
 | A8_REGISTRY_TOKEN | --registry_token | registry.token | registry auth token | | yes if `-register` is enabled and an auth mode is set |
@@ -37,7 +36,6 @@ YAML file.
 | A8_CONTROLLER_URL | --controller_url | controller.url | controller URL |  | yes if `-proxy` is enabled |
 | A8_CONTROLLER_TOKEN | --controller_token | controller.token | Auth token for Controller instance |  | yes if `-proxy` is enabled and an auth mode is set |
 | A8_CONTROLLER_POLL | --controller_poll | controller.poll | interval for polling Controller | 15s | no |
-| A8_LOGSTASH_SERVER | --logstash_server | logstash_server | logstash target for nginx logs |  | yes if `-log` is enabled |
 |  | --help, -h | show help | | |
 |  | --version, -v | print the version | | |
 {:.table .table-bordered .table-condensed .table-striped}
@@ -197,9 +195,4 @@ healthchecks:
     timeout: 3s
     method: POST
     code: 201
-
-##Enabling log propagation from sidecar to logstash
-## via filebeat
-log: true
-logstash_server: logstash:8092
 ```
