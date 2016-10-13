@@ -97,13 +97,11 @@ healthchecks:
     value: http://localhost:8080/health1
     interval: 15s
     timeout: 5s
-    method: GET
     code: 200
   - type: http
     value: http://localhost:9090/health2
     interval: 30s
     timeout: 3s
-    method: POST
     code: 201
 ```
 
@@ -112,9 +110,9 @@ where
 * `value` indicates the health check URL.
 * `interval` indicates the frequency of the health check. Time intervals can be suffixed with `s`, `m` to indicate seconds or minutes.
 * `timeout` indicates how long the sidecar will wait for the application to respond to the health check API call.
-* `method` indicates the HTTP method to use (GET, POST, etc).
 * `code` indicates the HTTP response code that the sidecar should expect from the application.
 
+Note that the sidecar will access the specified URL via the GET method only.
 
 ### Request routing
 
@@ -187,12 +185,10 @@ healthchecks:
     value: http://localhost:8080/health1
     interval: 15s
     timeout: 5s
-    method: GET
     code: 200
   - type: http
     value: http://localhost:9090/health2
     interval: 30s
     timeout: 3s
-    method: POST
     code: 201
 ```
