@@ -1,7 +1,7 @@
 ---
 layout: page
 title: High Availability
-permalink: /docs/control-plane/high-availability/
+permalink: /docs/control-plane-high-availability.html
 category: Control Plane
 order: 2
 ---

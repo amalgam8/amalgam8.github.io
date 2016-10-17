@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Introduction
-permalink: /docs/control-plane/controller/
+permalink: /docs/control-plane-controller.html
 category: Control Plane
 subcategory: Route Controller
 order: 0
@@ -15,11 +15,11 @@ canary and red/black deployments, A/B testing, and systematically testing resili
 
 The rest of this guide is organized as follows:
 
-* [A8 Rules API](/docs/control-plane/controller/rules-api/) section describes
+* [A8 Rules API](/docs/control-plane-controller-rules-api.html) section describes
   the API used to manage routing and other action rules.
   
-* [A8 Rules DSL](/docs/control-plane/controller/rules-dsl/) section describes
+* [A8 Rules DSL](/docs/control-plane-controller-rules-dsl.html) section describes
   the Amalgam8 DSL (Domain Specific Language) used to represent rules in the API.
   
-* [Configuration](/docs/control-plane/controller/controller-configuration-options/) section provides
+* [Configuration](/docs/control-plane-controller-configuration.html) section provides
   details on running and configuration of the controller service in the control-plane.

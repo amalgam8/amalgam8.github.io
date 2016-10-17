@@ -1,7 +1,7 @@
 ---
 layout: page
 title: File Catalog
-permalink: /docs/control-plane/registry/file-catalog/
+permalink: /docs/control-plane-registry-external-services.html
 category: Control Plane
 subcategory: Service Registry
 order: 3

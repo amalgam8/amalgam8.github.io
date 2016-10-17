@@ -1,7 +1,7 @@
 ---
 layout: page
 title: A8 Rules REST API
-permalink: /docs/control-plane/controller/rules-api/
+permalink: /docs/control-plane-controller-rules-api.html
 category: Control Plane
 subcategory: Route Controller
 order: 2
@@ -11,7 +11,7 @@ Rule definitions are managed via the Amalgam8 controller's REST API.
 A simple commandline interface that calls this REST API is available for basic use cases.
 The CLI documentation is available [here](https://github.com/amalgam8/a8ctl). 
 However, for more advanced functionality or defining rules programmatically, the controller API supports a 
-powerful [Rules DSL](/docs/control-plane/controller/rules-dsl/) and can be called directly. 
+powerful [Rules DSL](/docs/control-plane-controller-rules-dsl.html) and can be called directly. 
 
 The following describes basic invocation of the controller REST API using `curl` with the utility `jq` to format the output `json`. For these commands we assume that the controller is running in global authorization mode so that no authentication is required.
 
@@ -178,7 +178,7 @@ curl -i -X DELETE <controller URL>/v1/rules
 
 Detailed documentation on the route controller's REST API can be found [here](/api/controller/).
 
-Rules passed to the controller conform to the [A8 Rules DSL](/docs/control-plane/controller/rules-dsl/) and
+Rules passed to the controller conform to the [A8 Rules DSL](/docs/control-plane-controller-rules-dsl.html) and
 are validated against a [JSON schema](http://json-schema.org/) definition that is available [here](/api/controller-rules-schema/).
 
 ## Service references in rules vs services registered in registry

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Authentication
-permalink: /docs/control-plane/authentication/
+permalink: /docs/control-plane-authentication.html
 category: Control Plane
 order: 1
 ---

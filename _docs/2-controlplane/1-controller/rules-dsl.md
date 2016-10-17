@@ -1,13 +1,13 @@
 ---
 layout: page
 title: A8 Rules DSL
-permalink: /docs/control-plane/controller/rules-dsl/
+permalink: /docs/control-plane-controller-rules-dsl.html
 category: Control Plane
 subcategory: Route Controller
 order: 3
 ---
 
-The Amalgam8 controller [API for managing rules](/docs/control-plane/controller/rules-api/) uses a Rules DSL based on JSON.
+The Amalgam8 controller [API for managing rules](/docs/control-plane-controller-rules-api.html) uses a Rules DSL based on JSON.
 For example, a simple rule to send 100% of incoming traffic for the "reviews" microservice
 to version "v1" can be described using the Rules DSL as follows.
 
@@ -51,7 +51,6 @@ but must rather be represented using two seperate rules in the DSL.
             * [route.backends.tags](#route-backends-tags)
             * [route.backends.weight](#route-backends-weight)
             * [route.backends.name](#route-backends-name)
-            * [route.backends.timeout](#route-backends-timeout)           
 * [Action Rules](#action-rules)
     * [actions](#actions)
         * [actions.action](#actions-action)
@@ -268,11 +267,6 @@ the "v2" tag and the remaining traffic (i.e., 75%) to "v1".
 
 The `name` field is optional and specifies the service name of the target instances. If not specified, it defaults
 to the value of the rule's `destination` field.
-
-#### Property: route.backends.timeout <a id="route-backends-timeout"></a>
-
-The last optional field of a backend object is `timeout` which is the time, in seconds, to wait for a backend to respond
-before timing out the request.
 
 ### Routing Rule Execution
 

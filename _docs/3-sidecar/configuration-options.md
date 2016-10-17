@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Configuration
-permalink: /docs/sidecar/sidecar-configuration-options/
+permalink: /docs/sidecar-configuration.html
 category: Sidecar
 order: 3
 ---
@@ -42,7 +42,11 @@ YAML file.
 
 ## Example configurations
 
-### Automatic service registration
+* [Service registration](#service-registration)
+* [Health checks](#health-checks)
+* [Request routing](#request-routing)
+
+### Service registration <a id="service-registration"></a>
 
 Registration and heartbeat with the Amalgam8 service registry 
 can be enabled by setting the following environment variables or 
@@ -74,7 +78,8 @@ registry:
   url:   http://registry:8080
 ```
 
-### Health checks
+  
+### Health checks <a id="health-checks"></a>
 
 In addition to automatic service registration,
 the sidecar can periodically check the health of the application at specified 
@@ -114,7 +119,8 @@ where
 
 Note that the sidecar will access the specified URL via the GET method only.
 
-### Request routing
+
+### Request routing <a id="request-routing"></a>
 
 For microservices that make outbound calls
 to other microservices, service discovery and client-side load balancing,

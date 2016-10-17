@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Configuration
-permalink: /docs/control-plane/controller/controller-configuration-options/
+permalink: /docs/control-plane-controller-configuration.html
 category: Control Plane
 subcategory: Route Controller
 order: 1
@@ -29,6 +29,13 @@ The following environment variables are available. All of them are optional.
 | | --help, -h | show help | |
 | | --version, -v | print the version | |
 {:.table .table-bordered .table-condensed .table-striped}
+
+## Authentication and Multi-tenancy
+
+The Amalgam8 Registry supports multi-tenancy by isolating each tenant into
+a separate namespace.  Refer to the
+[Authentication](/docs/control-plane-authentication.html) section 
+for further details.
 
 ## Example Configuration using Environment Variables
 
