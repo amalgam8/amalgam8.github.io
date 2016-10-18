@@ -4,7 +4,7 @@ title: Kubernetes Catalog
 permalink: /docs/control-plane/registry/kubernetes-catalog/
 category: Control Plane
 subcategory: Service Registry
-order: 4
+order: 5
 ---
 
 A microservice running in Kubernetes with a corresponding service

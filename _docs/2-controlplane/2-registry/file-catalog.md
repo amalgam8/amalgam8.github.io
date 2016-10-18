@@ -4,7 +4,7 @@ title: File Catalog
 permalink: /docs/control-plane/registry/file-catalog/
 category: Control Plane
 subcategory: Service Registry
-order: 3
+order: 4
 ---
 
 The File-based catalog extension allows the registry to pull static service
