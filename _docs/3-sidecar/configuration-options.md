@@ -12,6 +12,12 @@ command line flags, or YAML configuration files.  *Order of precedence is
 command line flags first, then environment variables, configuration files,
 and lastly default values.*
 
+To run the sidecar with a configuration file, use the following command:
+
+```bash
+a8sidecar -config /path/to/a8sidecar.yaml
+```
+
 ## Options Reference
 
 The following table lists all the configuration options, their equivalent
@@ -59,6 +65,7 @@ A8_REGISTRY_URL=http://a8registryURL
 Equivalent YAML config:
 
 ```yaml
+#a8sidecar.yaml
 service:
   name: service_name
   tags: 
