@@ -174,6 +174,7 @@ register: true
 The following is an example config file for a sidecar that supervises a python application called `helloworld.py`, monitors its health and registers it with the service registry, while proxying requests to other services.
 
 ```yaml
+register: true
 registry:
   url:   http://registry:8080
   poll:  5s
