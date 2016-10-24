@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Hello World!
-permalink: /docs/demo/helloworld/
+permalink: /docs/demo-helloworld.html
 category: Demo
 order: 2
 ---

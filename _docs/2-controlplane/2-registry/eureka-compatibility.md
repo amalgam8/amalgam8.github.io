@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Eureka API Compatibility
-permalink: /docs/control-plane/registry/eureka-compatibility/
+permalink: /docs/control-plane-registry-eureka-api-compatibility.html
 category: Control Plane
 subcategory: Service Registry
 order: 2

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Kubernetes Catalog
-permalink: /docs/control-plane/registry/kubernetes-catalog/
+permalink: /docs/control-plane-registry-kubernetes-catalog.html
 category: Control Plane
 subcategory: Service Registry
 order: 4

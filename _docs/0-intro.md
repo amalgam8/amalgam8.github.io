@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Amalgam8 Concepts
-permalink: /docs/amalgam8-microservice-routing/
+permalink: /docs/amalgam8-microservice-routing.html
 order: 0
 ---
 
@@ -48,17 +48,17 @@ orchestration layer
 [Marathon](https://mesosphere.github.io/marathon/)) or the cloud platform
 (Amazon AWS, IBM Bluemix, Google Cloud Platform, Microsoft Azure, etc.
 
-**[Amalgam8 Sidecar](/docs/sidecar/):** Amalgam8 uses the sidecar model or
+**[Amalgam8 Sidecar](/docs/sidecar.html):** Amalgam8 uses the sidecar model or
 the ambassador pattern for building microservices applications. The sidecar
 runs as an independent process and takes care of service registration,
 discovery and request routing to various microservices. The sidecar model
 simplifies development of polyglot applications.
 
-**[Amalgam8 Control Plane](/docs/control-plane/):** The microservice runtime
+**[Amalgam8 Control Plane](/docs/control-plane.html):** The microservice runtime
 management layer, called the Amalgam8 Control Plane, can be used to
 dynamically program the sidecars in each microservice and control how
 requests are routed between microservices. It consists of a [Route
-Controller](/docs/control-plane/controller/) and a [Service Registry](/docs/control-plane/registry/).
+Controller](/docs/control-plane-controller.html) and a [Service Registry](/docs/control-plane-registry.html).
 
 The following diagram illustrates how these components work together:
 
@@ -66,7 +66,7 @@ The following diagram illustrates how these components work together:
 
 1. Microservice instances are registered in the service registry by the
    sidecars. There are several ways this may be accomplished as described in
-   [Amalgam8 Registry](/docs/control-plane/registry/).
+   [Amalgam8 Registry](/docs/control-plane-registry.html).
 
 2. The Developer uses the control plane API to configure high-level rules
    for request routing between services (e.g., splitting traffic across

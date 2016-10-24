@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Bookinfo
-permalink: /docs/demo/bookinfo/
+permalink: /docs/demo-bookinfo.html
 category: Demo
 order: 3
 ---
@@ -30,7 +30,7 @@ The end-to-end architecture of the application is shown below.
 
 This application is polyglot, i.e., the microservices are written in
 different languages. All microservices are packaged with the
-[Amalgam8 Sidecar](/doc/sidecar/) that provides automatic service
+[Amalgam8 Sidecar](/docs/sidecar.html) that provides automatic service
 registration. For microservices that need to make outbound API
 calls, i.e., `productpage` and `reviews`, the sidecar acts as a proxy
 routing requests to appropriate instances of upstream services, based on

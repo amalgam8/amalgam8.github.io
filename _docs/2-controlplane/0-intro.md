@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Introduction
-permalink: /docs/control-plane/
+permalink: /docs/control-plane.html
 category: Control Plane
 order: 0
 ---
@@ -11,7 +11,7 @@ view of the microservices in the application and how they are communicating
 with each other. It consists of two multi-tenant services:
 
 1. **Route Controller** manages how requests are routed across
-   microservices via the [Amalgam8 Sidecars](/docs/sidecar/). Routes
+   microservices via the [Amalgam8 Sidecars](/docs/sidecar.html). Routes
    programmed at the controller are percolated down to the sidecars
    periodically. Routing rules can be based on the content of the requests
    and the version of microservices sending and receiving the requests. In
@@ -28,6 +28,6 @@ with each other. It consists of two multi-tenant services:
 Please refer to the following subsections for more details
 on how to setup and operate the services in the control plane:
 
-* [Route Controller](/docs/control-plane/controller/)
+* [Route Controller](/docs/control-plane-controller.html)
 
-* [Service Registry](/docs/control-plane/registry/)
+* [Service Registry](/docs/control-plane-registry.html)

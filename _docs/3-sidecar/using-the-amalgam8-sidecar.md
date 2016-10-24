@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Usage
-permalink: /docs/sidecar/usage/
+permalink: /docs/sidecar-usage.html
 category: Sidecar
 order: 2
 ---

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Introduction
-permalink: /docs/sidecar/
+permalink: /docs/sidecar.html
 category: Sidecar
 order: 0
 ---
@@ -19,16 +19,16 @@ following functional components:
 
 The rest of this guide is organized as follows:
 
-* [Deployment Options](/docs/sidecar/deployment-options/) section describes
+* [Deployment Options](/docs/sidecar-deployment-options.html) section describes
   different ways of packaging the sidecar with a microservice (as part of a
   container or a pod)
   
-* [Usage](/docs/sidecar/usage/) section describes how to use the
+* [Usage](/docs/sidecar-usage.html) section describes how to use the
   sidecar as a proxy to make API calls to dependent microservices.
   
-* [Configuration](/docs/sidecar/sidecar-configuration-options/) section provides details on
+* [Configuration](/docs/sidecar-configuration.html) section provides details on
   various runtime configuration options while launching the sidecar, including
   automatic service registration, health checks, and request proxying.
 
-* [Logging](/docs/sidecar/sidecar-logging-api-calls/) describes how the sidecar logs the API 
-  calls and which log files need to be managed by the user.
+* [Logging](/docs/sidecar-logging-api-calls.html) describes how the
+  to monitor API calls made by the sidecar.
