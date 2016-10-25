@@ -36,6 +36,9 @@ collections:
   api:
     output: true
 
+gems:
+  - jekyll-redirect-from
+
 exclude:
   - README.md
   - LICENSE

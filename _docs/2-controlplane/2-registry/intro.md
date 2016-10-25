@@ -2,6 +2,7 @@
 layout: page
 title: Introduction
 permalink: /docs/control-plane-registry.html
+redirect_from: /docs/control-plane/registry/
 category: Control Plane
 subcategory: Service Registry
 order: 0

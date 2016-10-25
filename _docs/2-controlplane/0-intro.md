@@ -2,6 +2,7 @@
 layout: page
 title: Introduction
 permalink: /docs/control-plane.html
+redirect_from: /docs/control-plane/
 category: Control Plane
 order: 0
 ---

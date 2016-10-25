@@ -2,6 +2,7 @@
 layout: page
 title: Introduction
 permalink: /docs/sidecar.html
+redirect_from: /docs/sidecar/
 category: Sidecar
 order: 0
 ---

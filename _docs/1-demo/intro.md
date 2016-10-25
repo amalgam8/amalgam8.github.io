@@ -2,6 +2,7 @@
 layout: page
 title: Introduction
 permalink: /docs/demo.html
+redirect_from: /docs/demo/
 category: Demo
 order: 0
 ---
