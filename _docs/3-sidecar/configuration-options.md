@@ -2,6 +2,7 @@
 layout: page
 title: Configuration
 permalink: /docs/sidecar-configuration.html
+redirect_from: /docs/sidecar/sidecar-configuration-options/
 category: Sidecar
 order: 3
 ---

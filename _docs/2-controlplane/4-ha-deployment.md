@@ -2,6 +2,7 @@
 layout: page
 title: High Availability
 permalink: /docs/control-plane-high-availability.html
+redirect_from: /docs/control-plane/high-availability/
 category: Control Plane
 order: 2
 ---

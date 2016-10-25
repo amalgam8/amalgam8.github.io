@@ -2,6 +2,7 @@
 layout: page
 title: Usage
 permalink: /docs/sidecar-usage.html
+redirect_from: /docs/sidecar/usage/
 category: Sidecar
 order: 2
 ---

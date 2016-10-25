@@ -2,6 +2,7 @@
 layout: page
 title: Authentication
 permalink: /docs/control-plane-authentication.html
+redirect_from: /docs/control-plane/authentication/
 category: Control Plane
 order: 1
 ---

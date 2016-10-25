@@ -2,6 +2,7 @@
 layout: page
 title: Deployment Options
 permalink: /docs/sidecar-deployment-options.html
+redirect_from: /docs/sidecar/deployment-options/
 category: Sidecar
 order: 1
 ---
