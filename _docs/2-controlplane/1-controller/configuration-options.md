@@ -2,6 +2,7 @@
 layout: page
 title: Configuration
 permalink: /docs/control-plane-controller-configuration.html
+redirect_from: /docs/control-plane/controller/controller-configuration-options/
 category: Control Plane
 subcategory: Route Controller
 order: 1

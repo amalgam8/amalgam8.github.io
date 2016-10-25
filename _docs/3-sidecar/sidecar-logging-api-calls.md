@@ -2,6 +2,7 @@
 layout: page
 title: Logging
 permalink: /docs/sidecar-logging-api-calls.html
+redirect_from: /docs/sidecar/sidecar-logging-api-calls/
 category: Sidecar
 order: 6
 ---

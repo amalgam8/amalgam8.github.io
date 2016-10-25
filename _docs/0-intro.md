@@ -2,6 +2,7 @@
 layout: page
 title: Amalgam8 Concepts
 permalink: /docs/amalgam8-microservice-routing.html
+redirect_from: /docs/amalgam8-microservice-routing/
 order: 0
 ---
 

@@ -2,6 +2,7 @@
 layout: page
 title: File Catalog
 permalink: /docs/control-plane-registry-external-services.html
+redirect_from: /docs/control-plane/registry/file-catalog/
 category: Control Plane
 subcategory: Service Registry
 order: 3

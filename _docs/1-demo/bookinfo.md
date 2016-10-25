@@ -2,6 +2,7 @@
 layout: page
 title: Bookinfo
 permalink: /docs/demo-bookinfo.html
+redirect_from: /docs/demo/bookinfo/
 category: Demo
 order: 3
 ---

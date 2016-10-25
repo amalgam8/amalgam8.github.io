@@ -2,6 +2,7 @@
 layout: page
 title: Configuration
 permalink: /docs/control-plane-registry-configuration.html
+redirect_from: /docs/control-plane/registry/registry-configuration-options/
 category: Control Plane
 subcategory: Service Registry
 order: 1

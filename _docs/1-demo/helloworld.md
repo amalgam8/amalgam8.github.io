@@ -2,6 +2,7 @@
 layout: page
 title: Hello World!
 permalink: /docs/demo-helloworld.html
+redirect_from: /docs/demo/helloworld/
 category: Demo
 order: 2
 ---

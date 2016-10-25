@@ -2,6 +2,7 @@
 layout: page
 title: Introduction
 permalink: /docs/control-plane-controller.html
+redirect_from: /docs/control-plane/controller/
 category: Control Plane
 subcategory: Route Controller
 order: 0
