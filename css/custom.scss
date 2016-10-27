@@ -65,10 +65,6 @@ $on-desktop:      1024px;
     }
 }
 
-#doc-sidebar, #api-sidebar {
-    left: -230px;
-}
-
 /* --- General Overrides --- */
 article {
     min-height: 800px;
@@ -78,8 +74,8 @@ article {
     font-family: 'Lora', 'Times New Roman', serif;
     font-size: 18px;
     color: #404040;
-    position: relative;
-    background: #FFF;
+    //position: relative;
+    //background: #FFF;
 
     padding: 20px 15px;
 }
@@ -97,6 +93,7 @@ article {
 .sidebar-content {
     //background-color: $grey-color-light;
     font-family: $base-font-family;
+    font-size: 18px;
     padding: 20px 20px;
 
     li {
@@ -104,6 +101,32 @@ article {
         padding-top: 5px;
         // border-bottom: 1px solid $grey-color-light;
     }
+}
+
+#content-container {
+
+}
+
+#sidebar-container {
+  float: left;
+  padding:0px;
+  background-color: #fff;
+  border-right: 1px solid rgba(0, 0, 0, .15);
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+}
+
+
+#sidebar-tab {
+  border: none;
+  border-top: 1px solid #adadad;
+  border-right: 1px solid #adadad;
+  border-bottom: 1px solid #adadad;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  padding: 10px 5px 10px 5px;
+  //margin-top: -21px;
+  margin-left: -15px;
 }
 
 .post-content img {
@@ -133,9 +156,9 @@ article {
     text-decoration: underline;
 }
 
-.brand-icon { 
+.brand-icon {
     width: 150px;
-    max-width: 150px; 
+    max-width: 150px;
 }
 
 i.fa {
@@ -164,6 +187,7 @@ i.fa {
    );
    color: white;
    text-align: center;
+   margin-bottom: 0; /* remove default bootstrap nav margin */
 }
 
 /**
@@ -226,9 +250,8 @@ i.fa {
 
 
 // Import partials from `sass_dir` (defaults to `_sass`)
-@import 
+@import
     "video",
-    "sidemenu",
     "syntax-highlighting",
     "swagger"
 ;

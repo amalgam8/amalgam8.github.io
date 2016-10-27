@@ -1,51 +1,64 @@
 ---
 layout: bootstrap
 ---
+<div class="row">
+  <div id="sidebar-container" class="col-lg-2 col-md-3 col-sm-6 col-xs-11">
+    <div class="sidebar-content">
+      <ul class="list-unstyled">
+          {% assign cats = site.docs | group_by: "category" %}
+          {% for cat in cats %}
+             {% assign cat_name = cat.name | default: "EMPTY" %}
+             {% if cat_name != "EMPTY" %}
+              <li>
+                  <label class="tree-toggle"><i class="fa fa-caret-down"></i> {{ cat_name }}</label>
+                  <ul class="list-unstyled tree">
+             {% endif %}
 
-{{ content }}
+                  {% assign subcats = cat.items | group_by: "subcategory" %}
+                  {% for subcat in subcats %}
+                      {% assign subcat_name = subcat.name | default: "EMPTY" %}
+                      {% if subcat_name != "EMPTY" %}
+                          <li>
+                              <label class="tree-toggle"><i class="fa fa-caret-down"></i> {{ subcat_name }}</label>
+                              <ul class="list-unstyled tree">
+                      {% endif %}
 
-<div id="doc-sidebar">
-    <ul class="list-unstyled">
-        {% assign cats = site.docs | group_by: "category" %}
-        {% for cat in cats %}
-           {% assign cat_name = cat.name | default: "EMPTY" %}
-           {% if cat_name != "EMPTY" %}
-            <li>
-                <label class="tree-toggle"><i class="fa fa-caret-down"></i> {{ cat_name }}</label>
-                <ul class="list-unstyled tree">
-           {% endif %}
-                  
-                {% assign subcats = cat.items | group_by: "subcategory" %}
-                {% for subcat in subcats %}
-                    {% assign subcat_name = subcat.name | default: "EMPTY" %}
-                    {% if subcat_name != "EMPTY" %}
-                        <li>
-                            <label class="tree-toggle"><i class="fa fa-caret-down"></i> {{ subcat_name }}</label>
-                            <ul class="list-unstyled tree">
-                    {% endif %}
+                      {% assign docs = subcat.items | sort: "order" %}
+                      {% for doc in docs %}
+                          {% if doc.exclude != true %}
+                          <li><a href="{{doc.url}}">{{ doc.title }}</a></li>
+                          {% endif %}
+                      {% endfor %}
 
-                    {% assign docs = subcat.items | sort: "order" %}
-                    {% for doc in docs %}
-                        {% if doc.exclude != true %}
-                        <li><a href="{{doc.url}}">{{ doc.title }}</a></li>
-                        {% endif %}
-                    {% endfor %}
+                      {% if subcat_name != "EMPTY" %}
+                              </ul>
+                          </li>
+                      {% endif %}
 
-                    {% if subcat_name != "EMPTY" %}
-                            </ul>
-                        </li>
-                    {% endif %}
-                        
-                {% endfor %}
+                  {% endfor %}
 
-           {% if cat_name != "EMPTY" %} 
-                </ul>
-            </li>
-           {% endif %}
-        {% endfor %}
-    </ul>        
+             {% if cat_name != "EMPTY" %}
+                  </ul>
+              </li>
+             {% endif %}
+          {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+  <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+    <span id="sidebar-tab" class="pull-left glyphicon glyphicon-chevron-left"></span>
+  </div>
+
+  <div id="content-container" class="content col-lg-10 col-md-9 col-sm-12 col-xs-12">
+    {{ content }}
+
+    <div class="edit-page-link">
+        <a href="{{site.github.repository_url}}/blob/master/{{page.path}}">Edit this page</a>
+    </div>
+  </div>
+
 </div>
-
 
 <style>
     .tree li { padding-left: 20px; }
