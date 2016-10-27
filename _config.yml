@@ -38,6 +38,7 @@ collections:
 
 gems:
   - jekyll-redirect-from
+  - jekyll-sitemap
 
 exclude:
   - README.md
