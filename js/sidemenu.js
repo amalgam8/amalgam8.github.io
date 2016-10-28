@@ -20,22 +20,26 @@
 
       // 1756 is a judgement call on the breakpoint for when the sidebar needs a col-lg-3 and not col-lg-12
       if (width < 1756) {
-        sidebar.removeClass("col-lg-2");
-        sidebar.removeClass("col-lg-3"); // needed to make sure we don't have multiple col-lg classes
-        sidebar.addClass("col-lg-3");
+        if (sidebar.hasClass("col-lg-2"))
+          sidebar.removeClass("col-lg-2");
+        if (!sidebar.hasClass("col-lg-3"))
+          sidebar.addClass("col-lg-3");
 
-        content.removeClass("col-lg-10");
-        content.removeClass("col-lg-9");
-        content.addClass("col-lg-9");
+        if (content.hasClass("col-lg-10"))
+          content.removeClass("col-lg-10");
+        if (!content.hasClass("col-lg-9"))
+          content.addClass("col-lg-9");
       }
       else {
-        sidebar.removeClass("col-lg-3");
-        sidebar.removeClass("col-lg-2");
-        sidebar.addClass("col-lg-2");
+        if (sidebar.hasClass("col-lg-3"))
+          sidebar.removeClass("col-lg-3");
+        if (!sidebar.hasClass("col-lg-2"))
+          sidebar.addClass("col-lg-2");
 
-        content.removeClass("col-lg-9");
-        content.removeClass("col-lg-10");
-        content.addClass("col-lg-10");
+        if (content.hasClass("col-lg-9"))
+          content.removeClass("col-lg-9");
+        if (!content.hasClass("col-lg-10"))
+          content.addClass("col-lg-10");
       }
     }
 
