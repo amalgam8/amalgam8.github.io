@@ -9,7 +9,7 @@
 
     function setSidebar() {
       // set sidebar height
-      sidebar.height($("body").height());
+      sidebar.height($('footer').position().top + 50);
 
       // 992 is the default breakpoint set in Bootstrap 3 for col-md
       if (width < 992)
@@ -21,16 +21,20 @@
       // 1756 is a judgement call on the breakpoint for when the sidebar needs a col-lg-3 and not col-lg-12
       if (width < 1756) {
         sidebar.removeClass("col-lg-2");
+        sidebar.removeClass("col-lg-3"); // needed to make sure we don't have multiple col-lg classes
         sidebar.addClass("col-lg-3");
 
-        sidebar.removeClass("col-lg-10");
-        sidebar.addClass("col-lg-9");
+        content.removeClass("col-lg-10");
+        content.removeClass("col-lg-9");
+        content.addClass("col-lg-9");
       }
       else {
         sidebar.removeClass("col-lg-3");
+        sidebar.removeClass("col-lg-2");
         sidebar.addClass("col-lg-2");
 
         content.removeClass("col-lg-9");
+        content.removeClass("col-lg-10");
         content.addClass("col-lg-10");
       }
     }
@@ -55,6 +59,8 @@
 
     // initialize
     window.addEventListener('resize', onWindowResize, false);
-    setSidebar();
+    window.onload = function() {
+      setSidebar();
+    }
   });
 }(jQuery));
