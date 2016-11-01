@@ -36,7 +36,6 @@ YAML file.
 | A8_HEALTHCHECKS | --healthchecks | healthchecks (additional details below) | comma separated list of health check URIs (http only) |  | no |
 | A8_REGISTER | --register | register | enable automatic service registration and heartbeat | false | See note above |
 | A8_PROXY | --proxy | proxy | enable automatic service discovery and load balancing across services using NGINX | false | See note above |
-| A8_SUPERVISE | --supervise | supervise | Manage application process. If application dies, sidecar process is killed as well. All arguments provided after the flags will be considered as part of the application invocation | false | no |
 | A8_REGISTRY_URL | --registry_url | registry.url | registry URL |  | yes if `-register` is enabled |
 | A8_REGISTRY_TOKEN | --registry_token | registry.token | registry auth token | | yes if `-register` is enabled and an auth mode is set |
 | A8_REGISTRY_POLL | --registry_poll | registry.poll | interval for polling Registry | 15s | no |
@@ -52,6 +51,7 @@ YAML file.
 * [Service registration](#service-registration)
 * [Health checks](#health-checks)
 * [Request routing](#request-routing)
+* [Process supervision](#process-supervision)
 
 ### Service registration <a id="service-registration"></a>
 
@@ -207,3 +207,34 @@ healthchecks:
     timeout: 3s
     code: 201
 ```
+
+### Process supervision <a id="process-supervision"></a>
+
+Sidecar can start and supervise any number of application processes. If one of the applications dies,
+supervisor can be configured to terminate the sidecar process as well. 
+
+All arguments provided after the flags will be considered a part of a single application
+invocation.  By default, the sidecar process will exit if this application terminates. The following
+`ENTRYPOINT` can be placed in a Dockerfile to start the sidecar process as well as one python application:
+
+```bash
+ENTRYPOINT ["a8sidecar", "python", "myapp.py"]
+```
+
+More advanced supervision modes can be configured by providing a yaml config.  For instance, if you
+wanted to run filebeat and a python application, the following yaml could be provided:
+
+```yaml
+commands:
+  - cmd: [ "filebeat", "-c", "/etc/filebeat.yml" ]
+    env: [ "GODEBUG=netdns=go" ]
+    on_exit: ignore
+  - cmd: [ "python", "productpage.py", "9080", "http://localhost:6379" ]
+    on_exit: terminate
+```
+
+where
+* `cmd` indicates the commands you want to run.
+* `env` indicates any additional environment variables the application may need to run with.
+* `on_exit` can have the values `ignore` or `terminate` which indicates what the sidecar 
+process should do if this application terminates.
