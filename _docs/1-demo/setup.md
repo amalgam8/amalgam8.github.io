@@ -139,7 +139,7 @@ export PATH=$PATH:${HOME}/Library/Python/2.7/bin
 On Linux, run
 
 ```bash
-export PATH=$PATH:${HOME}/.local/bin/a8ctl
+export PATH=$PATH:${HOME}/.local/bin
 ```
 
 To use the Amalgam8 CLI (`a8ctl`) for the demo walkthroughs we need
