@@ -33,7 +33,7 @@ YAML file.
 | A8_ENDPOINT_HOST | --endpoint_host | endpoint.host | service endpoint IP or hostname. Defaults to the IP (e.g., container) where the sidecar is running | optional |
 | A8_ENDPOINT_PORT | --endpoint_port | endpoint.port | service endpoint port |  | yes |
 | A8_ENDPOINT_TYPE | --endpoint_type | endpoint.type | service endpoint type (http, https, udp, tcp, user) | http | no |
-| A8_HEALTHCHECKS | --healthchecks | healthchecks (additional details below) | comma separated list of health check URIs (http only) |  | no |
+| A8_HEALTHCHECKS | --healthchecks | healthchecks (additional details below) | comma separated list of health check URIs |  | no |
 | A8_REGISTER | --register | register | enable automatic service registration and heartbeat | false | See note above |
 | A8_PROXY | --proxy | proxy | enable automatic service discovery and load balancing across services using NGINX | false | See note above |
 | A8_SUPERVISE | --supervise | supervise | **valid upto sidecar versions 0.4.0 only.** Manage application process. If application dies, sidecar process is killed as well. All arguments provided after the flags will be considered as part of the application invocation | false | no |
@@ -93,15 +93,15 @@ The default endpoint type is `http`. So, the environment variable `A8_ENDPOINT_T
 ### Health checks <a id="health-checks"></a>
 
 In addition to automatic service registration,
-the sidecar can periodically check the health of the application at specified 
-HTTP endpoints. _When the application fails to respond or returns an error, 
+the sidecar can periodically check the health of the application through TCP, HTTP or simply by
+running a specified command. _When the application fails to respond or returns an error, 
 the sidecar will immediately unregister the service instance from the 
 Amalgam8 registry._
 
 Health checks can configured using environment variable in the following manner:
 
 ```bash
-A8_HEALTHCHECKS=http://localhost:8080/health1,http://localhost:9090/health2
+A8_HEALTHCHECKS=http://localhost:8080/health1,tcp://localhost:9090
 ```
 
 Alternatively, a more expressive and customizable health check can be configured
@@ -114,21 +114,22 @@ healthchecks:
     interval: 15s
     timeout: 5s
     code: 200
-  - type: http
-    value: http://localhost:9090/health2
+  - type: tcp
+    value: http://localhost:9090
     interval: 30s
     timeout: 3s
-    code: 201
+  - type: file
+    value: file:///opt/check_my_app.sh
+    interval: 10s
+    timeout: 5s
 ```
 
 where
-* `type` indicates the type of health check. Currently only http health checks are supported.
-* `value` indicates the health check URL.
+* `type` indicates the type of health check. **Sidecar versions upto 0.4.0 support HTTP health checks only. 0.4.1 and higher support TCP, and command based health checks as well.**
+* `value` indicates the health check URL, or TCP endpoint or the path to the script to be executed. In case of HTTP, the sidecar will access the specified URL via the GET method only.
 * `interval` indicates the frequency of the health check. Time intervals can be suffixed with `s`, `m` to indicate seconds or minutes.
 * `timeout` indicates how long the sidecar will wait for the application to respond to the health check API call.
-* `code` indicates the HTTP response code that the sidecar should expect from the application.
-
-Note that the sidecar will access the specified URL via the GET method only.
+* `code` indicates the HTTP response code that the sidecar should expect from the application (for HTTP health checks only). 
 
 
 ### Request routing <a id="request-routing"></a>
