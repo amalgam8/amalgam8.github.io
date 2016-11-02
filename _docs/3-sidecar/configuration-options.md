@@ -131,6 +131,7 @@ where
 * `timeout` indicates how long the sidecar will wait for the health check to execute.
 * `code` indicates the HTTP response code that the sidecar should expect from the application in HTTP/HTTPS health checks and the exit code to expect from the command run in command health checks. 
 
+**Note:** When using HTTPS endpoints, self-signed certificates will cause the health checks to fail as the connection attempt will fail in the first place.
 
 ### Request routing <a id="request-routing"></a>
 
