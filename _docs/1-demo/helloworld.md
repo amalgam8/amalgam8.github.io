@@ -47,7 +47,7 @@ _IBM Bluemix_
    bluemix cf create-route <your bluemix space> mybluemix.net -n <your helloworld route>
    ```
 
-1. Specify the route name in the _.bluemixrc_ in the HELLOWORLD_HOSTNAME variable.
+1. Specify the route name in the _examples/bluemix.cfg_ in the HELLOWORLD_HOSTNAME variable.
 
 1. Deploy the helloworld application on bluemix.
 

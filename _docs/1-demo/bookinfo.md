@@ -75,7 +75,7 @@ _IBM Bluemix_
    bluemix cf create-route <your bluemix space> mybluemix.net -n <your bookinfo route>
    ```
 
-1. Specify the route name in the _.bluemixrc_ in the BOOKINFO_HOSTNAME variable.
+1. Specify the route name in the _examples/bluemix.cfg_ in the BOOKINFO_HOSTNAME variable.
 
 1. Deploy the bookinfo application on bluemix.
 
