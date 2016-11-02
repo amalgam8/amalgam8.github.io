@@ -36,6 +36,7 @@ YAML file.
 | A8_HEALTHCHECKS | --healthchecks | healthchecks (additional details below) | comma separated list of health check URIs (http only) |  | no |
 | A8_REGISTER | --register | register | enable automatic service registration and heartbeat | false | See note above |
 | A8_PROXY | --proxy | proxy | enable automatic service discovery and load balancing across services using NGINX | false | See note above |
+| A8_SUPERVISE | --supervise | supervise | **valid upto sidecar versions 0.4.0 only.** Manage application process. If application dies, sidecar process is killed as well. All arguments provided after the flags will be considered as part of the application invocation | false | no |
 | A8_REGISTRY_URL | --registry_url | registry.url | registry URL |  | yes if `-register` is enabled |
 | A8_REGISTRY_TOKEN | --registry_token | registry.token | registry auth token | | yes if `-register` is enabled and an auth mode is set |
 | A8_REGISTRY_POLL | --registry_poll | registry.poll | interval for polling Registry | 15s | no |
@@ -46,7 +47,7 @@ YAML file.
 |  | --version, -v | print the version | | |
 {:.table .table-bordered .table-condensed .table-striped}
 
-## Example configurations
+## Configuration Topics
 
 * [Service registration](#service-registration)
 * [Health checks](#health-checks)
@@ -60,9 +61,9 @@ can be enabled by setting the following environment variables or
 setting the equivalent fields in the config file:
 
 ```bash
-A8_SERVICE=service_name:service_version_tag
+A8_SERVICE=service_name:service_version_tag,some_other_tag
 A8_ENDPOINT_PORT=port_where_service_is_listening
-A8_ENDPOINT_TYPE=http|https|tcp|udp|user
+A8_ENDPOINT_TYPE=https
 A8_REGISTER=true
 A8_REGISTRY_URL=http://a8registryURL
 ```
@@ -79,14 +80,16 @@ service:
   
 endpoint:
   port: port_where_service_is_listening
-  type: (http|https|tcp|udp|user)
+  type: https
 
 register: true
 registry:
   url:   http://registry:8080
 ```
 
-  
+The default endpoint type is `http`. So, the environment variable `A8_ENDPOINT_TYPE` and the YAML key `type` under `endpoint` section can be omitted, when registering an `http` endpoint.
+
+
 ### Health checks <a id="health-checks"></a>
 
 In addition to automatic service registration,
@@ -176,53 +179,29 @@ or in YAML:
 register: true
 ```
 
-### A complete configuration file
-
-The following is an example config file for a sidecar that supervises a python application called `helloworld.py`, monitors its health and registers it with the service registry, while proxying requests to other services.
-
-```yaml
-register: true
-registry:
-  url:   http://registry:8080
-  poll:  5s
-
-proxy: true
-controller:
-  url:   http://controller:8080
-  poll:  30s
- 
-##Setting up app supervision
-supervise: true
-app: [ "python", "helloworld.py ]
-
-healthchecks:
-  - type: http
-    value: http://localhost:8080/health1
-    interval: 15s
-    timeout: 5s
-    code: 200
-  - type: http
-    value: http://localhost:9090/health2
-    interval: 30s
-    timeout: 3s
-    code: 201
-```
-
 ### Process supervision <a id="process-supervision"></a>
 
-Sidecar can start and supervise any number of application processes. If one of the applications dies,
-supervisor can be configured to terminate the sidecar process as well. 
+When packaging the sidecar along with the application in the same docker container,
+the sidecar can be made to act as the supervisor process that launches the application
+process and other agents in the container. Upon graceful termination (or a crash) of the
+application process, the sidecar will also terminate, effectively causing the container to
+terminate as well.
+
+**For sidecar versions 0.4.1 and above:** Sidecar can start and supervise any number 
+of application processes. If one of the applications dies, supervisor can be configured 
+to terminate the sidecar process as well. 
 
 All arguments provided after the flags will be considered a part of a single application
 invocation.  By default, the sidecar process will exit if this application terminates. The following
 `ENTRYPOINT` can be placed in a Dockerfile to start the sidecar process as well as one python application:
 
 ```bash
-ENTRYPOINT ["a8sidecar", "python", "myapp.py"]
+ENTRYPOINT ["a8sidecar", "python", "productpage.py", "9080", "http://localhost:6379" ]
 ```
 
 More advanced supervision modes can be configured by providing a yaml config.  For instance, if you
-wanted to run filebeat and a python application, the following yaml could be provided:
+wanted to run the [filebeat](https://www.elastic.co/products/beats/filebeat) log shipping agent and
+a python application, the following yaml could be provided:
 
 ```yaml
 commands:
@@ -238,3 +217,115 @@ where
 * `env` indicates any additional environment variables the application may need to run with.
 * `on_exit` can have the values `ignore` or `terminate` which indicates what the sidecar 
 process should do if this application terminates.
+
+_ignore vs terminate_: When the `on_exit` field for a particular process is set to `ignore`, the sidecar
+will not restart the process when it exits (even if the process exits with an error). When the `on_exit`
+field is set to `terminate`, **all processes managed by the sidecar will be terminated and the sidecar 
+will shutdown/exit.** If the sidecar is the primary process in a Docker container, i.e.
+
+```bash
+ENTRYPOINT ["a8sidecar", "--config", "sidecar.yaml" ]
+```
+
+then failure of one of the managed processes whose `on_exit` is set to `terminate` will cause the
+container itself to terminate (after shutting down other processes in the container).
+
+It is advisable to use the `on_exit: ignore` for non-essential helper processes in the container, while
+the `on_exit: terminate` should be used for the main applicaton processes.
+
+
+**For sidecar versions 0.4.0 and below:** Prior to 0.4.1, only a single process can be supervised
+by the sidecar. To supervise a single process, specify the --supervise flag
+in the command line. For example,
+
+```bash
+ENTRYPOINT ["a8sidecar", "python", "productpage.py", "9080", "http://localhost:6379" ]
+```
+
+and the equivalent YAML configuration:
+
+```yaml
+##Setting up app supervision
+supervise: true
+app: [ "python", "productpage.py", "9080", "http://localhost:6379" ]
+```
+
+**Dealing with daemons and child processes**: When the parent process managed by the sidecar exits,
+the sidecar will automatically kill all the child processes that the parent process had spawned. If an application launches background processes and then exits gracefully, it will cause the sidecar to terminate all child processes and exit as well.
+
+For example, run nginx in foreground with `daemon off;` instead of the default background mode.
+
+```yaml
+commands:
+    # Disable daemons and let nginx run in the foreground.
+  - cmd: [ "nginx", "-g", "daemon off;" ]
+    on_exit: terminate
+```
+
+As another example, in the following configuration, the sidecar will kill all processes eventhough this may not be what is intended.
+
+```yaml
+commands:
+  - cmd: [ "/opt/launchapps.sh" ]
+    on_exit: terminate
+```
+
+where `launchapps.sh` is a simple script that launches the application and all the processes as background processes and exits immediately.
+
+```bash
+#!/bin/bash
+nginx ## daemonizes, and nginx launches worker processes
+python myappserver.py &
+```
+
+Instead, the prescribed method for launching these processes should be via the sidecar config file
+
+```yaml
+commands:
+  - cmd: [ "nginx", "-g", "daemon off;" ]
+    on_exit: terminate
+  - cmd: [ "python", "myappserver.py" ]
+  - on_exit: terminate
+```
+
+### A complete configuration file
+
+The following is an example config file for a sidecar that supervises a python application called `productpage.py`, starts up the filebeat log shipping agent, registers the application with the service registry, monitors its health and proxies outbound requests to other services. If the application terminates, the sidecar kills other processes and exits, thereby causing the container to terminate.
+
+```yaml
+#registration
+register: true
+registry:
+  url:   http://registry:8080
+  poll:  5s
+
+endpoint:
+  port: 9080
+
+#request proxying
+proxy: true
+controller:
+  url:   http://controller:8080
+  poll:  30s
+
+#Process management
+commands:
+    #start the app process. If app terminates, terminate container
+  - cmd: [ "python", "productpage.py", "9080", "http://localhost:6379" ]
+    on_exit: terminate
+  - cmd: [ "filebeat", "-c", "/etc/filebeat.yml" ]
+    env: [ "GODEBUG=netdns=go" ]
+    on_exit: ignore
+
+healthchecks:
+  - type: http
+    value: http://localhost:8080/health1
+    interval: 15s
+    timeout: 5s
+    code: 200
+  - type: http
+    value: http://localhost:9090/health2
+    interval: 30s
+    timeout: 3s
+    code: 201
+```
