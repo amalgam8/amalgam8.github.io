@@ -128,8 +128,8 @@ where
 * `type` indicates the type of health check. **Sidecar versions upto 0.4.0 support HTTP health checks only. 0.4.1 and higher support TCP, and command based health checks as well.**
 * `value` indicates the health check URL, or TCP endpoint or the path to the script to be executed. In case of HTTP, the sidecar will access the specified URL via the GET method only.
 * `interval` indicates the frequency of the health check. Time intervals can be suffixed with `s`, `m` to indicate seconds or minutes.
-* `timeout` indicates how long the sidecar will wait for the application to respond to the health check API call.
-* `code` indicates the HTTP response code that the sidecar should expect from the application (for HTTP health checks only). 
+* `timeout` indicates how long the sidecar will wait for the health check to execute.
+* `code` indicates the HTTP response code that the sidecar should expect from the application in HTTP/HTTPS health checks and the exit code to expect from the command run in command health checks. 
 
 
 ### Request routing <a id="request-routing"></a>
