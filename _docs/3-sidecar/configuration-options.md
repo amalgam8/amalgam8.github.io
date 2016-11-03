@@ -119,7 +119,7 @@ healthchecks:
     interval: 30s
     timeout: 3s
   - type: file
-    value: file:///opt/check_my_app.sh
+    value: /opt/check_my_app.sh
     interval: 10s
     timeout: 5s
 ```
