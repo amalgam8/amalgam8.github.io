@@ -170,4 +170,4 @@ kubectl create -f controlplane.yaml
 
 This command will start an Amalgam8 control plane with a Redis storage backend and 3 instances each of the controller and the registry. Requests to the controller and registry will be load balanced to the instances. If one of the control plane containers becomes unhealthy, Kubernetes halt routing to the container and will restart the container.
 
-HA deployments of the Amalgam8 control plane in other environments will differ in specific steps, but follow the same principles outline above.
+HA deployments of the Amalgam8 control plane in other environments will differ in specific steps, but follow the same principles outlined above.
