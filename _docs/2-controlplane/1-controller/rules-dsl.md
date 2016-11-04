@@ -12,7 +12,7 @@ The Amalgam8 controller [API for managing rules](/docs/control-plane-controller-
 For example, a simple rule to send 100% of incoming traffic for the "reviews" microservice
 to version "v1" can be described using the Rules DSL as follows.
 
-```
+```json
 {
   "destination": "reviews",
   "route": {
@@ -75,7 +75,7 @@ but must rather be represented using two seperate rules in the DSL.
 Every rule corresponds to some destination microservice identified by a `destination` field in the A8 Rules DSL.
 For example, all rules that apply to calls to the "reviews" microservice will include the following field.
 
-```
+```json
 {
   "destination": "reviews"
 }
@@ -86,7 +86,7 @@ For example, all rules that apply to calls to the "reviews" microservice will in
 The order of evaluation of rules corresponding to a given destination, when there is more than one, can be specified 
 by setting the `priority` field of the rule.
 
-```
+```json
 {
   "destination": "reviews",
   "priority": 1
@@ -102,7 +102,7 @@ If there is more than one rule with the same priority value, the order of execut
 When a rule is added to the system, the controller generates a unique string `id` field for the rule that can later be used to
 refer to the rule if you want to update or delete it. 
 
-```
+```json
 {
   "destination": "reviews",
   "priority": 1,
@@ -129,7 +129,7 @@ The `source` field is used to qualify a rule to only apply to requests from a sp
 It contains a `name` and optional list of `tags` to identify the source of the request. For example,
 the following `match` clause qualifies the rule to only apply to calls from version "v2" of the "reviews" microservice.
 
-```
+```json
 {
   "destination": "ratings",
   "match": {
@@ -147,7 +147,7 @@ The `headers` field is a set of one or more property-value pairs where each prop
 a regular expression that must match the header value. For example, the following rule will only apply
 to an incoming request if it includes a "Cookie" header that contains the substring "user=jason".
 
-```
+```json
 {
   "destination": "ratings",
   "match": {
@@ -164,7 +164,7 @@ The `source` and `headers` fields can both be set in the `match` object in which
 For example, the following rule only applies if the source of the request is "reviews:v2" 
 AND the "Cookie" header containing "user=jason" is present. 
 
-```
+```json
 {
   "destination": "ratings",
   "match": {
@@ -188,7 +188,7 @@ within an `all`, `any`, or `none` list is implicitly ANDed with the top level ma
 will apply if the source of the request is "reviews:v2"
 but only if there is no header named "Foo" with the value "bar" or "baz" set in the request.
 
-```
+```json
 {
   "destination": "ratings",
   "match": {
@@ -247,7 +247,7 @@ If less or greater than 100, the behavior of the route is undefined.
 For example, the following rule will route 25% of traffic for the "reviews" service to instances with
 the "v2" tag and the remaining traffic (i.e., 75%) to "v1".
 
-```
+```json
 {
   "destination": "reviews",
   "route": {
@@ -286,7 +286,7 @@ The following example specifies that all requests for the "reviews" service
 that includes a header named "Foo" with the value "bar" will be sent to the "v2" instances.
 All remaining requests will be sent to "v1".
 
-```
+```json
 [
   {
     "destination": "reviews",
@@ -358,7 +358,7 @@ requests that are routed to backends with the specified tags.
 
 The following example will introduce a 5 second delay in 10% of the requests to the "v1" version of the "reviews" microserivice.
 
-```
+```json
 {
   "destination": "reviews",
   "actions": [
@@ -394,7 +394,7 @@ requests that are routed to backends with the specified tags.
 
 The following example will return an http 400 error code for all requests from the "reviews" service "v2" to the "ratings" service "v1".
 
-```
+```json
 {
   "destination": "ratings",
   "match": {
@@ -427,7 +427,7 @@ requests that are routed to backends with the specified tags.
 
 The `log_key` and `log_value` fields are used to set a key and value for the entry in ElasticSearch.
 
-```
+```json
 {
   "destination": "ratings",
   "match": {
@@ -463,7 +463,7 @@ tagged destinations will only be applied if the corresponding tagged instances a
 routed to. For example, consider the following rule, as the one and only rule defined for
 the "reviews" microservice.
 
-```
+```json
 {
   "destination": "reviews",
   "actions": [
@@ -487,7 +487,7 @@ You can fix the above example in one of two ways. You can either remove the `"ta
 from the rule, if "v1" is the only instance anyway, or, better yet, define proper routing rules
 for the service. For example, you can add a simple routing rule for "reviews:v1".
 
-```
+```json
 {
   "destination": "reviews",
   "route": {
