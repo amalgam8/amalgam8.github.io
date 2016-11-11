@@ -117,7 +117,7 @@ version "v1" and the other two belong to version "v2".
 
    **Note**: Replace `GATEWAY_HOST_PORT` above with the host and port where
    the Amalgam8 gateway is running in your environment (e.g., `localhost:32000`,
-   `<minikube_ip>:32000`, `helloworld.mybluemix.net`)
+   `$(minikube ip):32000`, `helloworld.mybluemix.net`)
 
    You can see that the traffic is continually routed between the v1 instances only, in a random fashion:
 
