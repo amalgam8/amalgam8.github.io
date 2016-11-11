@@ -18,26 +18,44 @@ The commands to deploy the helloworld demo application for different
 environments are as follows:
 
 _Docker Compose_
-  
-```bash
-docker-compose -f examples/docker-helloworld.yaml up -d
-```
 
-Scale the individual versions as follows:
+1. Bring up the containers:
+   ```bash
+   docker-compose -f examples/docker-helloworld.yaml up -d
+   ```
 
-```bash
-docker-compose -f examples/docker-helloworld.yaml scale helloworld-v1=2
-docker-compose -f examples/docker-helloworld.yaml scale helloworld-v2=2
-```
+1. Scale the individual versions as follows:
+
+   ```bash
+   docker-compose -f examples/docker-helloworld.yaml scale helloworld-v1=2
+   docker-compose -f examples/docker-helloworld.yaml scale helloworld-v2=2
+   ```
+
+1. Set the gateway environment variable:
+
+   ```bash
+   export GATEWAY_HOST_PORT=localhost:31200
+   ```
+
+   **Note:** If you are using Docker Toolbox on the Mac, use
+   `$(docker-machine ip default):31200` instead of
+   `localhost:31200`
 
 _Kubernetes_ on localhost or on Google Cloud
 
-```bash
-kubectl create -f examples/k8s-helloworld.yaml
-```
+1. Bring up the containers:
+   ```bash
+   kubectl create -f examples/k8s-helloworld.yaml
+   ```
 
-The above command automatically launches two instances of each version of
-`helloworld`.
+   The above command automatically launches two instances of each version of
+   `helloworld`.
+
+1. Set the gateway environment variable:
+
+   ```bash
+   export GATEWAY_HOST_PORT=$(minikube ip):31200
+   ```
 
 _IBM Bluemix_
 
@@ -63,6 +81,12 @@ _IBM Bluemix_
    ```bash
    bluemix ic groups
    ```
+
+1. Set the gateway environment variable:
+
+```bash
+export GATEWAY_HOST_PORT=helloworld.mybluemix.net
+```
 
 ### List the Services in the App
 
@@ -112,23 +136,19 @@ version "v1" and the other two belong to version "v2".
 1. Confirm that all traffic is being directed to the v1 instance, by running the following cURL command multiple times:
 
    ```bash
-   curl http://GATEWAY_HOST_PORT/helloworld/hello
+   curl http://$GATEWAY_HOST_PORT/helloworld/hello
    ```
-
-   **Note**: Replace `GATEWAY_HOST_PORT` above with the host and port where
-   the Amalgam8 gateway is running in your environment (e.g., `localhost:32000`,
-   `<minikube_ip>:32000`, `helloworld.mybluemix.net`)
 
    You can see that the traffic is continually routed between the v1 instances only, in a random fashion:
 
    ```bash
-   $ curl http://localhost:32000/helloworld/hello
+   $ curl http://$GATEWAY_HOST_PORT/helloworld/hello
    Hello version: v1, container: helloworld-v1-p8909
-   $ curl http://localhost:32000/helloworld/hello
+   $ curl http://$GATEWAY_HOST_PORT/helloworld/hello
    Hello version: v1, container: helloworld-v1-qwpex
-   $ curl http://localhost:32000/helloworld/hello
+   $ curl http://$GATEWAY_HOST_PORT/helloworld/hello
    Hello version: v1, container: helloworld-v1-p8909
-   $ curl http://localhost:32000/helloworld/hello
+   $ curl http://$GATEWAY_HOST_PORT/helloworld/hello
    Hello version: v1, container: helloworld-v1-qwpex
    ...
    ```
@@ -144,20 +164,20 @@ version "v1" and the other two belong to version "v2".
 1. Run this cURL command several times:
 
    ```bash
-   curl http://GATEWAY_URL/helloworld/hello
+   curl http://$GATEWAY_HOST_PORT/helloworld/hello
    ```
 
    You will see alternating responses from all 4 helloworld instances, where approximately 1 out of every 4 (25%) responses
    will be from a "v2" instances, and the other responses from the "v1" instances:
 
    ```bash
-   $ curl http://localhost:32000/helloworld/hello
+   $ curl http://$GATEWAY_HOST_PORT/helloworld/hello
    Hello version: v1, container: helloworld-v1-p8909
-   $ curl http://localhost:32000/helloworld/hello
+   $ curl http://$GATEWAY_HOST_PORT/helloworld/hello
    Hello version: v1, container: helloworld-v1-qwpex
-   $ curl http://localhost:32000/helloworld/hello
+   $ curl http://$GATEWAY_HOST_PORT/helloworld/hello
    Hello version: v2, container: helloworld-v2-ggkvd
-   $ curl http://localhost:32000/helloworld/hello
+   $ curl http://$GATEWAY_HOST_PORT/helloworld/hello
    Hello version: v1, container: helloworld-v1-p8909
    ...
    ```

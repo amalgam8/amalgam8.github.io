@@ -57,15 +57,33 @@ environments are as follows:
 
 _Docker Compose_
   
+1. Bring up the containers:
 ```bash
 docker-compose -f examples/docker-bookinfo.yaml up -d
 ```
 
+1. Set the gateway environment variable:
+
+   ```bash
+   export GATEWAY_HOST_PORT=localhost:31200
+   ```
+
+   **Note:** If you are using Docker Toolbox on the Mac, use
+   `$(docker-machine ip default):31200` instead of
+   `localhost:31200`
+
 _Kubernetes_ on localhost or on Google Cloud
 
-```bash
-kubectl create -f examples/k8s-bookinfo.yaml
-```
+1. Bring up the containers:
+   ```bash
+   kubectl create -f examples/k8s-bookinfo.yaml
+   ```
+
+1. Set the gateway environment variable:
+
+   ```bash
+   export GATEWAY_HOST_PORT=$(minikube ip):31200
+   ```
 
 _IBM Bluemix_
 
@@ -87,6 +105,12 @@ _IBM Bluemix_
 
    ```bash
    bluemix ic groups
+   ```
+
+1. Set the gateway environment variable:
+
+   ```bash
+   export GATEWAY_HOST_PORT=helloworld.mybluemix.net
    ```
 
 ### List the Services in the App
@@ -158,9 +182,10 @@ from your browser and you should see the bookinfo application `productpage`
 displayed.  Notice that the `productpage` is displayed, with no rating
 stars since `reviews:v1` does not access the ratings service.
 
-**Note**: Replace `GATEWAY_HOST_PORT` above with the host and port where
-the Amalgam8 gateway is running in your environment (e.g., `localhost:32000`,
-`<minikube_ip>:32000`, `bookinfo.mybluemix.net`)
+**Note**: Replace `GATEWAY_HOST_PORT` with the output of the following command:
+```bash
+echo $GATEWAY_HOST_PORT
+```
 
 ## Content-based routing
 
