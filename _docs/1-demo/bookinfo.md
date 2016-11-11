@@ -160,7 +160,8 @@ stars since `reviews:v1` does not access the ratings service.
 
 **Note**: Replace `GATEWAY_HOST_PORT` above with the host and port where
 the Amalgam8 gateway is running in your environment (e.g., `localhost:32000`,
-`<minikube_ip>:32000`, `bookinfo.mybluemix.net`)
+`<minikube_ip>:32000`, `bookinfo.mybluemix.net`).  `<minikube_ip>` can 
+be found by running `echo $(minikube ip)`
 
 ## Content-based routing
 
