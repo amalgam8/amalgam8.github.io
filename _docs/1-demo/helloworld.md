@@ -20,6 +20,7 @@ environments are as follows:
 _Docker Compose_
 
 1. Bring up the containers:
+
    ```bash
    docker-compose -f examples/docker-helloworld.yaml up -d
    ```
@@ -34,7 +35,7 @@ _Docker Compose_
 1. Set the gateway environment variable:
 
    ```bash
-   export GATEWAY_HOST_PORT=localhost:31200
+   export GATEWAY_URL=localhost:32000
    ```
 
    **Note:** If you are using Docker Toolbox on the Mac, use
@@ -44,6 +45,7 @@ _Docker Compose_
 _Kubernetes_ on localhost or on Google Cloud
 
 1. Bring up the containers:
+
    ```bash
    kubectl create -f examples/k8s-helloworld.yaml
    ```
@@ -54,7 +56,7 @@ _Kubernetes_ on localhost or on Google Cloud
 1. Set the gateway environment variable:
 
    ```bash
-   export GATEWAY_HOST_PORT=$(minikube ip):31200
+   export GATEWAY_URL=$(minikube ip):32000
    ```
 
 _IBM Bluemix_
@@ -84,9 +86,9 @@ _IBM Bluemix_
 
 1. Set the gateway environment variable:
 
-```bash
-export GATEWAY_HOST_PORT=helloworld.mybluemix.net
-```
+   ```bash
+   export GATEWAY_URL=helloworld.mybluemix.net
+   ```
 
 ### List the Services in the App
 
@@ -136,19 +138,19 @@ version "v1" and the other two belong to version "v2".
 1. Confirm that all traffic is being directed to the v1 instance, by running the following cURL command multiple times:
 
    ```bash
-   curl http://$GATEWAY_HOST_PORT/helloworld/hello
+   curl http://$GATEWAY_URL/helloworld/hello
    ```
 
    You can see that the traffic is continually routed between the v1 instances only, in a random fashion:
 
    ```bash
-   $ curl http://$GATEWAY_HOST_PORT/helloworld/hello
+   $ curl http://$GATEWAY_URL/helloworld/hello
    Hello version: v1, container: helloworld-v1-p8909
-   $ curl http://$GATEWAY_HOST_PORT/helloworld/hello
+   $ curl http://$GATEWAY_URL/helloworld/hello
    Hello version: v1, container: helloworld-v1-qwpex
-   $ curl http://$GATEWAY_HOST_PORT/helloworld/hello
+   $ curl http://$GATEWAY_URL/helloworld/hello
    Hello version: v1, container: helloworld-v1-p8909
-   $ curl http://$GATEWAY_HOST_PORT/helloworld/hello
+   $ curl http://$GATEWAY_URL/helloworld/hello
    Hello version: v1, container: helloworld-v1-qwpex
    ...
    ```
@@ -164,20 +166,20 @@ version "v1" and the other two belong to version "v2".
 1. Run this cURL command several times:
 
    ```bash
-   curl http://$GATEWAY_HOST_PORT/helloworld/hello
+   curl http://$GATEWAY_URL/helloworld/hello
    ```
 
    You will see alternating responses from all 4 helloworld instances, where approximately 1 out of every 4 (25%) responses
    will be from a "v2" instances, and the other responses from the "v1" instances:
 
    ```bash
-   $ curl http://$GATEWAY_HOST_PORT/helloworld/hello
+   $ curl http://$GATEWAY_URL/helloworld/hello
    Hello version: v1, container: helloworld-v1-p8909
-   $ curl http://$GATEWAY_HOST_PORT/helloworld/hello
+   $ curl http://$GATEWAY_URL/helloworld/hello
    Hello version: v1, container: helloworld-v1-qwpex
-   $ curl http://$GATEWAY_HOST_PORT/helloworld/hello
+   $ curl http://$GATEWAY_URL/helloworld/hello
    Hello version: v2, container: helloworld-v2-ggkvd
-   $ curl http://$GATEWAY_HOST_PORT/helloworld/hello
+   $ curl http://$GATEWAY_URL/helloworld/hello
    Hello version: v1, container: helloworld-v1-p8909
    ...
    ```
