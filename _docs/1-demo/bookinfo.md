@@ -58,14 +58,15 @@ environments are as follows:
 _Docker Compose_
   
 1. Bring up the containers:
-```bash
-docker-compose -f examples/docker-bookinfo.yaml up -d
-```
+
+   ```bash
+   docker-compose -f examples/docker-bookinfo.yaml up -d
+   ```
 
 1. Set the gateway environment variable:
 
    ```bash
-   export GATEWAY_HOST_PORT=localhost:31200
+   export GATEWAY_URL=localhost:32000
    ```
 
    **Note:** If you are using Docker Toolbox on the Mac, use
@@ -75,6 +76,7 @@ docker-compose -f examples/docker-bookinfo.yaml up -d
 _Kubernetes_ on localhost or on Google Cloud
 
 1. Bring up the containers:
+
    ```bash
    kubectl create -f examples/k8s-bookinfo.yaml
    ```
@@ -82,7 +84,7 @@ _Kubernetes_ on localhost or on Google Cloud
 1. Set the gateway environment variable:
 
    ```bash
-   export GATEWAY_HOST_PORT=$(minikube ip):31200
+   export GATEWAY_URL=$(minikube ip):32000
    ```
 
 _IBM Bluemix_
@@ -110,7 +112,7 @@ _IBM Bluemix_
 1. Set the gateway environment variable:
 
    ```bash
-   export GATEWAY_HOST_PORT=helloworld.mybluemix.net
+   export GATEWAY_URL=helloworld.mybluemix.net
    ```
 
 ### List the Services in the App
@@ -182,9 +184,10 @@ from your browser and you should see the bookinfo application `productpage`
 displayed.  Notice that the `productpage` is displayed, with no rating
 stars since `reviews:v1` does not access the ratings service.
 
-**Note**: Replace `GATEWAY_HOST_PORT` with the output of the following command:
+**Note**: Replace `GATEWAY_URL` with the output of the following command:
+
 ```bash
-echo $GATEWAY_HOST_PORT
+echo $GATEWAY_URL
 ```
 
 ## Content-based routing
