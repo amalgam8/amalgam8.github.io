@@ -42,7 +42,7 @@ Amalgam8 Registry uses a memory only storage solution, without persistency
 (although different storage backends can be implemented). To provide HA and
 scale, the Registry can be run in a cluster and supports replication
 between cluster members. To use a persistent storage backend, see the
-section `Persistent Backend Storage`.
+section [Persistent Backend Storage](#persistent_storage).
 
 Peer discovery currently uses a shared volume between all members. The
 volume must be mounted RW into each container.  We are exploring
@@ -58,7 +58,7 @@ alternative discovery mechanisms.
 | `A8_SYNC_TIMEOUT` | `--sync_timeout` | Timeout for establishing connections to peers for replication | 30s |
 {:.table .table-bordered .table-condensed .table-striped}
 
-## Persistent Backend Storage using Redis
+## <a name="persistent_storage"></a> Persistent Backend Storage using Redis
 
 Amalgam8 Registry supports a Redis backend for storing instance information
 as an alternative to the memory only clustering and replication option.
