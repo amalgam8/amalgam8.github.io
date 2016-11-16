@@ -70,8 +70,8 @@ _Docker Compose_
    ```
 
    **Note:** If you are using Docker Toolbox on the Mac, use
-   `$(docker-machine ip default):31200` instead of
-   `localhost:31200`
+   `$(docker-machine ip default):32000` instead of
+   `localhost:32000`
 
 _Kubernetes_ on localhost or on Google Cloud
 
