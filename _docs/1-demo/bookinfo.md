@@ -92,7 +92,7 @@ _IBM Bluemix_
 1. Create Bluemix routes (DNS names) for the registry, controller and the bookinfo app's gateway:  
 
    ```bash
-   bluemix cf create-route <your bluemix space> mybluemix.net -n <your bookinfo route>
+   bluemix cf create-route <your bluemix space> mybluemix.net -n <pick_a_bookinfo_route_name>
    ```
 
 1. Specify the route name in the _examples/bluemix.cfg_ in the BOOKINFO_HOSTNAME variable.
@@ -112,8 +112,9 @@ _IBM Bluemix_
 1. Set the gateway environment variable:
 
    ```bash
-   export GATEWAY_URL=helloworld.mybluemix.net
+   export GATEWAY_URL=<bookinfo_route_name>.mybluemix.net
    ```
+   where <bookinfo_route_name> is the route name used in the `bluemix cf create-route` command.
 
 ### List the Services in the App
 
