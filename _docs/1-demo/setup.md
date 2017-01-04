@@ -51,7 +51,6 @@ components, for the purposes of this demo, a stock ELK stack is also
 included as part of the control plane deployment scripts, to collect logs
 from the microservices in the application.
 
-The Amalgam8 Control Plane contains an ELK stack. 
 Elasticsearch 5.0 [requires increasing the max map count](https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html) 
 for certain linux environments such as Vagrant VMs, Docker Toolbox and Minikube. 
 If you are running any of these tools, please run the following command on those VMs:
