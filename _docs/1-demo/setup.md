@@ -82,7 +82,8 @@ _IBM Bluemix_
 
    ```
    bluemix login
-   bluemix ic init
+   cf ic init
+   cf ic login
    ```
 
 1. Create Bluemix routes (DNS names) for the registry, controller and the bookinfo app's gateway:  
@@ -104,7 +105,7 @@ _IBM Bluemix_
       obtained from the folowing command:
 
       ```bash
-      bluemix ic namespace-get
+      cf ic namespace get
       ```
 
     * REGISTRY_HOSTNAME should be the route name assigned to the registry in the previous step
@@ -115,6 +116,9 @@ _IBM Bluemix_
 
    ```bash
    examples/a8-bluemix create controlplane
+   
+   => command throws erroe..in line 31...help needed
+   
    ```
 
    Verify that the controller and registry are running using the following commands: 
