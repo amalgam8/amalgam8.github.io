@@ -69,7 +69,7 @@ _Docker Compose_
    export GATEWAY_URL=localhost:32000
    ```
 
-   **Note:** If you are using Docker Toolbox on the Mac, use
+   **Note:** If you are using Docker Machine, use
    `$(docker-machine ip default):32000` instead of
    `localhost:32000`
 
