@@ -23,6 +23,10 @@ When deployed on [Kubernetes](https://kubernetes.io), Amalgam8 provides a near n
 
 ### Sidecar Configuration <a id="sidecar-config"></a>
 
+The sidecar and proxy run as a separate container in the same Kubernetes pod as the application code.
+ They are no longer required to run in the same container, which greatly simplifies integration (e.g.,
+ the bundling only happens at deployment time, via the pod manifest, and not during image creation)
+
 The Amalgam8 sidecar configuration need to change to match the fact that it is running in
  in a Kubernetes cluster. Please refer also to [sidecar configuration](/docs/sidecar-configuration.html).
 
@@ -37,5 +41,6 @@ The Amalgam8 sidecar configuration need to change to match the fact that it is r
    retrieved from the pod's service association and labels. Note that if a pod is mapped to
    multiple Kubernetes service, an arbitrary service identity will be selected from the list.
    Tags are automatically generated from the pod's labels by converting each label to a tag
-   whose format is `key=value`. The `key=value` format should be used in defininig routing rules.
+   whose format is `key=value` (or simple `key` if value is undefined). The `key=value` format
+   should be used in defininig routing rules.
  - Kubernetes service names are used directly in defining rule target services.
