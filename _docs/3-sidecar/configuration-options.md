@@ -43,12 +43,19 @@ YAML file.
 | A8_CONTROLLER_URL | --controller_url | controller.url | controller URL |  | yes if `-proxy` is enabled |
 | A8_CONTROLLER_TOKEN | --controller_token | controller.token | Auth token for Controller instance |  | yes if `-proxy` is enabled and an auth mode is set |
 | A8_CONTROLLER_POLL | --controller_poll | controller.poll | interval for polling Controller | 15s | no |
+| A8_DISCOVERY_ADAPTER | --discovery_adapter | discovery_adapter | Service discovery type, one of `amalgam8`, `kubernetes` or `eureka` | `amalgam8` | no |
+| A8_RULES_ADAPTER | --rules_adapter | rules_adapter | Rules controller type, one of `amalgam8` or `kubernetes` | `amalgam8` | no |
+| A8_KUBERNETES_URL | --kubernetes_url | kubernetes.url | Kubernetes API master URL | | yes, if `-discovery_adapter` or `-rules_adapter` are set to `kubernetes` |
+| A8_KUBERNETES_TOKEN | --kubernetes_token | kubernetes.token | Kubernetes API master access token | | yes, if `-discovery_adapter` or `-rules_adapter` are set to `kubernetes` |
+| A8_KUBERNETES_NAMESPACE | -- kubernetes_namespace | kubernetes.namespace | Kubernetes namespace to use | `default` | no |
+| A8_KUBERNETES_POD_NAME | -- kubernetes_pod_name | kubernetes.podname | Pod name to use for automtic service and tag generation | | no |
 |  | --help, -h | show help | | |
 |  | --version, -v | print the version | | |
 {:.table .table-bordered .table-condensed .table-striped}
 
 ## Configuration Topics
 
+* [Kubernetes configuration](/docs/kubernetes-integration-intro.html#sidecar-config)
 * [Service registration](#service-registration)
 * [Health checks](#health-checks)
 * [Request routing](#request-routing)
