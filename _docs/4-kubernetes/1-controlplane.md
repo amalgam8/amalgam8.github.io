@@ -7,11 +7,12 @@ category: Kubernetes Integration
 order: 2
 ---
 
-### Deploying Amalgam8 Control Plane
+### Deploying Amalgam8 Control Plane <a id="deploy"></a>
 
 Amalgam8 rus a control-loop to validate routing rules stored in Third Party Resources (TPR)
  before they are fetched by the sidecars.
- The Kubernetes controller is deployed using the ReplicationController specification found in `cmd/k8srules/rc.yaml`:
+ The Kubernetes controller is deployed using the ReplicationController specification found in
+ [`examples/k8s/k8s-controlplane.yaml`](https://github.com/amalgam8/amalgam8/blob/master/examples/k8s/k8s-controlplane.yaml):
 
 ```yaml
 apiVersion: v1
@@ -44,7 +45,7 @@ spec:
 To deploy:
 
 ```bash
-$ kubectl create -f ./cmd/k8srules/rc.yaml
+$ kubectl create -f examples/k8s/k8s-controlplane.yaml
 ```
 
 As part of its start-up sequence, the controller also registers the required extension resources into Kubernetes,
@@ -61,12 +62,12 @@ routing-rule.amalgam8.io   A specification of an Amalgam8 rule resource   v1
 ```
 
 
-### Cleanup
+### Cleanup <a id="cleanup"></a>
 
 To stop the control loop, run
 
 ```bash
-$ kubectl delete -f ./cmd/k8srules/rc.yaml
+$ kubectl delete -f examples/k8s/k8s-controlplane.yaml
 ```
 
 Deleting the control loop will **not** automatically remove any rules or deregister the TPR.
