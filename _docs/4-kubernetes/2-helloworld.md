@@ -145,6 +145,12 @@ Please refer to [helloworld](/docs/demo-helloworld.html) for a detailed descript
    routingrule "set-helloworld-25p-v2" created
    ```
 
+   Since both rules refer to the same URL path, the priority of rule `set-helloworld-25p-v2` is set
+   higher than the priority of `set-helloworld-default-v1`, to ensure it has precedence over the default route.
+   Having rules with the same priority and path results in undefined behavior.
+   Refer to [rule DSL](/docs/control-plane-controller-rules-dsl.html) for a more complete discussion of rule
+   syntax and semantics.
+
 1. Run this curl command several times:
 
    ```bash
@@ -156,6 +162,14 @@ Please refer to [helloworld](/docs/demo-helloworld.html) for a detailed descript
 
    ```bash
    $ for i in {1..8} do curl http://$GATEWAY_URL/helloworld/hello; done
+   Hello version: version=v2, container: helloworld-v2-jbh8l
+   Hello version: version=v2, container: helloworld-v2-jbh8l
+   Hello version: version=v1, container: helloworld-v1-991qk
+   Hello version: version=v1, container: helloworld-v1-9dwkp
+   Hello version: version=v1, container: helloworld-v1-9dwkp
+   Hello version: version=v2, container: helloworld-v2-8dd8g
+   Hello version: version=v1, container: helloworld-v1-991qk
+   Hello version: version=v1, container: helloworld-v1-9dwkp
    ```
 
    Note: if you use a browser instead of curl to access the service and continually refresh the page,
@@ -168,7 +182,7 @@ Please refer to [helloworld](/docs/demo-helloworld.html) for a detailed descript
 
    ```bash
    $ kubectl delete -f examples/k8s-helloworld-default-route-rules.yaml
-   routingrule "set-helloworld-v1-default" deleted
+   routingrule "set-helloworld-default-v1" deleted
    $ kubectl delete -f examples/k8s-helloworld-v1-v2-route-rules.yaml
    routingrule "set-helloworld-25p-v2" deleted
    ```
