@@ -17,7 +17,7 @@ Please refer to [helloworld](/docs/demo-helloworld.html) for a detailed descript
 1. Bring up the application containers:
 
    ```bash
-   $ kubectl create -f testing/kubernetes/helloworld.yaml
+   $ kubectl create -f examples/k8s-helloworld.yaml
    ```
 
    The above command automatically launches the gateway service and two instances of each version of `helloworld`.
@@ -73,7 +73,7 @@ Please refer to [helloworld](/docs/demo-helloworld.html) for a detailed descript
 1. Lets send all traffic to the v1 version of helloworld:
 
    ```bash
-   $ kubectl create -f testing/test-scripts/helloworld-default-route-rules.yaml
+   $ kubectl create -f examples/k8s-helloworld-default-route-rules.yaml
    routingrule "set-helloworld-v1-default" created
    ```
 
@@ -128,7 +128,6 @@ Please refer to [helloworld](/docs/demo-helloworld.html) for a detailed descript
 
    ```bash
    $ for i in {1..4} do curl http://$GATEWAY_URL/helloworld/hello; done
-   ...
    ```
 
    You can see that the traffic is continually routed between the v1 instances only, in a random fashion.
@@ -138,7 +137,7 @@ Please refer to [helloworld](/docs/demo-helloworld.html) for a detailed descript
    Run the following command to send 25% of the traffic to helloworld v2, leaving the rest (75%) on v1:
 
    ```bash
-   $ kubectl create -f testing/test-scripts/helloworld-v1-v2-route-rules.yaml
+   $ kubectl create -f examples/k8s-helloworld-v1-v2-route-rules.yaml
    ```
 
 1. Run this curl command several times:
@@ -163,16 +162,15 @@ Please refer to [helloworld](/docs/demo-helloworld.html) for a detailed descript
 1. Delete the routing rules
 
    ```bash
-   $ kubectl delete -f testing/test-scripts/helloworld-default-route-rules.yaml
+   $ kubectl delete -f examples/k8s-helloworld-default-route-rules.yaml
    routingrule "set-helloworld-v1-default" deleted
-   $ kubectl delete -f testing/test-scripts/helloworld-v1-v2-route-rules.yaml
-   ...
+   $ kubectl delete -f examples/k8s-helloworld-v1-v2-route-rules.yaml
    ```
 
 1. Terminate the application pods
 
    ```bash
-   $ kubectl delete -f testing/kubernetes/helloworld.yaml
+   $ kubectl delete -f examples/k8s-helloworld.yaml
    ```
    
 1. Terminate the [control plane](/docs/kubernetes-integration-control-plane.html#cleanup)

@@ -10,14 +10,14 @@ order: 0
 
 When deployed on [Kubernetes](https://kubernetes.io), Amalgam8 provides a near native experience
  by reusing native Kubernetes tools and fucntions to run and manage its control plane components.
- The [Service Registry](/docs/control-plane-registry.html) functionality leverages Kubernetes
- services, and the [Route Controller](/docs/control-plane-controller.html) uses
+ The [Service registration and discovery](/docs/control-plane-registry.html) functionality leverages Kubernetes
+ built in kubernetes service registry and discovery, and the [Route Controller](/docs/control-plane-controller.html) uses
  Kubernetes [Third Party Resources](https://kubernetes.io/docs/user-guide/thirdpartyresources/)
  to store routing rules, thus enabling familiar access using `kubectl` command line.
 
-*__Before__* begining working through the examples and demos, pelase confirm all container images for the control plane,
+*__Before__* beginning working through the examples and demos, pelase confirm all container images for the control plane,
  [helloworld](docs/demo-helloworld.html) and [bookinfo](/docs/demo-bookinfo.html) demo applications, are stored in a
- registry accessible to the cluster.
+ docker image registry accessible to the Kubernetes cluster.
  By default, the latest images are hosted in the `amalgam8` docker hub image repository, but if you're
  building a different version, be sure to push the modified images and change the resource manifests accordingly.
 
@@ -26,8 +26,8 @@ When deployed on [Kubernetes](https://kubernetes.io), Amalgam8 provides a near n
 The Amalgam8 sidecar configuration need to change to match the fact that it is running in
  in a Kubernetes cluster. Please refer also to [sidecar configuration](/docs/sidecar-configuration.html).
 
- - The `discovery_adapter` and `rules_adapter` flags should be set to `kubernetes`
  - Service instance registration is not required, pods are automatically registered by Kubernetes.
+ - The `discovery_adapter` and `rules_adapter` flags should be set to `kubernetes`
  - The access URLs and token are not required (they are automatically retrieved from the pod).
   The default, in-cluster, configuration may be overridden by setting the `kubernetes_url` and
   `kubernetes_token` flags.
