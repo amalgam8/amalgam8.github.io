@@ -74,7 +74,7 @@ Please refer to [helloworld](/docs/demo-helloworld.html) for a detailed descript
 
    ```bash
    $ kubectl create -f examples/k8s-helloworld-default-route-rules.yaml
-   routingrule "set-helloworld-v1-default" created
+   routingrule "set-helloworld-default-v1" created
    ```
 
 1. We can confirm the rule is set by running the following command and confirming that `Status.state` is set to `valid`:
@@ -82,7 +82,7 @@ Please refer to [helloworld](/docs/demo-helloworld.html) for a detailed descript
    ```bash
    $ kubectl get routingrule
    NAME                        KIND
-   set-helloworld-v1-default   RoutingRule.v1.amalgam8.io
+   set-helloworld-default-v1   RoutingRule.v1.amalgam8.io
    $ kubectl get routingrule -o json
    {
        "apiVersion": "v1",
@@ -100,7 +100,7 @@ Please refer to [helloworld](/docs/demo-helloworld.html) for a detailed descript
                },
                "spec": {
                    "destination": "helloworld",
-                   "id": "set-helloworld-v1-default",
+                   "id": "set-helloworld-default-v1",
                    "priority": 1,
                    "route": {
                        "backends": [
@@ -128,6 +128,10 @@ Please refer to [helloworld](/docs/demo-helloworld.html) for a detailed descript
 
    ```bash
    $ for i in {1..4} do curl http://$GATEWAY_URL/helloworld/hello; done
+   Hello version: version=v1, container: helloworld-v1-991qk
+   Hello version: version=v1, container: helloworld-v1-991qk
+   Hello version: version=v1, container: helloworld-v1-9dwkp
+   Hello version: version=v1, container: helloworld-v1-9dwkp
    ```
 
    You can see that the traffic is continually routed between the v1 instances only, in a random fashion.
@@ -138,6 +142,7 @@ Please refer to [helloworld](/docs/demo-helloworld.html) for a detailed descript
 
    ```bash
    $ kubectl create -f examples/k8s-helloworld-v1-v2-route-rules.yaml
+   routingrule "set-helloworld-25p-v2" created
    ```
 
 1. Run this curl command several times:
@@ -153,7 +158,7 @@ Please refer to [helloworld](/docs/demo-helloworld.html) for a detailed descript
    $ for i in {1..8} do curl http://$GATEWAY_URL/helloworld/hello; done
    ```
 
-   Note: if you use a browser instead of cURL to access the service and continually refresh the page,
+   Note: if you use a browser instead of curl to access the service and continually refresh the page,
    it will always return the same version (v1 or v2), because a cookie is set to maintain version affinity.
    However, the browser still alternates in a random manner between instances of the specific version.
 
@@ -165,6 +170,7 @@ Please refer to [helloworld](/docs/demo-helloworld.html) for a detailed descript
    $ kubectl delete -f examples/k8s-helloworld-default-route-rules.yaml
    routingrule "set-helloworld-v1-default" deleted
    $ kubectl delete -f examples/k8s-helloworld-v1-v2-route-rules.yaml
+   routingrule "set-helloworld-25p-v2" deleted
    ```
 
 1. Terminate the application pods
