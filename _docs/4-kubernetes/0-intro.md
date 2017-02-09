@@ -7,6 +7,11 @@ category: Kubernetes Integration
 order: 0
 ---
 
+> Kubernetes integration is *__experimental__* and may change. It has not been released, and thus code
+>  must be compiled from the master branch for these commands to work. Additionally, one should run
+>  generate_example_yaml.sh once to copy files to their expected location. This step will not
+>  be required once code is made available through a release.
+
 
 When deployed on [Kubernetes](https://kubernetes.io), Amalgam8 provides a near native experience
  by reusing native Kubernetes tools and fucntions to run and manage its control plane components.
@@ -33,7 +38,8 @@ The Amalgam8 sidecar configuration need to change to match the fact that it is r
   `kubernetes_token` flags.
  - The sidecar will fetch rules and service instance information from the `default` namespace.
    This may be overridden by setting the `kubernetes_namespace` flag.
- - If the `kubernetes_pod_name` is set, the source service name and tags are automatically
+ - Service name and labels may be specified using the `service` flag, as before. Alternately,
+   if the `kubernetes_pod_name` is set, the source service name and tags are automatically
    retrieved from the pod's service association and labels. Note that if a pod is mapped to
    multiple Kubernetes service, an arbitrary service identity will be selected from the list.
    Tags are automatically generated from the pod's labels by converting each label to a tag
