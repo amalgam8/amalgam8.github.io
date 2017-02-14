@@ -43,6 +43,13 @@ Please refer to [helloworld](/docs/demo-helloworld.html) for a detailed descript
    rules-97v01           1/1       Running   0          1h
    ```
 
+   > **Note**: different application versions are deployed concurrently, via separate replica sets/replication controllers.
+   > Shifting traffic between versions, for a rolling upgrade, will be done using Amalgam8 routing rules.
+   >
+   > Kubernetes supports rolling updates via `Deployment` resources, but these replace application pods "in-place" and
+   > do not allow fine-grained control and application awareness in request steering (i.e., each instance receives
+   > a proportional share of the connections, not individual requests, using random load-balancing).
+
 1. Expose the Gateway service
 
    Determine the node on which the `gateway` pod runs, and use the node's IP address as the external gateway IP.
@@ -127,7 +134,7 @@ Please refer to [helloworld](/docs/demo-helloworld.html) for a detailed descript
 1. Confirm that all traffic is being directed to the v1 instance, by running the following curl command multiple times.
 
    ```bash
-   $ for i in {1..4} do curl http://$GATEWAY_URL/helloworld/hello; done
+   $ for i in {1..4}; do curl http://$GATEWAY_URL/helloworld/hello; done
    Hello version: version=v1, container: helloworld-v1-991qk
    Hello version: version=v1, container: helloworld-v1-991qk
    Hello version: version=v1, container: helloworld-v1-9dwkp
@@ -161,7 +168,7 @@ Please refer to [helloworld](/docs/demo-helloworld.html) for a detailed descript
    will be from a "v2" instances, and the other responses from the "v1" instances:
 
    ```bash
-   $ for i in {1..8} do curl http://$GATEWAY_URL/helloworld/hello; done
+   $ for i in {1..8}; do curl http://$GATEWAY_URL/helloworld/hello; done
    Hello version: version=v2, container: helloworld-v2-jbh8l
    Hello version: version=v2, container: helloworld-v2-jbh8l
    Hello version: version=v1, container: helloworld-v1-991qk
