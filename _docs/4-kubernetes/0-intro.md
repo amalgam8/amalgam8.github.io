@@ -7,7 +7,7 @@ category: Kubernetes Integration
 order: 0
 ---
 
-### Prerequisites and Caveats
+### Prerequisites and Caveats <a id="prerequisites-caveats"></a>
 
 Kubernetes integration is *__experimental__* and may change. It has not been released, and thus code
  must be compiled from the master branch for these commands to work. These steps will not be required

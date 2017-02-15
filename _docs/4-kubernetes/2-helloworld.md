@@ -10,6 +10,8 @@ order: 3
 Please refer to [helloworld](/docs/demo-helloworld.html) for a detailed description of the
  application and use case.
 
+> Before attempting to run this sample, please read through the [prerequisites and caveats](/docs/kubernetes-integration-intro.html#prerequisites-caveats)
+
 ## Running the Hello World! Sample Application
 
 1. Bring up the [control plane](/docs/kubernetes-integration-control-plane.html#deploy)
@@ -75,7 +77,7 @@ Please refer to [helloworld](/docs/demo-helloworld.html) for a detailed descript
    Hello version: v1, container: helloworld-v1-991qk
    ```
 
-### Version Based Routing
+### Version Based Routing  <a id="version-based-routing"></a>
 
 1. Lets send all traffic to the v1 version of helloworld:
 
