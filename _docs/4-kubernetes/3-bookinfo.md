@@ -10,8 +10,8 @@ order: 4
 Please refer to [bookinfo](/docs/demo-bookinfo.html) for a detailed description of the
  application and use case.
 
-> Unlike the original bookinfo sample, this walkthrough does not currently support controlled
-> resiliency testing with Gremlin. These steps may be added in the future.
+> Unlike the original bookinfo sample, this walkthrough currently supports fault injection only,
+> without validation of failure recovery. These steps may be added in the future.
 >
 > Before attempting to run this sample, please read through the [prerequisites and caveats](/docs/kubernetes-integration-intro.html#prerequisites-caveats)
 
@@ -60,7 +60,7 @@ Please refer to [bookinfo](/docs/demo-bookinfo.html) for a detailed description 
    ```
 
 
-1. Expose the Gateway service
+1. Determine the Gateway service URL
 
    Determine the node on which the `gateway` pod runs, and use the node's IP address as the external gateway IP.
 
@@ -88,6 +88,8 @@ Please refer to [bookinfo](/docs/demo-bookinfo.html) for a detailed description 
    $ kubectl get routingrules -o json
    ```
 
+   Since rule propagation to the proxies is asynchronous, you ahould wait a few seconds for the rules
+   to propagate to all pods before attempting to access the application.
    If you open the Bookinfo URL (`http://$GATEWAY_URL/productpage/productpage`) in your browser,
    you should see the bookinfo application `productpage` displayed. Notice that the `productpage`
    is displayed, with no rating stars since `reviews:v1` does not access the ratings service.
@@ -119,7 +121,7 @@ Please refer to [bookinfo](/docs/demo-bookinfo.html) for a detailed description 
    Log in as user "jason" at the `productpage` web page. You should now see ratings (1-5 stars) next
    to each review.
 
-### Resiliency Testing
+### Fault Injection
 
    To test our bookinfo application microservices for resiliency, we will _inject a 7s delay_
    between the reviews:v2 and ratings microservices. Since the _reviews:v2_ service has a
@@ -128,14 +130,14 @@ Please refer to [bookinfo](/docs/demo-bookinfo.html) for a detailed description 
 
 1. Inject the delay
 
-   Create a fault injection, to delay traffic coming from user "jason" (our test user).
+   Create a fault injection rule, to delay traffic coming from user "jason" (our test user).
 
    ```bash
    $ kubectl create -f examples/k8s-bookinfo-jason-7s-delay.yaml
    routingrule "set-delay-user-jason" created
    ```
 
-   Verify that the rule has been set:
+   Verify that the rule has been validated:
 
    ```bash
    $ kubectl get routingrule set-delay-user-jason -o json | sed -n '/status/,/}/p'
@@ -144,7 +146,9 @@ Please refer to [bookinfo](/docs/demo-bookinfo.html) for a detailed description 
       }
    ```
 
-1. Confirm application behavior
+   Allow several seconds to account for rule propagation delay to all pods.
+
+1. Observe application behavior
 
    If the application's front page was set to correctly handle delays, we expect it
    to load within approximately 7 seconds. To see the web page response times, open the
@@ -154,8 +158,15 @@ Please refer to [bookinfo](/docs/demo-bookinfo.html) for a detailed description 
    You will see that the webpage loads in about 6 seconds. The reviews section will show
    *Sorry, product reviews are currently unavailable for this book*.
 
-    > Notice that we are restricting the failure impact to user "jason only. If you login
-    > as any other user, you would not experience any delays.
+   The reason that the entire reviews service has failed is because our bookinfo application
+   has a bug. The timeout between the productpage and reviews service is less (3s) than the
+   timeout between the reviews and ratings service (10s). These kinds of bugs can occur in
+   typical enterprise applications where different teams develop different microservices
+   independently. Amalgam8's fault injection rules help you identify such anomalies without
+   impacting end users.
+
+   > Notice that we are restricting the failure impact to user "jason only. If you login
+   > as any other user, you would not experience any delays.
 
 1. Fixing failures by shifting to a new version
 
