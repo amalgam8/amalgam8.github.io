@@ -104,7 +104,7 @@ The expected output is the following:
 +------------+--------------+
 | Service    | Instances    |
 +------------+--------------+
-| helloworld | v1(2), v2(2) |
+| helloworld | version=v1(2), version=v2(2) |
 +------------+--------------+
 ```
 
@@ -116,7 +116,7 @@ version "v1" and the other two belong to version "v2".
 1. Lets send all traffic to the v1 version of helloworld. Run the following command:
 
    ```bash
-   a8ctl route-set helloworld --default v1
+   a8ctl rule-create -f examples/docker-helloworld-default-route-rules.json
    ```
 
 1. We can confirm the routes are set by running the following command:
@@ -131,7 +131,7 @@ version "v1" and the other two belong to version "v2".
    +------------+-----------------+-------------------+
    | Service    | Default Version | Version Selectors |
    +------------+-----------------+-------------------+
-   | helloworld | v1              |                   |
+   | helloworld | version=v1      |                   |
    +------------+-----------------+-------------------+
    ```
 
@@ -145,23 +145,31 @@ version "v1" and the other two belong to version "v2".
 
    ```bash
    $ curl http://$GATEWAY_URL/helloworld/hello
-   Hello version: v1, container: helloworld-v1-p8909
+   Hello version: version=v1, container: helloworld-v1-p8909
    $ curl http://$GATEWAY_URL/helloworld/hello
-   Hello version: v1, container: helloworld-v1-qwpex
+   Hello version: version=v1, container: helloworld-v1-qwpex
    $ curl http://$GATEWAY_URL/helloworld/hello
-   Hello version: v1, container: helloworld-v1-p8909
+   Hello version: version=v1, container: helloworld-v1-p8909
    $ curl http://$GATEWAY_URL/helloworld/hello
-   Hello version: v1, container: helloworld-v1-qwpex
+   Hello version: version=v1, container: helloworld-v1-qwpex
    ...
    ```
 
 1. Next, we will split traffic between helloworld v1 and v2
 
+   First, use the `rule-delete` command to delete all rules
+
+   ```bash
+   a8ctl rule-delete -a -f
+   ```
+
    Run the following command to send 25% of the traffic to helloworld v2, leaving the rest (75%) on v1:
     
    ```bash
-   a8ctl route-set helloworld --default v1 --selector 'v2(weight=0.25)'
+   a8ctl rule-create -f examples/docker-helloworld-v1-v2-route-rules.json
    ```
+
+   NOTE: It's also possible to get the same results by using `rule-get` to get the rule ID and `rule-update`
 
 1. Run this cURL command several times:
 
