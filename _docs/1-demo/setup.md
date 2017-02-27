@@ -129,14 +129,23 @@ _IBM Bluemix_
 
 The `a8ctl` command line utility provides a convenient way to setup and
 manage routes across microservices as well as inspect the state of the
-system. The CLI can be installed via the `pip` tool (available as part of
-standard Python installation) directly from Python's package repository or
-from `a8ctl` [github repository](https://github.com/amalgam8/a8ctl).
+system. The CLI can be installed by building the binary directly or pulling
+the binary from the releases page [here](https://github.com/amalgam8/amalgam8/releases).
 
-Run the folowing command to install the a8ctl into your home directory:
+Run the folowing commands to install the a8ctl into your home directory:
 
 ```bash
-pip install --user a8ctl
+wget -O /usr/local/bin/a8ctl https://github.com/amalgam8/amalgam8/releases/download/{RELEASE_VERSION}/a8ctl-{OS_VERSION}
+
+```
+
+Or build the a8ctl binary from source:
+
+
+```bash
+git clone https://github.com/amalgam8/amalgam8.git
+cd amalgam8/
+make build.cli
 ```
 
 Add the location of the `a8ctl` command to the `PATH` environment

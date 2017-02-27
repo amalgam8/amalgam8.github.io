@@ -101,11 +101,11 @@ a8ctl service-list
 The expected output is the following:
 
 ```bash
-+------------+--------------+
-| Service    | Instances    |
-+------------+--------------+
-| helloworld | version=v1(2), version=v2(2) |
-+------------+--------------+
++------------+------------------------------+
+| Service    | Instances                    |
++------------+------------------------------+
+| helloworld | version=v1(1), version=v2(1) |
++------------+------------------------------+
 ```
 
 There are 4 instances of the helloworld service. Two are instances of
