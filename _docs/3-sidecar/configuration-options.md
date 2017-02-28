@@ -35,7 +35,14 @@ YAML file.
 | A8_ENDPOINT_TYPE | --endpoint_type | endpoint.type | service endpoint type (http, https, udp, tcp, user) | http | no |
 | A8_HEALTHCHECKS | --healthchecks | healthchecks (additional details below) | comma separated list of health check URIs |  | no |
 | A8_REGISTER | --register | register | enable automatic service registration and heartbeat | false | See note above |
+| A8_DNS | --dns | dns | enable DNS server | false | no |
+| A8_DNS_PORT | --dns_port | dnsconfig.port | DNS server port number | 8053 | no |
+| A8_DNS_DOMAIN | --dns_domain | DNS server authorization domain name | amalgam8 | no |
 | A8_PROXY | --proxy | proxy | enable automatic service discovery and load balancing across services using NGINX | false | See note above |
+| A8_PROXY_TLS | --proxy_tls | proxy_confg.tls | enable proxy TLS communication | false | no |
+| A8_PROXY_CERT_CHAIN_FILE | --proxy_cert_chain_file | proxy_config.cert_chain_file | file containing the certificate chain file for the service (to present to clients) | | yes if tls enabled |
+| A8_PROXY_PRIVATE_KEY_FILE | --proxy_private_key_file |  proxy_config.private_key_file | file containing the private key that corresponds to the certificate chain file | | yes if tls enabled |
+| A8_PROXY_CA_CERT_FILE | --proxy_ca_cert_file value | proxy_config.ca_cert_file | file containing CA certificate(s) to verify client connections | | yes if tls enabled |
 | A8_SUPERVISE | --supervise | supervise | **valid upto sidecar versions 0.4.0 only.** Manage application process. If application dies, sidecar process is killed as well. All arguments provided after the flags will be considered as part of the application invocation | false | no |
 | A8_REGISTRY_URL | --registry_url | registry.url | registry URL |  | yes if `-register` is enabled |
 | A8_REGISTRY_TOKEN | --registry_token | registry.token | registry auth token | | yes if `-register` is enabled and an auth mode is set |

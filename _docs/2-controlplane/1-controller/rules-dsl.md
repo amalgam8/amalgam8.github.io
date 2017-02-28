@@ -52,6 +52,11 @@ but must rather be represented using two seperate rules in the DSL.
             * [route.backends.tags](#route-backends-tags)
             * [route.backends.weight](#route-backends-weight)
             * [route.backends.name](#route-backends-name)
+            * [route.backends.resilience](#route-backends-resilience)
+            * [route.backends.lbtype])(#route-backends-lbtype)
+        * [route.httpreqtimeout](#route.httpreqtimeout)
+        * [route.httpreqretries](#route.httpreqretries)
+        * [route.uri](#route.uri)
 * [Action Rules](#action-rules)
     * [actions](#actions)
         * [actions.action](#actions-action)
@@ -152,7 +157,7 @@ to an incoming request if it includes a "Cookie" header that contains the substr
   "destination": "ratings",
   "match": {
     "headers": {
-      "Cookie": ".*?user=jason"
+      "Cookie": "^(.*?;)?(user=jason)(;.*)?$"
     }
   }
 }
@@ -173,7 +178,7 @@ AND the "Cookie" header containing "user=jason" is present.
       "tags": [ "v2" ]
     },
     "headers": {
-      "Cookie": ".*?user=jason"
+      "Cookie": "^(.*?;)?(user=jason)(;.*)?$"
     }
   }
 }
@@ -224,7 +229,8 @@ Each backend in the `backends` list is an object with the following fields.
 * `tags`
 * `weight`
 * `name`
-* `timeout`
+* `resilience`
+* `lb_type`
 
 Of these fields, `tags` is the only required one, the others are optional.
 

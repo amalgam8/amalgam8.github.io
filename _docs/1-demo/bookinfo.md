@@ -127,14 +127,14 @@ a8ctl service-list
 The expected output is the following:
 
 ```bash
-+-------------+---------------------+
-| Service     | Instances           |
-+-------------+---------------------+
-| reviews     | v1(1), v2(1), v3(1) |
-| details     | v1(1)               |
-| ratings     | v1(1)               |
-| productpage | v1(1)               |
-+-------------+---------------------+
++-------------+------------------------------+
+| Service     | Instances                    |
++-------------+------------------------------+
+| details     | version=v1(1)                |
+| productpage | version=v1(1)                |
+| ratings     | version=v1(1)                |
+| reviews     | version=v1(1), version=v2(1) |
++-------------+------------------------------+
 ```
 
 There are 4 microservices as described in the diagram above. The `reviews`
@@ -154,10 +154,7 @@ released in a controlled fashion_.
 Lets route all of the incoming traffic to version `v1` only for each service.
 
 ```bash
-a8ctl route-set productpage --default v1
-a8ctl route-set ratings --default v1
-a8ctl route-set details --default v1
-a8ctl route-set reviews --default v1
+a8ctl rule-create -f examples/docker-bookinfo-default-route-rules.yaml
 ```
 
 Confirm the routes are set by running the following command:
@@ -172,10 +169,10 @@ You should see the following output:
 +-------------+-----------------+-------------------+
 | Service     | Default Version | Version Selectors |
 +-------------+-----------------+-------------------+
-| ratings     | v1              |                   |
-| productpage | v1              |                   |
-| details     | v1              |                   |
-| reviews     | v1              |                   |
+| details     | version=v1      |                   |
+| productpage | version=v1      |                   |
+| ratings     | version=v1      |                   |
+| reviews     | version=v1      |                   |
 +-------------+-----------------+-------------------+
 ```
 
@@ -197,7 +194,7 @@ Lets enable the ratings service for test user "jason" by routing productpage
 traffic to `reviews:v2` instances.
 
 ```bash
-a8ctl route-set reviews --default v1 --selector 'v2(user="jason")'
+a8ctl rule-create -f examples/docker-bookinfo-jason-reviews-v2-route-rules.yaml
 ```
 
 Confirm the routes are set:
@@ -209,14 +206,14 @@ a8ctl route-list
 You should see the following output:
 
 ```
-+-------------+-----------------+-------------------+
-| Service     | Default Version | Version Selectors |
-+-------------+-----------------+-------------------+
-| ratings     | v1              |                   |
-| productpage | v1              |                   |
-| details     | v1              |                   |
-| reviews     | v1              | v2(user="jason")  |
-+-------------+-----------------+-------------------+
++-------------+-----------------+---------------------------------------------------------+
+| Service     | Default Version | Version Selectors                                       |
++-------------+-----------------+---------------------------------------------------------+
+| details     | version=v1      |                                                         |
+| productpage | version=v1      |                                                         |
+| ratings     | version=v1      |                                                         |
+| reviews     | version=v1      | version=v2(header="Cookie:^(.*?;)?(user=jason)(;.*)?$") |
++-------------+-----------------+---------------------------------------------------------+
 ```
 
 Log in as user "jason" at the `productpage` web page.
@@ -248,7 +245,7 @@ Lets start with simple fault injection first.
   user.
 
   ```bash
-  a8ctl action-add --source reviews:v2 --destination ratings --cookie user=jason --action 'v1(1->delay=7)'
+  a8ctl rule-create -f examples/docker-bookinfo-jason-7s-delay.yaml
   ```
 
   Verify the rule has been set by running this command:
@@ -260,11 +257,11 @@ Lets start with simple fault injection first.
   You should see the following output:
 
   ```
-  +-------------+----------------+---------------------------+----------+--------------------+--------------------------------------+
-  | Destination | Source         | Headers                   | Priority | Actions            | Rule Id                              |
-  +-------------+----------------+---------------------------+----------+--------------------+--------------------------------------+
-  | ratings     | reviews:v2     | Cookie:.*?user=jason      | 10       | v1(1.0->delay=7.0) | e76d79e6-8b3e-45a7-87e7-674480a92d7c |
-  +-------------+----------------+---------------------------+----------+--------------------+--------------------------------------+    
+  +-------------+--------------------+------------------------------------+----------+------------------------+--------------------------------------+
+  | Destination | Source             | Headers                            | Priority | Actions                | Rule ID                              |
+  +-------------+--------------------+------------------------------------+----------+------------------------+--------------------------------------+
+  | ratings     | reviews:version=v2 | Cookie:^(.*?;)?(user=jason)(;.*)?$ | 10       | version=v1(1->delay=7) | d9dd3823-370f-49b7-a2df-2b5b5e7df574 |
+  +-------------+--------------------+------------------------------------+----------+------------------------+--------------------------------------+
   ```
 
 * Lets see the fault injection in action. Ideally the frontpage of the
@@ -308,8 +305,16 @@ that we expect to pass: each service in the call chain should return `HTTP
 
 * Remove the delay rule that we added in the previous step:
 
+  First, use the `action-list` command to list all actions (`rule-get -a` could also be used)
+
   ```bash
-  a8ctl rule-clear
+  a8ctl action-list
+  ```
+
+  Copy the rule ID and delete it
+
+  ```bash
+  a8ctl rule-delete -i xxxxxxxxxxx
   ```
 
 * Run the recipe using the following command from the main examples folder:
@@ -338,14 +343,14 @@ that we expect to pass: each service in the call chain should return `HTTP
   Expected output:
 
   ```
-  +-----------------------+----------------+----------------+--------+-----------------------------------+
-  | AssertionName         | Source         | Destination    | Result | ErrorMsg                          |
-  +-----------------------+----------------+----------------+--------+-----------------------------------+
-  | bounded_response_time | gateway        | productpage:v1 | PASS   |                                   |
-  | http_status           | gateway        | productpage:v1 | PASS   |                                   |
-  | http_status           | productpage:v1 | reviews:v2     | FAIL   | unexpected connection termination |
-  | http_status           | reviews:v2     | ratings:v1     | PASS   |                                   |
-  +-----------------------+----------------+----------------+--------+-----------------------------------+
+  +-----------------------+------------------------+------------------------+--------+-----------------------------------+
+  | Assertion             | Source                 | Destination            | Result | Error                             |
+  +-----------------------+------------------------+------------------------+--------+-----------------------------------+
+  | bounded_response_time | gateway:version=none   | productpage:version=v1 | PASS   |                                   |
+  | http_status           | gateway:version=none   | productpage:version=v1 | PASS   |                                   |
+  | http_status           | productpage:version=v1 | reviews:version=v2     | FAIL   | unexpected connection termination |
+  | http_status           | reviews:version=v2     | ratings:version=v1     | PASS   |                                   |
+  +-----------------------+------------------------+------------------------+--------+-----------------------------------+
   ```
 
   **Note:** When logs from logstash do not appear in elasticsearch by the
@@ -404,52 +409,53 @@ Now that we have tested the reviews service, fixed the bug and deployed a
 new version (`reviews:v3`), lets route all user traffic from `reviews:v1`
 to `reviews:v3` in a gradual manner.
 
-First, stop any `reviews:v2` traffic:
+First, clear all the rules and set default routes:
 
 ```bash
-a8ctl route-set reviews --default v1
+a8ctl rule-delete -a -f
+a8ctl rule-create -f examples/docker-bookinfo-default-route-rules.yaml
 ```
 
 Now, transfer traffic from `reviews:v1` to `reviews:v3` with the following series of commands:
 
 ```bash
-a8ctl traffic-start reviews v3
+a8ctl traffic-start -s reviews -v version=v3
 ```
 
 You should see:
 
 ```
-Transfer starting for reviews: diverting 10% of traffic from v1 to v3
+Transfer starting for "reviews": diverting 10% of traffic from "version=v1" to "version=v3"
 ```
 
 Things seem to be going smoothly. Lets increase traffic to reviews:v3 by another 10%.
 
 ```bash
-a8ctl traffic-step reviews
+a8ctl traffic-step -s reviews
 ```
 
 You should see:
 
 ```
-Transfer step for reviews: diverting 20% of traffic from v1 to v3
+Transfer starting for "reviews": diverting 20% of traffic from "version=v1" to "version=v3"
 ```
 
 Lets route 50% of traffic to `reviews:v3`
 
 ```bash
-a8ctl traffic-step reviews --amount 50
+a8ctl traffic-step -s reviews -a 50
 ```
 
 We are confident that our Bookinfo app is stable. Lets route 100% of traffic to `reviews:v3`
 
 ```bash
-a8ctl traffic-step reviews --amount 100
+a8ctl traffic-step -s reviews -a 100
 ```
 
 You should see:
 
 ```
-Transfer complete for reviews: sending 100% of traffic to v3
+Transfer complete for "reviews": sending 100% of traffic to "version=v3"
 ```
 
 If you log in to the `productpage` as any user, you should see book reviews
