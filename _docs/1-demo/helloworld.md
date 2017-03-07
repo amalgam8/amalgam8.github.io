@@ -166,7 +166,7 @@ version "v1" and the other two belong to version "v2".
    Run the following command to send 25% of the traffic to helloworld v2, leaving the rest (75%) on v1:
     
    ```bash
-   a8ctl rule-create -f examples/docker-helloworld-v1-v2-route-rules.json
+   a8ctl rule-create -f examples/helloworld-v1-v2-route-rules.json
    ```
 
    NOTE: It's also possible to get the same results by using `rule-get` to get the rule ID and `rule-update`
@@ -204,6 +204,7 @@ _Docker Compose_
   
 ```bash
 docker-compose -f examples/docker-helloworld.yaml kill
+docker-compose -f examples/docker-helloworld.yaml rm -f
 ```
 
 _Kubernetes_ on localhost or on Google Cloud

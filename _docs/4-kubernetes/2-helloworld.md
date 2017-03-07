@@ -26,23 +26,24 @@ Please refer to [helloworld](/docs/demo-helloworld.html) for a detailed descript
    Confirm that all services and pods are correctly defined and running:
 
    ```bash
-   $ kubectl get services
-   NAME         CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
-   gateway      10.97.119.35   <nodes>       6379:32000/TCP   6m
-   helloworld   None           <none>        5000/TCP         6m
+    $ kubectl get services
+    NAME         CLUSTER-IP   EXTERNAL-IP   PORT(S)          AGE
+    controller   10.0.0.66    <nodes>       6080:31200/TCP   3m
+    gateway      10.0.0.86    <nodes>       6379:32000/TCP   17s
+    helloworld   None         <none>        5000/TCP         17s
    ```
 
    and
 
    ```bash
-   $ kubectl get pods
-   NAME                  READY     STATUS    RESTARTS   AGE
-   gateway-4whg2         1/1       Running   0          3m
-   helloworld-v1-991qk   1/1       Running   0          3m
-   helloworld-v1-9dwkp   1/1       Running   0          3m
-   helloworld-v2-8dd8g   1/1       Running   0          3m
-   helloworld-v2-jbh8l   1/1       Running   0          3m
-   rules-97v01           1/1       Running   0          1h
+    $ kubectl get pods
+    NAME                  READY     STATUS    RESTARTS   AGE
+    controller-r48lr      1/1       Running   0          4m
+    gateway-r28zf         1/1       Running   0          1m
+    helloworld-v1-9f5h3   1/1       Running   0          1m
+    helloworld-v1-z2l3z   1/1       Running   0          1m
+    helloworld-v2-5cl2k   1/1       Running   0          1m
+    helloworld-v2-zmdtk   1/1       Running   0          1m
    ```
 
    > **Note**: different application versions are deployed concurrently, via separate replica sets/replication controllers.
@@ -82,55 +83,54 @@ Please refer to [helloworld](/docs/demo-helloworld.html) for a detailed descript
 1. Lets send all traffic to the v1 version of helloworld:
 
    ```bash
-   $ kubectl create -f examples/k8s-helloworld-default-route-rules.yaml
-   routingrule "set-helloworld-default-v1" created
+   $ a8ctl rule-create -f examples/helloworld-default-route-rules.json
    ```
 
 1. We can confirm the rule is set by running the following command and confirming that `Status.state` is set to `valid`:
 
    ```bash
    $ kubectl get routingrule
-   NAME                        KIND
-   set-helloworld-default-v1   RoutingRule.v1.amalgam8.io
+    NAME                             KIND
+    helloworld-default-route-rules   RoutingRule.v1.amalgam8.io
    $ kubectl get routingrule -o json
-   {
-       "apiVersion": "v1",
-       "items": [
-           {
-               "apiVersion": "amalgam8.io/v1",
-               "kind": "RoutingRule",
-               "metadata": {
-                   "creationTimestamp": "2017-02-07T12:45:56Z",
-                   "name": "set-helloworld-default-v1",
-                   "namespace": "default",
-                   "resourceVersion": "1720622",
-                   "selfLink": "/apis/amalgam8.io/v1/namespaces/default/routingrules/set-helloworld-v1-default",
-                   "uid": "5e53a321-ed33-11e6-a49c-fa163efdea7d"
-               },
-               "spec": {
-                   "destination": "helloworld",
-                   "id": "set-helloworld-default-v1",
-                   "priority": 1,
-                   "route": {
-                       "backends": [
-                           {
-                               "tags": [
-                                   "version=v1"
-                               ]
-                           }
-                       ]
-                   }
-               },
-               "status": {
-                   "state": "valid"
-               }
-           }
-       ],
-       "kind": "List",
-       "metadata": {},
-       "resourceVersion": "",
-       "selfLink": ""
-   }
+    {
+        "apiVersion": "v1",
+        "items": [
+            {
+                "apiVersion": "amalgam8.io/v1",
+                "kind": "RoutingRule",
+                "metadata": {
+                    "creationTimestamp": "2017-03-07T17:55:15Z",
+                    "name": "helloworld-default-route-rules",
+                    "namespace": "default",
+                    "resourceVersion": "1535",
+                    "selfLink": "/apis/amalgam8.io/v1/namespaces/default/routingrules/helloworld-default-route-rules",
+                    "uid": "381ba446-035f-11e7-80cc-080027c86dc2"
+                },
+                "spec": {
+                    "destination": "helloworld",
+                    "id": "helloworld-default-route-rules",
+                    "priority": 1,
+                    "route": {
+                        "backends": [
+                            {
+                                "tags": [
+                                    "version=v1"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "status": {
+                    "state": "valid"
+                }
+            }
+        ],
+        "kind": "List",
+        "metadata": {},
+        "resourceVersion": "",
+        "selfLink": ""
+    }
    ```
 
 1. Confirm that all traffic is being directed to the v1 instance, by running the following curl command multiple times.
@@ -150,8 +150,8 @@ Please refer to [helloworld](/docs/demo-helloworld.html) for a detailed descript
    Run the following command to send 25% of the traffic to helloworld v2, leaving the rest (75%) on v1:
 
    ```bash
-   $ kubectl create -f examples/k8s-helloworld-v1-v2-route-rules.yaml
-   routingrule "set-helloworld-25p-v2" created
+   $ a8ctl rule-delete -i helloworld-default-route-rules
+   $ a8ctl create -f examples/helloworld-v1-v2-route-rules.yaml
    ```
 
    Since both rules refer to the same URL path, the priority of rule `set-helloworld-25p-v2` is set
@@ -190,10 +190,7 @@ Please refer to [helloworld](/docs/demo-helloworld.html) for a detailed descript
 1. Delete the routing rules
 
    ```bash
-   $ kubectl delete -f examples/k8s-helloworld-default-route-rules.yaml
-   routingrule "set-helloworld-default-v1" deleted
-   $ kubectl delete -f examples/k8s-helloworld-v1-v2-route-rules.yaml
-   routingrule "set-helloworld-25p-v2" deleted
+   $ a8ctl rule-delete -i helloworld-v1-v2-route-rules
    ```
 
 1. Terminate the application pods

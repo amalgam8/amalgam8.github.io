@@ -35,28 +35,29 @@ Please refer to [bookinfo](/docs/demo-bookinfo.html) for a detailed description 
 
    ```bash
    $ kubectl get services
-   NAME          CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
-   details       None            <none>        9080/TCP         1m
-   gateway       10.102.224.69   <nodes>       6379:32000/TCP   1m
-   kubernetes    10.96.0.1       <none>        443/TCP          22d
-   productpage   None            <none>        9080/TCP         1m
-   ratings       None            <none>        9080/TCP         1m
-   reviews       None            <none>        9080/TCP         1m
+    NAME          CLUSTER-IP   EXTERNAL-IP   PORT(S)          AGE
+    controller    10.0.0.66    <nodes>       6080:31200/TCP   6m
+    details       None         <none>        9080/TCP         17s
+    gateway       10.0.0.86    <nodes>       6379:32000/TCP   17s
+    kubernetes    10.0.0.1     <none>        443/TCP          7m
+    productpage   None         <none>        9080/TCP         17s
+    ratings       None         <none>        9080/TCP         16s
+    reviews       None         <none>        9080/TCP         16s
    ```
 
    and
 
    ```bash
    $ kubectl get pods
-   NAME                   READY     STATUS    RESTARTS   AGE
-   details-v1-w16wg       1/1       Running   0          1m
-   gateway-j6vr6          1/1       Running   0          1m
-   productpage-v1-chmvt   2/2       Running   0          1m
-   ratings-v1-2p06t       1/1       Running   0          1m
-   reviews-v1-v39cg       1/1       Running   0          1m
-   reviews-v2-3xk9f       2/2       Running   0          1m
-   reviews-v3-kcwpp       2/2       Running   0          1m
-   rules-56tf8            1/1       Running   0          18h
+    NAME                   READY     STATUS             RESTARTS   AGE
+    controller-dzxwk       1/1       Running            0          7m
+    details-v1-q6fz0       1/1       Running            0          58s
+    gateway-8vdrm          1/1       Running            0          59s
+    productpage-v1-mlbm9   2/2       Running            0          59s
+    ratings-v1-m5z3b       1/1       Running            0          58s
+    reviews-v1-q4brr       0/1       ImagePullBackOff   0          57s
+    reviews-v2-kk6v5       2/2       Running            0          57s
+    reviews-v3-966g9       2/2       Running            0          57s
    ```
 
 
@@ -75,11 +76,10 @@ Please refer to [bookinfo](/docs/demo-bookinfo.html) for a detailed description 
 1. Set the default routes to v1 of each service
 
    ```bash
-   $ kubectl create -f examples/k8s-bookinfo-default-routes.yaml
-   routingrule "set-productpage-v1" created
-   routingrule "set-details-v1" created
-   routingrule "set-ratings-v1" created
-   routingrule "set-reviews-v1" created
+    $ a8ctl rule-create -f examples/bookinfo-default-route-details.yaml
+    $ a8ctl rule-create -f examples/bookinfo-default-route-productpage.yaml
+    $ a8ctl rule-create -f examples/bookinfo-default-route-ratings.yaml
+    $ a8ctl rule-create -f examples/bookinfo-default-route-reviews.yaml
    ```
 
    You can confirm the routes are defined and valid by inspecting the rules' `Status` field returned in:
@@ -100,22 +100,47 @@ Please refer to [bookinfo](/docs/demo-bookinfo.html) for a detailed description 
    `reviews:v2` instances.
 
    ```bash
-   $ kubectl create -f examples/k8s-bookinfo-jason-reviews-v2-route-rules.yaml
-   routingrule "set-reviews-v2-user-jason" created
+   $ a8ctl rule-create -f examples/bookinfo-jason-reviews-v2-route-rules.yaml
    ```
 
    Confirm the rule is applied and valid:
 
    ```bash
-   $ kubectl get routingrule set-reviews-v2-user-jason -o json
-   {
-      "apiVersion": "amalgam8.io/v1",
-      "kind": "RoutingRule",
-      ...
-      "status": {
-         "state": "valid"
-      }
-   }
+   $ kubectl get routingrule bookinfo-jason-reviews-v2-route-rules -o json
+    {
+        "apiVersion": "amalgam8.io/v1",
+        "kind": "RoutingRule",
+        "metadata": {
+            "creationTimestamp": "2017-03-07T19:02:29Z",
+            "name": "bookinfo-jason-reviews-v2-route-rules",
+            "namespace": "default",
+            "resourceVersion": "1593",
+            "selfLink": "/apis/amalgam8.io/v1/namespaces/default/routingrules/bookinfo-jason-reviews-v2-route-rules",
+            "uid": "9c860db2-0368-11e7-8770-080027c86dc2"
+        },
+        "spec": {
+            "destination": "reviews",
+            "id": "bookinfo-jason-reviews-v2-route-rules",
+            "match": {
+                "headers": {
+                    "Cookie": "^(.*?;)?(user=jason)(;.*)?$"
+                }
+            },
+            "priority": 2,
+            "route": {
+                "backends": [
+                    {
+                        "tags": [
+                            "version=v2"
+                        ]
+                    }
+                ]
+            }
+        },
+        "status": {
+            "state": "valid"
+        }
+    }
    ```
 
    Log in as user "jason" at the `productpage` web page. You should now see ratings (1-5 stars) next
@@ -133,8 +158,7 @@ Please refer to [bookinfo](/docs/demo-bookinfo.html) for a detailed description 
    Create a fault injection rule, to delay traffic coming from user "jason" (our test user).
 
    ```bash
-   $ kubectl create -f examples/k8s-bookinfo-jason-7s-delay.yaml
-   routingrule "set-delay-user-jason" created
+   $ a8ctl rule-create -f examples/bookinfo-jason-7s-delay.yaml
    ```
 
    Verify that the rule has been validated:
@@ -168,36 +192,12 @@ Please refer to [bookinfo](/docs/demo-bookinfo.html) for a detailed description 
    > Notice that we are restricting the failure impact to user "jason only. If you login
    > as any other user, you would not experience any delays.
 
-1. Fixing failures by shifting to a new version
-
-   In an ideal world, first all traffic would be shifted to the current released version: `reviews:v1`,
-   followed by a gradual shift to a fixed version once it is available.
-   Gradual traffic shifting has been demonstrated in the [helloworld](/docs/kubernetes-integration-helloworld.html#version-aware-routing)
-   application, so we take a shortcut and set all traffic to flow to `reviews:v3` (while leaving the
-   fault injection rule active):
-
-   ```bash
-   $ kubectl delete -f examples/k8s-bookinfo-jason-reviews-v2-route-rules.yaml
-   routingrule "set-reviews-v2-user-jason" deleted
-   $ kubectl create -f examples/k8s-bookinfo-jason-reviews-v3-route-rules.yaml
-   routingrule "set-reviews-v3-user-jason" created
-   $ kubectl get routingrule set-reviews-v3-user-jason -o json | sed -n '/status/,/}/p'
-       "status": {
-           "state": "valid"
-       }
-   ```
-
-   Reloading the application should now display the main bookinfo page with a few seconds delay and
-   book ratings should be displayed using red stars.
-
 ### Cleanup
 
 1. Delete the routing rules
 
    ```bash
-   $ kubectl delete -f examples/k8s-bookinfo-default-route-rules.yaml
-   $ kubectl delete -f testing/test-scripts/bookinfo-jason-7s-delay.yaml
-   $ kubectl delete -f examples/k8s-bookinfo-jason-reviews-v3-route-rules.yaml
+   $ a8ctl rule-delete -a -f
    $ kubectl get routingrules    #-- there should be no more routing rules
    No resources found.
    ```

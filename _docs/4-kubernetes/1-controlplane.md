@@ -17,37 +17,52 @@ order: 2
 
 ### Deploying Amalgam8 Control Plane <a id="deploy"></a>
 
-Amalgam8 rus a control-loop to validate routing rules stored in Third Party Resources (TPR)
+Amalgam8 runs a control-loop to validate routing rules stored in Third Party Resources (TPR)
  before they are fetched by the sidecars.
  The Kubernetes controller is deployed using the ReplicationController specification found in
  `examples/k8s-controlplane.yaml`:
 
 ```yaml
 apiVersion: v1
+kind: Service
+metadata:
+  name: controller
+spec:
+  ports:
+  - port: 6080
+    targetPort: 8080
+    nodePort: 31200
+    protocol: TCP
+  selector:
+    name: controller
+  type: NodePort
+---
+apiVersion: v1
 kind: ReplicationController
 metadata:
-  name: rules
-  labels:
-    app: rules
+  name: controller
 spec:
   replicas: 1
-  selector:
-    app: rules
   template:
     metadata:
-      name: rules
       labels:
-        app: rules
+        name: controller
     spec:
       containers:
-        - name: rules
-          image: amalgam8/a8-k8s-rules-controller:latest
-          imagePullPolicy: IfNotPresent
-          env:
-            - name: K8S_NAMESPACE
-              valueFrom:
-                fieldRef:
-                    fieldPath: metadata.namespace
+      - name: controller
+        image: amalgam8/a8-controller
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: A8_DATABASE_TYPE
+          value: kubernetes
+        - name: A8_DATABASE_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        ports:
+        - containerPort: 8080
+          name: http
+---
 ```
 
 To deploy:
@@ -62,8 +77,8 @@ As part of its start-up sequence, the controller also registers the required ext
 
 ```bash
 $ kubectl get pods
-NAME          READY     STATUS    RESTARTS   AGE
-rules-btxsj   1/1       Running   0          2m
+NAME                   READY     STATUS    RESTARTS   AGE
+controller-r48lr       1/1       Running   0          1m
 $ kubectl get thirdpartyresource
 NAME                       DESCRIPTION                                    VERSION(S)
 routing-rule.amalgam8.io   A specification of an Amalgam8 rule resource   v1

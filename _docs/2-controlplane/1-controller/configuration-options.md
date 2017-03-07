@@ -20,6 +20,7 @@ The following environment variables are available. All of them are optional.
 | A8_API_PORT | --api_port | API port | 8080 |
 | A8_ENCRYPTION_KEY | --encryption_key | secret key | abcdefghijklmnop |
 | A8_DATABASE_TYPE |  --database_type |	database type | memory |
+| A8_DATABASE_NAMESPACE | --database_namespace | database namespace | |
 | A8_DATABASE_USERNAME | --database_username | database username | |
 | A8_DATABASE_PASSWORD | --database_password | database password | |
 | A8_DATABASE_HOST | --database_host | database host | |
@@ -60,4 +61,15 @@ with a password, set the options above and this additional option as well:
 
 ```bash
 A8_DATABASE_PASSWORD=mypassword
+```
+
+## Kubernetes Configuration
+```bash
+        env:
+        - name: A8_DATABASE_TYPE
+          value: kubernetes
+        - name: A8_DATABASE_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
 ```
