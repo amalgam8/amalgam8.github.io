@@ -1,35 +1,40 @@
 ---
 layout: page
-title: Introduction
-permalink: /docs/kubernetes-integration-intro.html
-redirect_from: /docs/kubernetes-integration/
-category: Kubernetes Integration
-order: 0
+title: Kubernetes
+permalink: /docs/control-plane-controller-kubernetes.html
+redirect_from: /docs/control-plane/controller/kubernetes
+category: Control Plane
+subcategory: Route Controller
+order: 2
 ---
+
+> Kubernetes version *__1.5.2__* or higher is recommended, as support for TPRs have improved vastly in that release.
+> Earlier versions had several issues relating to TPR handling, resulting in zombie TPRs being left behind.
+> If using an earlier version it may be necessary to remove TPR's before starting the controller:
+>
+> ```bash
+> $ kubectl delete -n <namespace> thirdpartyresource routing-rule.amalgam8.io
+> ```
 
 ### Prerequisites and Caveats <a id="prerequisites-caveats"></a>
 
-Kubernetes integration is *__experimental__* and may change. It has not been released, and thus code
- must be compiled from the master branch for these commands to work. These steps will not be required
- once Kubernetes integration is made available through a release.
+*__Before__* beginning working through the examples and demos, please confirm all container images for the control plane,
+ [helloworld](docs/demo-helloworld.html) and [bookinfo](/docs/demo-bookinfo.html) demo applications, are stored in a
+ docker image registry accessible to the Kubernetes cluster.
+ By default, the latest images are hosted in the `amalgam8` docker hub image repository, but if you're
+ building a different version, be sure to push the modified images and change the resource manifests accordingly.
 
-> *__Before__* beginning working through the examples and demos, please confirm all container images for the control plane,
-> [helloworld](docs/demo-helloworld.html) and [bookinfo](/docs/demo-bookinfo.html) demo applications, are stored in a
-> docker image registry accessible to the Kubernetes cluster.
-> By default, the latest images are hosted in the `amalgam8` docker hub image repository, but if you're
-> building a different version, be sure to push the modified images and change the resource manifests accordingly.
->
->  Once the below `make` completes, tag and push the newly built images to an image repository accessible
->  to the Kubernetes cluster. It is further advised that `imagePullPolicy` is set to `Always` in all yaml
->  files, to ensure the latest are indeed used in testing.
->
-> ```bash
-> $ git clone git@github.com:amalgam8/amalgam8.git
-> $ cd amalgam8
-> # trick makefile to generate all with a "latest" version tag by setting version to "vlatest"
-> $ APP_VER_ABBR=vlatest make build.sidecar build.exampleapps build.k8srules dockerize.sidecar.envoy.ubuntu dockerize.k8srules
-> ```
->
+ Once the below `make` completes, tag and push the newly built images to an image repository accessible
+ to the Kubernetes cluster. It is further advised that `imagePullPolicy` is set to `Always` in all yaml
+ files, to ensure the latest are indeed used in testing.
+
+ ```bash
+ $ git clone git@github.com:amalgam8/amalgam8.git
+ $ cd amalgam8
+ # trick makefile to generate all with a "latest" version tag by setting version to "vlatest"
+ $ APP_VER_ABBR=vlatest make build.sidecar build.exampleapps build.k8srules dockerize.sidecar.envoy.ubuntu dockerize.k8srules
+ ```
+
 
 ### Native Kubernetes Integration
 

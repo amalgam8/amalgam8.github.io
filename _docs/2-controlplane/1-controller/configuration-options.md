@@ -64,7 +64,41 @@ A8_DATABASE_PASSWORD=mypassword
 ```
 
 ## Kubernetes Configuration
-```bash
+
+Amalgam8 controller API serves as a frontend client to Kubernetes Third Party Resources (TPR), 
+ validating the rules and them storing.
+ Sample Kubernetes controller yaml file is found in `examples/k8s-controlplane.yaml`:
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: controller
+spec:
+  ports:
+  - port: 6080
+    targetPort: 8080
+    nodePort: 31200
+    protocol: TCP
+  selector:
+    name: controller
+  type: NodePort
+---
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: controller
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: controller
+    spec:
+      containers:
+      - name: controller
+        image: amalgam8/a8-controller
+        imagePullPolicy: IfNotPresent
         env:
         - name: A8_DATABASE_TYPE
           value: kubernetes
@@ -72,4 +106,8 @@ A8_DATABASE_PASSWORD=mypassword
           valueFrom:
             fieldRef:
               fieldPath: metadata.namespace
+        ports:
+        - containerPort: 8080
+          name: http
+---
 ```

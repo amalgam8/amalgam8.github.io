@@ -5,7 +5,7 @@ permalink: /docs/control-plane-controller-rules-api.html
 redirect_from: /docs/control-plane/controller/rules-api/
 category: Control Plane
 subcategory: Route Controller
-order: 2
+order: 3
 ---
 
 Rule definitions are managed via the Amalgam8 controller's REST API. 
