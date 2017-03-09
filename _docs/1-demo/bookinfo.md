@@ -154,7 +154,10 @@ released in a controlled fashion_.
 Lets route all of the incoming traffic to version `v1` only for each service.
 
 ```bash
-a8ctl rule-create -f examples/docker-bookinfo-default-route-rules.yaml
+a8ctl rule-create -f examples/bookinfo-default-route-details.yaml
+a8ctl rule-create -f examples/bookinfo-default-route-productpage.yaml
+a8ctl rule-create -f examples/bookinfo-default-route-ratings.yaml
+a8ctl rule-create -f examples/bookinfo-default-route-reviews.yaml
 ```
 
 Confirm the routes are set by running the following command:
@@ -194,7 +197,7 @@ Lets enable the ratings service for test user "jason" by routing productpage
 traffic to `reviews:v2` instances.
 
 ```bash
-a8ctl rule-create -f examples/docker-bookinfo-jason-reviews-v2-route-rules.yaml
+a8ctl rule-create -f examples/bookinfo-jason-reviews-v2-route-rules.yaml
 ```
 
 Confirm the routes are set:
@@ -245,7 +248,7 @@ Lets start with simple fault injection first.
   user.
 
   ```bash
-  a8ctl rule-create -f examples/docker-bookinfo-jason-7s-delay.yaml
+  a8ctl rule-create -f examples/bookinfo-jason-7s-delay.yaml
   ```
 
   Verify the rule has been set by running this command:
@@ -403,64 +406,6 @@ use a 2.8 second delay and then run it against the v3 version of reviews.)
 However, we already have this fix running in v3 of the reviews service, so
 we can next demonstrate deployment of a new version.
 
-## Gradually migrate traffic to reviews:v3 for all users
-
-Now that we have tested the reviews service, fixed the bug and deployed a
-new version (`reviews:v3`), lets route all user traffic from `reviews:v1`
-to `reviews:v3` in a gradual manner.
-
-First, clear all the rules and set default routes:
-
-```bash
-a8ctl rule-delete -a -f
-a8ctl rule-create -f examples/docker-bookinfo-default-route-rules.yaml
-```
-
-Now, transfer traffic from `reviews:v1` to `reviews:v3` with the following series of commands:
-
-```bash
-a8ctl traffic-start -s reviews -v version=v3
-```
-
-You should see:
-
-```
-Transfer starting for "reviews": diverting 10% of traffic from "version=v1" to "version=v3"
-```
-
-Things seem to be going smoothly. Lets increase traffic to reviews:v3 by another 10%.
-
-```bash
-a8ctl traffic-step -s reviews
-```
-
-You should see:
-
-```
-Transfer starting for "reviews": diverting 20% of traffic from "version=v1" to "version=v3"
-```
-
-Lets route 50% of traffic to `reviews:v3`
-
-```bash
-a8ctl traffic-step -s reviews -a 50
-```
-
-We are confident that our Bookinfo app is stable. Lets route 100% of traffic to `reviews:v3`
-
-```bash
-a8ctl traffic-step -s reviews -a 100
-```
-
-You should see:
-
-```
-Transfer complete for "reviews": sending 100% of traffic to "version=v3"
-```
-
-If you log in to the `productpage` as any user, you should see book reviews
-with *red* colored star ratings for each review.
-
 ## Cleanup
 
 To remove the `bookinfo` application,
@@ -469,6 +414,7 @@ _Docker Compose_
   
 ```bash
 docker-compose -f examples/docker-bookinfo.yaml kill
+docker-compose -f examples/docker-bookinfo.yaml rm -f
 ```
 
 _Kubernetes_ on localhost or on Google Cloud

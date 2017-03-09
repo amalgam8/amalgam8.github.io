@@ -20,6 +20,7 @@ The following environment variables are available. All of them are optional.
 | A8_API_PORT | --api_port | API port | 8080 |
 | A8_ENCRYPTION_KEY | --encryption_key | secret key | abcdefghijklmnop |
 | A8_DATABASE_TYPE |  --database_type |	database type | memory |
+| A8_DATABASE_NAMESPACE | --database_namespace | database namespace | |
 | A8_DATABASE_USERNAME | --database_username | database username | |
 | A8_DATABASE_PASSWORD | --database_password | database password | |
 | A8_DATABASE_HOST | --database_host | database host | |
@@ -60,4 +61,53 @@ with a password, set the options above and this additional option as well:
 
 ```bash
 A8_DATABASE_PASSWORD=mypassword
+```
+
+## Kubernetes Configuration
+
+Amalgam8 controller API serves as a frontend client to Kubernetes Third Party Resources (TPR), 
+ validating the rules and them storing.
+ Sample Kubernetes controller yaml file is found in `examples/k8s-controlplane.yaml`:
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: controller
+spec:
+  ports:
+  - port: 6080
+    targetPort: 8080
+    nodePort: 31200
+    protocol: TCP
+  selector:
+    name: controller
+  type: NodePort
+---
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: controller
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: controller
+    spec:
+      containers:
+      - name: controller
+        image: amalgam8/a8-controller
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: A8_DATABASE_TYPE
+          value: kubernetes
+        - name: A8_DATABASE_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        ports:
+        - containerPort: 8080
+          name: http
+---
 ```
