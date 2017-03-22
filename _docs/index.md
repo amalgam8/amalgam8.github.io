@@ -28,7 +28,3 @@ The documentation is structured as follows:
   the architecture, installation and configuration of the Amalgam8 Sidecar
   that is responsible for service registration, heartbeat, service
   discovery, and intelligent request routing between microservices.
-
-* [Kubernetes](/docs/kubernetes-integration-intro.html) section provides
-  detailed information for deploying and using Amalgam8, integrated with
-  a Kubernetes control plane.
