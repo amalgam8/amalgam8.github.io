@@ -90,23 +90,7 @@ _IBM Bluemix_
    export GATEWAY_URL=helloworld.mybluemix.net
    ```
 
-### List the Services in the App
-
-You can view the microservices that are running using the following command:
-
-```bash
-a8ctl service-list
-```
-    
-The expected output is the following:
-
-```bash
-+------------+------------------------------+
-| Service    | Instances                    |
-+------------+------------------------------+
-| helloworld | version=v1(1), version=v2(1) |
-+------------+------------------------------+
-```
+### Services in the App
 
 There are 4 instances of the helloworld service. Two are instances of
 version "v1" and the other two belong to version "v2".

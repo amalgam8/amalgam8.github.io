@@ -116,31 +116,12 @@ _IBM Bluemix_
    ```
    where <bookinfo_route_name> is the route name used in the `bluemix cf create-route` command.
 
-### List the Services in the App
+### Services in the App
 
-You can view the microservices that are running using the following command:
-
-```bash
-a8ctl service-list
-```
-    
-The expected output is the following:
-
-```bash
-+-------------+------------------------------+
-| Service     | Instances                    |
-+-------------+------------------------------+
-| details     | version=v1(1)                |
-| productpage | version=v1(1)                |
-| ratings     | version=v1(1)                |
-| reviews     | version=v1(1), version=v2(1) |
-+-------------+------------------------------+
-```
-
-There are 4 microservices as described in the diagram above. The `reviews`
-microservice has 3 versions v1, v2, and v3. Note that in a realistic
-deployment, new versions of a microservice are deployed over time
-instead of deploying all versions simultaneously.
+There are 4 microservices. The `reviews` microservice has 3 versions
+v1, v2, and v3. Note that in a realistic deployment, new versions of
+a microservice are deployed over time instead of deploying all versions
+simultaneously.
 
 ## Set the default routes
 
