@@ -32,7 +32,7 @@ order: 2
  $ git clone git@github.com:amalgam8/amalgam8.git
  $ cd amalgam8
  # trick makefile to generate all with a "latest" version tag by setting version to "vlatest"
- $ APP_VER_ABBR=vlatest make build.sidecar build.exampleapps build.k8srules dockerize.sidecar.envoy.ubuntu dockerize.k8srules
+ $ APP_VER_ABBR=vlatest make build.controller build.sidecar build.exampleapps dockerize.sidecar.envoy.ubuntu dockerize.controller
  ```
 
 
