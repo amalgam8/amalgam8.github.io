@@ -53,7 +53,7 @@ but must rather be represented using two seperate rules in the DSL.
             * [route.backends.weight](#route-backends-weight)
             * [route.backends.name](#route-backends-name)
             * [route.backends.resilience](#route-backends-resilience)
-            * [route.backends.lbtype](#route-backends-lbtype)
+        * [route.lbtype](#route-lbtype)
         * [route.httpreqtimeout](#route-httpreqtimeout)
         * [route.httpreqretries](#route-httpreqretries)
         * [route.uri](#route-uri)
@@ -222,6 +222,15 @@ A routing rule is one that contains a `route` field in the A8 Rules DSL.
 The `route` field is an object, although currently with only one nested field, `backends`, a list of weighted backends for the route.
 *(Note: More fields will be added to the route object in future versions of the Rules DSL.)*
 
+#### Property: route.lbtype <a id="route-lbtype"></a>
+
+Supported proxy load balancing algorithms are:
+
+* `round_robin`
+* `least_request`
+* `random`
+
+Default is `round_robin`.
 
 #### Property route.httpreqtimeout <a id="route-httpreqtimeout"></a>
 
@@ -300,16 +309,6 @@ to the value of the rule's `destination` field.
 * `consecutive_errors`: Number of 5XX errors before circuit is opened.  Defaults to 5
 * `detection_interval`: Interval for checking state of circuit.  Defaults to 10s.
 * `max_requests_per_connection`: Maximum number of requests per connection to an backend.
-
-#### Property: route.backends.lbtype <a id="route-backends-lbtype"></a>
-
-Supported proxy load balancing algorithms are:
-
-* `round_robin`
-* `least_request`
-* `random`
-
-Default is `round_robin`.
 
 ### Routing Rule Execution
 
