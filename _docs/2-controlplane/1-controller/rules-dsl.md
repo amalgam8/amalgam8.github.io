@@ -53,10 +53,10 @@ but must rather be represented using two seperate rules in the DSL.
             * [route.backends.weight](#route-backends-weight)
             * [route.backends.name](#route-backends-name)
             * [route.backends.resilience](#route-backends-resilience)
-            * [route.backends.lbtype])(#route-backends-lbtype)
-        * [route.httpreqtimeout](#route.httpreqtimeout)
-        * [route.httpreqretries](#route.httpreqretries)
-        * [route.uri](#route.uri)
+        * [route.lbtype](#route-lbtype)
+        * [route.httpreqtimeout](#route-httpreqtimeout)
+        * [route.httpreqretries](#route-httpreqretries)
+        * [route.uri](#route-uri)
 * [Action Rules](#action-rules)
     * [actions](#actions)
         * [actions.action](#actions-action)
@@ -222,6 +222,31 @@ A routing rule is one that contains a `route` field in the A8 Rules DSL.
 The `route` field is an object, although currently with only one nested field, `backends`, a list of weighted backends for the route.
 *(Note: More fields will be added to the route object in future versions of the Rules DSL.)*
 
+#### Property: route.lbtype <a id="route-lbtype"></a>
+
+Supported proxy load balancing algorithms are:
+
+* `round_robin`
+* `least_request`
+* `random`
+
+Default is `round_robin`.
+
+#### Property route.httpreqtimeout <a id="route-httpreqtimeout"></a>
+
+Timeout for a HTTP request. Includes retries as well. Unit is in floating point seconds. Default 15.0s
+
+#### Property route.httpreqretries <a id="route-httpreqretries"></a>
+
+Number of retries for a given request. The interval between retries will be determined automatically (25ms+).
+Actual number of retries attempted depends on the http_req_timeout.
+
+#### Property route.uri <a id="route-uri"></a>
+
+* `path`
+* `prefix`
+* `prefix_rewrite`
+
 #### Property: route.backends <a id="route-backends"></a>
 
 Each backend in the `backends` list is an object with the following fields.
@@ -274,6 +299,16 @@ the "v2" tag and the remaining traffic (i.e., 75%) to "v1".
 
 The `name` field is optional and specifies the service name of the target instances. If not specified, it defaults
 to the value of the rule's `destination` field.
+
+#### Property: route.backends.resilience <a id="route-backends-resilience"></a>
+
+* `max_connections`: Maximum number of connections to a backend.  Defaults to 1024.
+* `max_pending_requests`: Maximum number of pending requests to a backend.  Defaults to 1024.
+* `max_requests`: Maximum number of requests to a backend.  Defaults to 1024
+* `sleep_window`: Minimum time the circuit will be closed.  Defaults to 30s
+* `consecutive_errors`: Number of 5XX errors before circuit is opened.  Defaults to 5
+* `detection_interval`: Interval for checking state of circuit.  Defaults to 10s.
+* `max_requests_per_connection`: Maximum number of requests per connection to an backend.
 
 ### Routing Rule Execution
 
