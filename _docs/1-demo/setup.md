@@ -145,20 +145,22 @@ Or build the a8ctl binary from source:
 ```bash
 git clone https://github.com/amalgam8/amalgam8.git
 cd amalgam8/
-make build.cli
+
+# linux users
+make build.cli.linux
+
+# OSX users
+make build.cli.darwin
+
+# Windows users
+make build.cli.windows
 ```
 
 Add the location of the `a8ctl` command to the `PATH` environment
-variable. On OS X, run
+variable.
 
 ```bash
-export PATH=$PATH:${HOME}/Library/Python/2.7/bin
-```
-
-On Linux, run
-
-```bash
-export PATH=$PATH:${HOME}/.local/bin
+export PATH=$PATH:$GOPATH/src/github.com/amalgam8/amalgam8/bin
 ```
 
 To use the Amalgam8 CLI (`a8ctl`) for the demo walkthroughs we need
